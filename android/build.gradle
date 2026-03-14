@@ -1,0 +1,32 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+subprojects { sub ->
+    sub.pluginManager.withPlugin('com.android.library') {
+        sub.android {
+            if (namespace == null || namespace.isEmpty()) {
+                namespace = sub.group.toString()
+            }
+        }
+        // Avoid R8 missing-class error (android.window.BackEvent) in this plugin's minify step
+        if (sub.name == 'flutter_inappwebview') {
+            sub.android.buildTypes.release.minifyEnabled = false
+        }
+    }
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
