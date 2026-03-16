@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
         MapsSection(),
         SizedBox(height: 8),
         Partnership(),
-        SizedBox(height: 20),
+        SizedBox(height: 75),
       ],
     );
   }

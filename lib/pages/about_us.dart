@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/services/wordpress_api.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+// import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({super.key});
@@ -190,34 +190,34 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                   Text(_pageData?['acf']?['about_description'] ?? ''),
                   const SizedBox(height: 4),
                   const SizedBox(height: 16),
-                  AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: InAppWebView(
-                      initialSettings: InAppWebViewSettings(
-                        mediaPlaybackRequiresUserGesture: false,
-                        allowsInlineMediaPlayback: true,
-                        javaScriptEnabled: true,
-                      ),
-                      // src="https://www.youtube.com/embed/$_videoURL?playsinline=1&rel=0&modestbranding=1&enablejsapi=1"
-                      initialData: InAppWebViewInitialData(
-                        data: """
-                        <html>
-                        <body style="margin:0">
-                          <iframe
-                            width="100%"
-                            height="100%"
-                            src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?playsinline=1&rel=0&modestbranding=1&enablejsapi=1"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                          </iframe>
-                        </body>
-                        </html>
-                        """,
-                      ),
-                    ),
-                  ),
+                  // AspectRatio(
+                  //   aspectRatio: 16 / 9,
+                  //   child: InAppWebView(
+                  //     initialSettings: InAppWebViewSettings(
+                  //       mediaPlaybackRequiresUserGesture: false,
+                  //       allowsInlineMediaPlayback: true,
+                  //       javaScriptEnabled: true,
+                  //     ),
+                  //     // src="https://www.youtube.com/embed/$_videoURL?playsinline=1&rel=0&modestbranding=1&enablejsapi=1"
+                  //     initialData: InAppWebViewInitialData(
+                  //       data: """
+                  //       <html>
+                  //       <body style="margin:0">
+                  //         <iframe
+                  //           width="100%"
+                  //           height="100%"
+                  //           src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?playsinline=1&rel=0&modestbranding=1&enablejsapi=1"
+                  //           title="YouTube video player"
+                  //           frameborder="0"
+                  //           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  //           allowfullscreen>
+                  //         </iframe>
+                  //       </body>
+                  //       </html>
+                  //       """,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),

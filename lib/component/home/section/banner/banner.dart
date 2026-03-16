@@ -38,6 +38,7 @@ class _BannerState extends State<Banner> {
   Future<void> _loadBanner() async {
     if (_currentLanguage == null) return;
 
+    if (!mounted) return;
     setState(() {
       _isLoading = true;
     });
@@ -46,6 +47,7 @@ class _BannerState extends State<Banner> {
     try {
       final response = await WordPressApi.getPages(slug);
 
+      if (!mounted) return;
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);
         if (jsonList.isNotEmpty) {
@@ -59,6 +61,7 @@ class _BannerState extends State<Banner> {
       }
     } catch (e) {
       debugPrint('Error: $e');
+      if (!mounted) return;
       setState(() {
         _isLoading = false;
       });

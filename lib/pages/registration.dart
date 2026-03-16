@@ -34,6 +34,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
         _picPosition.isEmpty || _picPosition.isEmpty || _picPhoneNumber.isEmpty ||
         _picEmail.isEmpty || _typeOfBusiness.isEmpty || _companyStatus.isEmpty
       ) {
+        debugPrint('empty');
         return;
       }
 
@@ -64,6 +65,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
         path: 'royadvandy@gmail.com',
         query: 'subject=${Uri.encodeComponent('ABUPI Member Registration')}&body=${Uri.encodeComponent(body)}',
       );
+      debugPrint('mailto $mailtoUri');
       launchUrl(mailtoUri);
     }
 

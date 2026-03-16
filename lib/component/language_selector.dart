@@ -11,9 +11,23 @@ class LanguageSelectorButton extends StatelessWidget {
     final currentLocale = localeProvider.locale;
 
     return IconButton(
-      icon: Text(
-        currentLocale.languageCode == 'id' ? '🇮🇩' : '🇬🇧',
-        style: const TextStyle(fontSize: 24),
+      icon: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2), // Shadow color
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 3), // Moves shadow down
+            ),
+          ],
+        ),
+        child: Image.asset(
+          currentLocale.languageCode == 'id'
+              ? 'assets/images/flag_id.jpg'
+              : 'assets/images/flag_gb.jpg',
+          width: 30,
+        ),
       ),
       onPressed: () => _showLanguageDialog(context),
       tooltip: AppLocalizations.of(context)?.language ?? 'Language',
@@ -34,7 +48,7 @@ class LanguageSelectorButton extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               _LanguageOption(
-                flag: '🇮🇩',
+                language: 'id',
                 languageName: localizations?.indonesian ?? 'Indonesian',
                 locale: const Locale('id'),
                 currentLocale: localeProvider.locale,
@@ -44,7 +58,7 @@ class LanguageSelectorButton extends StatelessWidget {
                 },
               ),
               _LanguageOption(
-                flag: '🇬🇧',
+                language: 'en',
                 languageName: localizations?.english ?? 'English',
                 locale: const Locale('en'),
                 currentLocale: localeProvider.locale,
@@ -62,14 +76,14 @@ class LanguageSelectorButton extends StatelessWidget {
 }
 
 class _LanguageOption extends StatelessWidget {
-  final String flag;
+  final String language;
   final String languageName;
   final Locale locale;
   final Locale currentLocale;
   final Function(Locale) onSelect;
 
   const _LanguageOption({
-    required this.flag,
+    required this.language,
     required this.languageName,
     required this.locale,
     required this.currentLocale,
@@ -86,9 +100,23 @@ class _LanguageOption extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         child: Row(
           children: [
-            Text(
-              flag,
-              style: const TextStyle(fontSize: 28),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2), // Shadow color
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3), // Moves shadow down
+                  ),
+                ],
+              ),
+              child: Image.asset(
+                language == 'id' ?
+                  'assets/images/flag_id.jpg' :
+                  'assets/images/flag_gb.jpg',
+                width: 30,
+              ),
             ),
             const SizedBox(width: 16),
             Expanded(

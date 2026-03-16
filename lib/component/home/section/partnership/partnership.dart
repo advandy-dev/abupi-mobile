@@ -117,7 +117,8 @@ class _PartnershipState extends State<Partnership> {
               ),
             );
           }).toList(),
-        )
+        ),
+        const SizedBox(height: 20),
       ],
     );
   }
