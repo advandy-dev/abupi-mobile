@@ -1,12 +1,7 @@
-import 'dart:io';
-
 import 'package:abupi/helper/launch_url.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:dio/dio.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ServiceScreen extends StatefulWidget {
@@ -18,25 +13,10 @@ class ServiceScreen extends StatefulWidget {
 }
 
 class _ServiceScreen extends State<ServiceScreen> {
-  bool _isDownloading = false;
-  double _downloadProgress = 0;
 
   @override
   void initState() {
     super.initState();
-  }
-
-  Future<bool> _requestStoragePermission() async {
-    if (Platform.isAndroid) {
-      final status = await Permission.storage.request();
-      if (status.isGranted) {
-        return true;
-      }
-      // For Android 11+ (API 30+), use manage external storage or app-specific directory
-      final manageStatus = await Permission.manageExternalStorage.request();
-      return manageStatus.isGranted;
-    }
-    return true; // iOS doesn't need explicit permission for app documents
   }
 
   Widget _buildExpandableCapsule(
