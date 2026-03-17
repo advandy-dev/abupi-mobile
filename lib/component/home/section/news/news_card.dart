@@ -15,8 +15,6 @@ class NewsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Container(
       width: compact ? null : 280,
       margin: compact ? null : const EdgeInsets.only(right: 12),
@@ -24,7 +22,7 @@ class NewsCard extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: Colors.grey.shade200,
+          color: Colors.grey.shade300,
           width: 1,
         ),
       ),
@@ -46,24 +44,21 @@ class NewsCard extends StatelessWidget {
                       width: double.infinity,
                       errorBuilder: (context, error, stackTrace) =>
                           Container(
-                            color: colorScheme.primaryContainer,
-                            child: Center(
+                            color: Colors.grey.shade500,
+                            child: const Center(
                               child: Icon(
                                 Icons.event_rounded,
                                 size: 32,
-                                color:
-                                colorScheme.onPrimaryContainer,
+                                color: Colors.grey,
                               ),
                             ),
                           ),
                       loadingBuilder: (context, child, loadingProgress) {
                         if (loadingProgress == null) return child;
                         return Container(
-                          color: colorScheme
-                              .surfaceContainerHighest,
+                          color: Colors.grey.shade500,
                           child: const Center(
-                            child: CircularProgressIndicator(
-                                strokeWidth: 2),
+                            child: CircularProgressIndicator(strokeWidth: 2),
                           ),
                         );
                       },
@@ -76,6 +71,7 @@ class NewsCard extends StatelessWidget {
                       news.title,
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
+                        color: Colors.black,
                         fontSize: 12,
                       ),
                       maxLines: 2,
@@ -86,10 +82,10 @@ class NewsCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: Text(
-                      news.title,
+                      news.description,
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         fontSize: 10,
-                        color: Colors.grey.shade500,
+                        color: Colors.black,
                       ),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
@@ -111,19 +107,19 @@ class NewsCard extends StatelessWidget {
                 news.imageURL,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(
-                  color: colorScheme.primaryContainer,
-                  child: Center(
+                  color: Colors.grey.shade500,
+                  child: const Center(
                     child: Icon(
                       Icons.event_rounded,
                       size: 40,
-                      color: colorScheme.onPrimaryContainer,
+                      color: Colors.grey,
                     ),
                   ),
                 ),
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress == null) return child;
                   return Container(
-                    color: colorScheme.surfaceContainerHighest,
+                    color: Colors.grey.shade500,
                     child: const Center(
                       child: CircularProgressIndicator(strokeWidth: 2),
                     ),
@@ -137,6 +133,7 @@ class NewsCard extends StatelessWidget {
               child: Text(
                 news.title,
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
                 maxLines: 2,
@@ -150,7 +147,7 @@ class NewsCard extends StatelessWidget {
                 news.description,
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontSize: 10,
-                  color: Colors.grey.shade500,
+                  color: Colors.black,
                 ),
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,

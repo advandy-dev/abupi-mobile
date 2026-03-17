@@ -42,7 +42,15 @@ class LanguageSelectorButton extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(localizations?.selectLanguage ?? 'Select Language'),
+          // title: DefaultTextStyle(
+          //   style: const TextStyle(color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
+          //   child: Text(localizations?.selectLanguage ?? 'Pilih Bahasa'),
+          // ),
+          title: Text(
+            localizations?.selectLanguage ?? 'Pilih Bahasa',
+            style: const TextStyle(color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
+          ),
+          backgroundColor: Colors.white,
           contentPadding: const EdgeInsets.only(top: 16, bottom: 8),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -125,12 +133,15 @@ class _LanguageOption extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                  color: Colors.black,
                 ),
               ),
             ),
             Radio<Locale>(
               value: locale,
               groupValue: currentLocale,
+              activeColor: const Color(0xFF632f9c),
+              fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF632f9c)),
               onChanged: (value) {
                 if (value != null) {
                   onSelect(value);

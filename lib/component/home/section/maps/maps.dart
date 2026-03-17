@@ -349,7 +349,6 @@ class RegionPopup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
     final language = l10n?.language;
 
@@ -360,7 +359,7 @@ class RegionPopup extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: colorScheme.surface,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
@@ -382,6 +381,7 @@ class RegionPopup extends StatelessWidget {
                         language == 'id' ? member.region : member.regionTranslate,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
+                          color: Colors.black,
                           fontSize: 20
                         ),
                       ),
@@ -395,7 +395,7 @@ class RegionPopup extends StatelessWidget {
                 Divider(
                   height: 1,
                   thickness: 1,
-                  color: Theme.of(context).colorScheme.outlineVariant.withOpacity(0.3),
+                  color: Colors.grey.shade200,
                 ),
                 const SizedBox(height: 8),
                 _buildItem('BUP', member.totalBUP ?? 0),
@@ -414,7 +414,10 @@ class RegionPopup extends StatelessWidget {
   Widget _buildItem(String label, int value) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      child: Text('$label: $value', style: const TextStyle(fontSize: 16)),
+      child: Text(
+        '$label: $value',
+        style: const TextStyle(fontSize: 16, color: Colors.black),
+      ),
     );
   }
 }

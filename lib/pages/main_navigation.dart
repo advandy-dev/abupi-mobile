@@ -50,11 +50,9 @@ class _MainNavigationState extends State<MainNavigation> {
   }
 
   Widget _buildBottomNavBar() {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Container(
       decoration: BoxDecoration(
-        color: colorScheme.surface,
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -106,7 +104,6 @@ class _MainNavigationState extends State<MainNavigation> {
     required IconData selectedIcon,
     required String label,
   }) {
-    final colorScheme = Theme.of(context).colorScheme;
     final isSelected = _currentIndex == index;
 
     return InkWell(
@@ -123,7 +120,7 @@ class _MainNavigationState extends State<MainNavigation> {
           children: [
             Icon(
               isSelected ? selectedIcon : icon,
-              color: isSelected ? colorScheme.primary : colorScheme.onSurface.withOpacity(0.6),
+              color: isSelected ? const Color(0xFF2e2f7f) : Colors.grey,
               size: 24,
             ),
             const SizedBox(height: 4),
@@ -131,7 +128,7 @@ class _MainNavigationState extends State<MainNavigation> {
               label,
               style: TextStyle(
                 fontSize: 12,
-                color: isSelected ? colorScheme.primary : colorScheme.onSurface.withOpacity(0.6),
+                color: isSelected ? const Color(0xFF2e2f7f) : Colors.grey,
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
               ),
             ),
@@ -142,8 +139,6 @@ class _MainNavigationState extends State<MainNavigation> {
   }
 
   Widget _buildOtherMenuItem(AppLocalizations? l10n) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return InkWell(
       onTap: _showOtherMenuPopup,
       borderRadius: BorderRadius.circular(12),
@@ -157,22 +152,22 @@ class _MainNavigationState extends State<MainNavigation> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: colorScheme.primary,
+                  color: Colors.grey,
                   width: 2,
                 ),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.more_horiz,
-                color: colorScheme.primary,
+                color: Colors.grey,
                 size: 16,
               ),
             ),
             const SizedBox(height: 4),
             Text(
               l10n?.other ?? 'Lainnya',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
-                color: colorScheme.onSurface.withOpacity(0.6),
+                color: Colors.grey,
                 fontWeight: FontWeight.normal,
               ),
             ),
@@ -188,7 +183,6 @@ class OtherMenuPopup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
 
     return Container(
@@ -198,7 +192,7 @@ class OtherMenuPopup extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: colorScheme.surface,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
@@ -275,8 +269,6 @@ class OtherMenuPopup extends StatelessWidget {
     required String title,
     required VoidCallback onTap,
   }) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return InkWell(
       onTap: onTap,
       child: Padding(
@@ -285,23 +277,23 @@ class OtherMenuPopup extends StatelessWidget {
           children: [
             Icon(
               icon,
-              color: colorScheme.primary,
+              color: const Color((0xFF2e2f7f)),
               size: 24,
             ),
             const SizedBox(width: 16),
             Expanded(
               child: Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
-                  color: colorScheme.onSurface,
+                  color: Colors.black,
                 ),
               ),
             ),
-            Icon(
+            const Icon(
               Icons.chevron_right,
-              color: colorScheme.onSurface.withOpacity(0.4),
+              color: Colors.black45,
               size: 24,
             ),
           ],

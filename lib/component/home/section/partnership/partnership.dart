@@ -77,49 +77,53 @@ class _PartnershipState extends State<Partnership> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
 
-    return Column(
-      children: [
-        Text(
-          '${l10n?.workPartners ?? 'Mitra Kerja'}:',
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+    return Container(
+      color: Colors.grey.shade200,
+      padding: const EdgeInsets.only(top: 12),
+      child: Column(
+        children: [
+          Text(
+            '${l10n?.workPartners ?? 'Mitra Kerja'}:',
+            style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black
+            ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Wrap(
-          spacing: 12,
-          runSpacing: 12,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          alignment: WrapAlignment.center,
-          children: _partnerURL.map((partner) {
-            return InkWell(
-              onTap: () {
-                if (partner.website != null) {
-                  _launchURL(partner.website ?? '');
-                }
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: colorScheme.surface,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 8,
-                      offset: const Offset(0, -2),
-                    ),
-                  ],
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 12,
+            runSpacing: 12,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
+            children: _partnerURL.map((partner) {
+              return InkWell(
+                onTap: () {
+                  if (partner.website != null) {
+                    _launchURL(partner.website ?? '');
+                  }
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        blurRadius: 8,
+                        offset: const Offset(1, 5),
+                      ),
+                    ],
+                  ),
+                  child: Image.network(partner.imageURL, width: 60),
                 ),
-                child: Image.network(partner.imageURL, width: 60),
-              ),
-            );
-          }).toList(),
-        ),
-        const SizedBox(height: 20),
-      ],
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 20),
+        ],
+      ),
     );
   }
 }

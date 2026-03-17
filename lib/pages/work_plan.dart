@@ -61,7 +61,7 @@ class WorkPlanScreen extends StatelessWidget {
             icon: Icons.people,
             title: 'SDM, Digitalisasi & Berkelanjutan',
             onTap: () {
-              Navigator.pushNamed(context, AbupiApp.externalRegulationRoute);
+              // TODO SDM page
             },
           ),
         ],

@@ -187,16 +187,16 @@ class _EventSectionState extends State<EventSection> {
             children: [
               Text(
                 l10n?.seeAll ?? 'Lihat Semua',
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontWeight: FontWeight.w600,
+                style: const TextStyle(
+                  color: Color(0xFF2e2f7f),
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(width: 4),
-              Icon(
+              const Icon(
                 Icons.arrow_forward_rounded,
                 size: 16,
-                color: Theme.of(context).colorScheme.primary,
+                color: Color(0xFF2e2f7f),
               ),
             ],
           ),
@@ -242,7 +242,10 @@ class _EventSectionState extends State<EventSection> {
               bottom: 100,
               child: IconButton(
                 onPressed: _scrollLeft,
-                icon: const Icon(Icons.chevron_left_rounded),
+                icon: const Icon(
+                  Icons.chevron_left_rounded,
+                  color: Colors.black,
+                ),
                 style: IconButton.styleFrom(
                   backgroundColor: Colors.grey.shade100,
                 ),
@@ -261,7 +264,10 @@ class _EventSectionState extends State<EventSection> {
               bottom: 100,
               child: IconButton(
                 onPressed: _scrollRight,
-                icon: const Icon(Icons.chevron_right_rounded),
+                icon: const Icon(
+                  Icons.chevron_right_rounded,
+                  color: Colors.black,
+                ),
                 style: IconButton.styleFrom(
                   backgroundColor: Colors.grey.shade100,
                 ),

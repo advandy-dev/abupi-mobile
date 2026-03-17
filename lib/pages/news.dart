@@ -270,6 +270,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
               ],
             ),
           ),
+          const SizedBox(height: 8),
         ],
       ),
     );

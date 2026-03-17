@@ -124,11 +124,10 @@ class _EventScreenState extends State<EventScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
@@ -150,7 +149,7 @@ class _EventScreenState extends State<EventScreen> {
           // Sticky search bar
           Container(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
-            color: colorScheme.surface,
+            color: Colors.white,
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
@@ -160,7 +159,7 @@ class _EventScreenState extends State<EventScreen> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 filled: true,
-                fillColor: colorScheme.surfaceContainerHighest.withOpacity(0.5),
+                fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 12,
@@ -219,10 +218,39 @@ class _EventScreenState extends State<EventScreen> {
           ]
           else
           // Scrollable grid
-            Expanded(
-              child: CustomScrollView(
-                controller: _scrollController,
-                slivers: [
+          Expanded(
+            child: CustomScrollView(
+              controller: _scrollController,
+              slivers: [
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  sliver: SliverGrid(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 12,
+                      crossAxisSpacing: 12,
+                      childAspectRatio: 0.72,
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                          (context, index) {
+                        final event = _eventList[index];
+                        return EventCard(
+                          event: event,
+                          compact: true,
+                          onTap: () => {
+                            Navigator.pushNamed(
+                              context,
+                              '${AbupiApp.eventRoute}/${event.id}',
+                              arguments: EventDetailArguments(event: event),
+                            ),
+                          },
+                        );
+                      },
+                      childCount: _eventList.length,
+                    ),
+                  ),
+                ),
+                if (!_isLastPage)
                   SliverPadding(
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     sliver: SliverGrid(
@@ -232,57 +260,29 @@ class _EventScreenState extends State<EventScreen> {
                         crossAxisSpacing: 12,
                         childAspectRatio: 0.72,
                       ),
-                      delegate: SliverChildBuilderDelegate(
-                            (context, index) {
-                          final event = _eventList[index];
-                          return EventCard(
-                            event: event,
-                            compact: true,
-                            onTap: () => {
-                              Navigator.pushNamed(
-                                context,
-                                '${AbupiApp.eventRoute}/${event.id}',
-                                arguments: EventDetailArguments(event: event),
-                              ),
-                            },
-                          );
-                        },
-                        childCount: _eventList.length,
+                      delegate: SliverChildBuilderDelegate((context, index) {
+                        return SizedBox(
+                          width: double.infinity,
+                          height: 88,
+                          child: Shimmer.fromColors(
+                            baseColor: Colors.grey.shade300,
+                            highlightColor: Colors.grey.shade100,
+                            child: Container(
+                              width: double.infinity,
+                              height: 88,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        );
+                      },
+                        childCount: 2,
                       ),
                     ),
                   ),
-                  if (!_isLastPage)
-                    SliverPadding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      sliver: SliverGrid(
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 12,
-                          crossAxisSpacing: 12,
-                          childAspectRatio: 0.72,
-                        ),
-                        delegate: SliverChildBuilderDelegate((context, index) {
-                          return SizedBox(
-                            width: double.infinity,
-                            height: 88,
-                            child: Shimmer.fromColors(
-                              baseColor: Colors.grey.shade300,
-                              highlightColor: Colors.grey.shade100,
-                              child: Container(
-                                width: double.infinity,
-                                height: 88,
-                                color: Colors.grey,
-                              ),
-                            ),
-                          );
-                        },
-                          childCount: 2,
-                        ),
-                      ),
-                    ),
-                ],
-              ),
+              ],
             ),
+          ),
+          const SizedBox(height: 8),
         ],
       ),
     );

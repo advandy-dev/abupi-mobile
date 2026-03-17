@@ -31,9 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: colorScheme.surface,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         leadingWidth: 72,
@@ -43,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/abupi-logo.png',
             fit: BoxFit.contain,
             errorBuilder: (context, error, stackTrace) => Container(
-              color: colorScheme.surfaceContainerHighest,
+              color: Colors.grey,
             ),
           ),
         ),
@@ -69,18 +68,17 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildBody() {
     return ListView(
       controller: _scrollController,
-      children: const [
-        banner_section.Banner(),
-        AboutUsSection(),
-        SizedBox(height: 4),
-        EventSection(),
-        SizedBox(height: 4),
-        NewsSection(),
-        SizedBox(height: 4),
-        MapsSection(),
-        SizedBox(height: 8),
-        Partnership(),
-        SizedBox(height: 75),
+      children: [
+        const banner_section.Banner(),
+        const AboutUsSection(),
+        const SizedBox(height: 4),
+        const EventSection(),
+        const SizedBox(height: 4),
+        const NewsSection(),
+        const SizedBox(height: 4),
+        const MapsSection(),
+        const Partnership(),
+        Container(height: 75, color: Colors.grey.shade200),
       ],
     );
   }

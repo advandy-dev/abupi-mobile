@@ -25,7 +25,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
     final l10n = AppLocalizations.of(context);
     final newLanguage = l10n?.locale.languageCode ?? 'id';
 
-    if (_currentLanguage != newLanguage) {
+    if (_currentLanguage != newLanguage && mounted) {
       _currentLanguage = newLanguage;
       setState(() {
         _pageData = null;
@@ -74,9 +74,11 @@ class _AboutUsSectionState extends State<AboutUsSection> {
   Future<void> _loadData() async {
     if (_currentLanguage == null) return;
 
-    setState(() {
-      _errorMessage = null;
-    });
+    if (mounted) {
+      setState(() {
+        _errorMessage = null;
+      });
+    }
 
     final slug = _getSlugForLanguage(_currentLanguage!);
 
@@ -94,26 +96,35 @@ class _AboutUsSectionState extends State<AboutUsSection> {
             videoId = extractVideoId(videoUrl) ?? '';
           }
 
-          setState(() {
-            _pageData = data;
-            _videoThumbnailURL = 'https://img.youtube.com/vi/$videoId/hqdefault.jpg';
-            _youtubeURL = videoUrl ?? '';
-          });
+          if (mounted) {
+            setState(() {
+              _pageData = data;
+              _videoThumbnailURL =
+              'https://img.youtube.com/vi/$videoId/hqdefault.jpg';
+              _youtubeURL = videoUrl ?? '';
+            });
+          }
         } else {
-          setState(() {
-            _errorMessage = 'Page not found';
-          });
+          if (mounted) {
+            setState(() {
+              _errorMessage = 'Page not found';
+            });
+          }
         }
       } else {
-        setState(() {
-          _errorMessage = 'Failed to load: ${response.statusCode}';
-        });
+        if (mounted) {
+          setState(() {
+            _errorMessage = 'Failed to load: ${response.statusCode}';
+          });
+        }
       }
     } catch (e) {
       debugPrint('Error: $e');
-      setState(() {
-        _errorMessage = 'Error: $e';
-      });
+      if (mounted) {
+        setState(() {
+          _errorMessage = 'Error: $e';
+        });
+      }
     }
   }
 
@@ -127,7 +138,6 @@ class _AboutUsSectionState extends State<AboutUsSection> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final colorScheme = Theme.of(context).colorScheme;
 
     if (_errorMessage != null) {
       return Container(
@@ -135,7 +145,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
         alignment: Alignment.center,
         child: Text(
           _errorMessage!,
-          style: TextStyle(color: colorScheme.error),
+          style: TextStyle(color: Colors.black),
           textAlign: TextAlign.center,
         ),
       );
@@ -143,10 +153,10 @@ class _AboutUsSectionState extends State<AboutUsSection> {
 
     // Show loading until we have data for the current language
     if (_pageData == null) {
-      return SizedBox(
+      return const SizedBox(
         height: 120,
         child: Center(
-          child: CircularProgressIndicator(color: colorScheme.primary),
+          child: CircularProgressIndicator(color: Color(0xFF632f9c)),
         ),
       );
     }
@@ -174,7 +184,10 @@ class _AboutUsSectionState extends State<AboutUsSection> {
             ],
           ),
           const SizedBox(height: 8),
-          Text(_pageData?['acf']?['about_description_home'] ?? ''),
+          Text(
+            _pageData?['acf']?['about_description_home'] ?? '',
+            style: const TextStyle(color: Colors.black),
+          ),
           const SizedBox(height: 4),
           Align(
             alignment: Alignment.bottomLeft,
