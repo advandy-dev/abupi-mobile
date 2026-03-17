@@ -1,3 +1,4 @@
+import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ class MediaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       backgroundColor: colorScheme.surface,
@@ -29,7 +31,7 @@ class MediaScreen extends StatelessWidget {
           _buildMenuItem(
             context,
             icon: Icons.photo_library_outlined,
-            title: 'Galeri',
+            title: l10n?.gallery ?? 'Galeri',
             onTap: () {
               Navigator.pushNamed(context, AbupiApp.galeriRoute);
             },
@@ -38,11 +40,29 @@ class MediaScreen extends StatelessWidget {
           _buildMenuItem(
             context,
             icon: Icons.newspaper_outlined,
-            title: 'Berita',
+            title: l10n?.news ?? 'Berita',
             onTap: () {
-              // TODO: Navigate to Berita
+              // TODO newetter page
             },
-          )
+          ),
+          _buildDivider(context),
+          _buildMenuItem(
+            context,
+            icon: Icons.markunread_mailbox,
+            title: l10n?.newsletter ?? 'Buletin',
+            onTap: () {
+              // TODO journal page
+            },
+          ),
+          _buildDivider(context),
+          _buildMenuItem(
+            context,
+            icon: Icons.my_library_books,
+            title: l10n?.journal ?? 'Jurnal',
+            onTap: () {
+              Navigator.pushNamed(context, AbupiApp.newsRoute);
+            },
+          ),
         ],
       ),
     );

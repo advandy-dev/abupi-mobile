@@ -30,17 +30,8 @@ class OrganizationScreen extends StatelessWidget {
         children: [
           _buildMenuItem(
             context,
-            icon: Icons.info_outline,
-            title: l10n?.aboutUs ?? 'Tentang Kami',
-            onTap: () {
-              Navigator.pushNamed(context, AbupiApp.aboutUsRoute);
-            },
-          ),
-          _buildDivider(context),
-          _buildMenuItem(
-            context,
             icon: Icons.groups_outlined,
-            title: l10n?.boardOfDirectors ?? 'Dewan Pengurus',
+            title: l10n?.organizationStructure ?? 'Struktur Organisasi',
             onTap: () {
               Navigator.pushNamed(context, AbupiApp.boardOfDirectorsRoute);
             },

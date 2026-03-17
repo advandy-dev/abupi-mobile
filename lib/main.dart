@@ -11,7 +11,7 @@ import 'package:abupi/pages/pdf.dart';
 import 'package:abupi/pages/organization.dart';
 import 'package:abupi/pages/regional_board_of_director.dart';
 import 'package:abupi/pages/registration.dart';
-import 'package:abupi/pages/regulation.dart';
+import 'package:abupi/pages/work_plan.dart';
 import 'package:abupi/pages/media.dart';
 import 'package:abupi/pages/regulator.dart';
 import 'package:abupi/pages/external_regulation.dart';
@@ -39,7 +39,7 @@ class AbupiApp extends StatelessWidget {
   // Route names
   static const String homeRoute = '/';
   static const String organizationRoute = '/organisasi';
-  static const String regulationRoute = '/regulasi';
+  static const String workPlanRoute = '/regulasi';
   static const String mediaRoute = '/media';
   static const String contactUsRoute = '/hubungi-kami';
   static const String postDetailRoute = '/post-detail';
@@ -125,9 +125,9 @@ class AbupiApp extends StatelessWidget {
             return MaterialPageRoute(
               builder: (context) => const OrganizationScreen(),
             );
-          case regulationRoute:
+          case workPlanRoute:
             return MaterialPageRoute(
-              builder: (context) => const RegulationScreen(),
+              builder: (context) => const WorkPlanScreen(),
             );
           case mediaRoute:
             return MaterialPageRoute(

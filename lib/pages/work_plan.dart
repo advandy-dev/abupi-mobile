@@ -3,8 +3,8 @@ import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:flutter/material.dart';
 
-class RegulationScreen extends StatelessWidget {
-  const RegulationScreen({super.key});
+class WorkPlanScreen extends StatelessWidget {
+  const WorkPlanScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class RegulationScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
-          l10n?.regulation ?? 'Regulasi',
+          l10n?.workPlan ?? 'Program Kerja',
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w600,
@@ -41,7 +41,25 @@ class RegulationScreen extends StatelessWidget {
           _buildMenuItem(
             context,
             icon: Icons.policy_outlined,
-            title: 'Regulasi Eksternal',
+            title: l10n?.externalRegulation ?? 'Regulasi Eksternal',
+            onTap: () {
+              Navigator.pushNamed(context, AbupiApp.externalRegulationRoute);
+            },
+          ),
+          _buildDivider(context),
+          _buildMenuItem(
+            context,
+            icon: Icons.safety_divider,
+            title: l10n?.inclusion ?? 'Inklusi',
+            onTap: () {
+              // TODO inclusion page
+            },
+          ),
+          _buildDivider(context),
+          _buildMenuItem(
+            context,
+            icon: Icons.people,
+            title: 'SDM, Digitalisasi & Berkelanjutan',
             onTap: () {
               Navigator.pushNamed(context, AbupiApp.externalRegulationRoute);
             },

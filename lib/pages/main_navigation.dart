@@ -213,6 +213,16 @@ class OtherMenuPopup extends StatelessWidget {
               children: [
                 _buildMenuItem(
                   context,
+                  icon: Icons.info_outline,
+                  title: l10n?.aboutUs ?? 'Tentang Kami',
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, AbupiApp.aboutUsRoute);
+                  },
+                ),
+                _buildDivider(context),
+                _buildMenuItem(
+                  context,
                   icon: Icons.people_outline,
                   title: l10n?.organization ?? 'Organisasi',
                   onTap: () {
@@ -223,21 +233,21 @@ class OtherMenuPopup extends StatelessWidget {
                 _buildDivider(context),
                 _buildMenuItem(
                   context,
-                  icon: Icons.work_outline,
-                  title: l10n?.regulation ?? 'Regulasi',
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushNamed(context, AbupiApp.regulationRoute);
-                  },
-                ),
-                _buildDivider(context),
-                _buildMenuItem(
-                  context,
                   icon: Icons.image_outlined,
                   title: l10n?.media ?? 'Media',
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.pushNamed(context, AbupiApp.mediaRoute);
+                  },
+                ),
+                _buildDivider(context),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.work_outline,
+                  title: l10n?.workPlan ?? 'Program Kerja ',
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, AbupiApp.workPlanRoute);
                   },
                 ),
                 _buildDivider(context),

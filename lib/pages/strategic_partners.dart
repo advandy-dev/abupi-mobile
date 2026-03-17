@@ -13,7 +13,7 @@ class StrategicPartnersScreen extends StatefulWidget {
 class _StrategicPartnersScreen extends State<StrategicPartnersScreen> {
   final List<StrategicPartners> _strategicPartners = [
     StrategicPartners(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/LOGO-INSA-300x282.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LOGO-INSA-300x282-1.png',
       name: 'INDONESIAN NATIONAL SHIPOWNER’S ASSOCIATION',
       address: 'Tanah Abang III No 10 Jakarta Pusat',
       phone: '(021) 3850993, (021) 3447149, (021) 3849522',
@@ -22,7 +22,7 @@ class _StrategicPartnersScreen extends State<StrategicPartnersScreen> {
       website: 'insa.or.id',
     ),
     StrategicPartners(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/LOGO-IPERINDO-HITAM-300x80.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LOGO-IPERINDO-HITAM-300x80-1.png',
       name: 'INDONESIA SHIPBUILDING & OFFSHORE ASSOCIATION',
       address: 'Komplek Griya Inti Sentosa, Jl. Griya Agung No.77, RT.2/RW.20, Sunter Agung, Kec. Tj. Priok, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14350',
       phone: '(021) 6404253',
@@ -30,16 +30,16 @@ class _StrategicPartnersScreen extends State<StrategicPartnersScreen> {
       website: 'iperindo.org',
     ),
     StrategicPartners(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/LOGO-ISAA-300x118.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LOGO-ISAA-300x118-1.png',
       name: 'INDONESIA SHIPPING AGENCIES ASSOCIATION',
       website: 'dppisaa.blogspot.com',
     ),
     StrategicPartners(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/LOGO-HAPI-300x294.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LOGO-HAPI-300x294-1.png',
       name: 'HIMPUNAN AHLI PELABUHAN INDONESIA',
     ),
     StrategicPartners(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/LOGO-ALFI-300x268.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LOGO-ALFI-300x268-1.png',
       name: 'ASOSIASI LOGISTIK DAN FORWARDER INDONESIA',
       address: 'Kantor Taman E3.Unit D3, Lantai 2, Jl. Dr. Ide Anak Agung Gde Agung, Kawasan Mega Kuningan, Jakarta 12950 - Indonesia',
       phone: '(021) 5795 6601',
@@ -47,7 +47,7 @@ class _StrategicPartnersScreen extends State<StrategicPartnersScreen> {
       website: 'www.ilfa.or.id',
     ),
     StrategicPartners(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/LOGO-APBMI-300x300.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LOGO-APBMI-300x300-1.png',
       name: 'ASOSIASI PERUSAHAAN BONGKAR MUAT INDONESIA',
       address: 'Jl. Swasembada Timur XI No.25, RT.12/RW.10, Kb. Bawang, Kec. Tj. Priok, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14320',
       phone: '(021) 816 1357 278',
@@ -55,7 +55,7 @@ class _StrategicPartnersScreen extends State<StrategicPartnersScreen> {
       website: 'www.apbmi.or.id',
     ),
     StrategicPartners(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/LOGO-INAMPA-300x246.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LOGO-INAMPA-300x246-1.png',
       name: 'INDONESIAN MARITIME PILOTS ASSOCIATION',
       address: 'Jl. Matahari No.4, RT.1/RW.13, Rawabadak Utara, Kec. Koja, Jakarta Utara, Daerah Khusus Ibukota Jakarta 14230',
       phone: '(021) 4390 0975',

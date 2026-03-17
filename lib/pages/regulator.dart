@@ -13,7 +13,7 @@ class RegulatorScreen extends StatefulWidget {
 class _RegulatorScreen extends State<RegulatorScreen> {
   final List<Regulator> _regulators = [
     Regulator(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/KEMENKOMARVEST-300x210.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/KEMENKOMARVEST-300x210-1.png',
       name: 'KEMENTERIAN KOORDINATOR BIDANG KEMARITIMAN DAN INVESTASI',
       address: 'Jl. MH. Thamrin No.8, Jakarta Pusat 10340, Indonesia.',
       phone: '(021) 23951100',
@@ -22,7 +22,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
       website: 'maritim.go.id',
     ),
     Regulator(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/KEMENHUB-300x210.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/KEMENHUB-300x210-1.png',
       name: 'KEMENTERIAN PERHUBUNGAN REPUBLIK INDONESIA',
       address: 'Jl. Medan Merdeka Barat No. 8 Jakarta Pusat DKI Jakarta 10110',
       phone: '(021) 23951100',
@@ -32,7 +32,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
       website: 'dephub.go.id',
     ),
     Regulator(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/11/kkp2-300x300.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/kkp2-300x300-1.png',
       name: 'KEMENTERIAN KELAUTAN DAN PERIKANAN',
       address: 'Medan Merdeka Timur No.16 Jakarta Pusat',
       phone: '(021) 3519070',
@@ -42,7 +42,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
       website: 'kkp.go.id',
     ),
     Regulator(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/01/KEMENKEU-300x210.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/KEMENKEU-300x210-1.png',
       name: 'KEMENTERIAN KEUANGAN REPUBLIK INDONESIA',
       address: 'Gedung Djuanda I, Kementerian Keuangan, Jl. Dr. Wahidin Raya No.1, Pasar Baru, Sawah Besar, Central Jakarta City, Jakarta 10710',
       phone: '(021) 3449230',
@@ -51,7 +51,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
       website: 'kemenkeu.go.id',
     ),
     Regulator(
-      imageURL: 'https://www.abupi.or.id/wp-content/uploads/2023/11/lklhk2-300x300.png',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/lklhk2-300x300-1.png',
       name: 'KEMENTERIAN LINGKUNGAN HIDUP DAN KEHUTANAN',
       address: 'Jl. Pejompongan Raya No.1, RT.1/RW.3, Bend. Hilir, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270',
       phone: '(021) 5704501',

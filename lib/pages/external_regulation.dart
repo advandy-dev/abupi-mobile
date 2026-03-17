@@ -23,7 +23,7 @@ class ExternalRegulationScreen extends StatelessWidget {
       ),
       ExternalRegulation(
         name: 'PERATURAN PEMERINTAH NO. 64 TAHUN 2015 TENTANG PERUBAHAN ATAS PP NO. 61 TAHUN 2009 TENTANG KEPELABUHANAN',
-        url: 'https://www.abupi.or.id/wp-content/uploads/2023/02/PP_64_Tahun_2015-Tentang-Perubahan-PP-61-Tahun-2009-Ttg-Kepelabuhanan.pdf',
+        url: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PP_64_Tahun_2015-Tentang-Perubahan-PP-61-Tahun-2009-Ttg-Kepelabuhanan.pdf',
       ),
       ExternalRegulation(
         name: 'PERATURAN MENTERI PERHUBUNGAN RI NO. PM 48 TAHUN 2021 TENTANG KONSESI DAN KERJASAMA BENTUK LAINNYA ANTARA PENYELENGGARA PELABUHAN DENGAN BADAN USAHA PELABUHAN DI BIDANG KEPELABUHANAN',

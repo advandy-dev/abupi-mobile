@@ -138,6 +138,10 @@ class AppLocalizations {
       'template_prefix_email_registration': 'Yth. Pengurus ABUPI\n\nMelalui email ini kami bermaksud mengajukan permohonan untuk menjadi bagian dari ABUPI.\n\nBersamaan dengan email ini, kami lampirkan data perusahaan kami beserta data PIC yang dapat dihubungi.\n',
       'template_postfix_email_registration': '\nTerima kasih atas waktu dan perhatiannya.',
       'search_news_placeholder': 'Masukkan nama berita',
+      'work_plan': 'Program Kerja',
+      'inclusion': 'Inklusi',
+      'newsletter': 'Buletin',
+      'journal': 'Jurnal',
     },
     'en': {
       'home': 'Home',
@@ -226,6 +230,10 @@ class AppLocalizations {
       'template_prefix_email_registration': 'Dear ABUPI Management\n\nThrough this email, we would like to apply to become a part of ABUPI.\n\nAlong with this email, we attach our company data as well as the contactable PIC information.\n',
       'template_postfix_email_registration': '\nThank you for your time and attention.',
       'search_news_placeholder': 'Input news name',
+      'work_plan': 'Work Plan',
+      'inclusion': 'Inclusion',
+      'newsletter': 'Newsletter',
+      'journal': 'Journal',
     },
   };
 
@@ -319,6 +327,10 @@ class AppLocalizations {
   String get templatePrefixEmailRegistration => translate('template_prefix_email_registration');
   String get templatePostfixEmailRegistration => translate('template_postfix_email_registration');
   String get searchNewsPlaceholder => translate('search_news_placeholder');
+  String get workPlan => translate('work_plan');
+  String get inclusion => translate('inclusion');
+  String get newsletter => translate('newsletter');
+  String get journal => translate('journal');
 }
 
 class _AppLocalizationsDelegate
