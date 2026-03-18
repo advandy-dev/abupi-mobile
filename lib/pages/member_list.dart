@@ -1,4 +1,4 @@
-import 'package:abupi/helper/launch_url.dart';
+import 'package:abupi/util/launch_url.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/models/member_list.dart';
 import 'package:flutter/material.dart';
@@ -584,10 +584,10 @@ class _MemberListScreen extends State<MemberListScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withOpacity(0.5),
             spreadRadius: 1,
             blurRadius: 4,
-            offset: const Offset(0, 2),
+            offset: const Offset(2, 5),
           ),
         ],
       ),
@@ -620,6 +620,7 @@ class _MemberListScreen extends State<MemberListScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
@@ -670,7 +671,8 @@ class _MemberListScreen extends State<MemberListScreen> {
                           child: Text(
                             member.address ?? '-',
                             style: const TextStyle(
-                              fontSize: 15,
+                              fontSize: 16,
+                              color: Colors.black,
                             ),
                           ),
                         ),

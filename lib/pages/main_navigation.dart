@@ -307,7 +307,7 @@ class OtherMenuPopup extends StatelessWidget {
       height: 1,
       thickness: 1,
       indent: 60,
-      color: Theme.of(context).colorScheme.outlineVariant.withOpacity(0.3),
+      color: Colors.grey.shade300,
     );
   }
 }

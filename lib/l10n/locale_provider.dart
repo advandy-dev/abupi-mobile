@@ -83,7 +83,7 @@ class AppLocalizations {
       'organization_structure': 'Struktur Organisasi',
       'general_chairman': 'Ketua Umum',
       'vice_chairman': 'Wakil Ketua Umum',
-      'general_secretary': 'Sekertaris Umum',
+      'general_secretary': 'Sekretaris Umum',
       'general_treasurer': 'Bendahara Umum',
       'list_of_member': 'Daftar Anggota',
       'service_registration_title': 'Pendaftaran Keanggotaan ABUPI',
@@ -142,6 +142,7 @@ class AppLocalizations {
       'inclusion': 'Inklusi',
       'newsletter': 'Buletin',
       'journal': 'Jurnal',
+      'description': 'Deskripsi',
     },
     'en': {
       'home': 'Home',
@@ -234,6 +235,7 @@ class AppLocalizations {
       'inclusion': 'Inclusion',
       'newsletter': 'Newsletter',
       'journal': 'Journal',
+      'description': 'Description',
     },
   };
 
@@ -331,6 +333,7 @@ class AppLocalizations {
   String get inclusion => translate('inclusion');
   String get newsletter => translate('newsletter');
   String get journal => translate('journal');
+  String get description => translate('description');
 }
 
 class _AppLocalizationsDelegate

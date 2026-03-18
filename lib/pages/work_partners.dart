@@ -55,11 +55,10 @@ class _WorkPartnersScreen extends State<WorkPartnersScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
@@ -92,12 +91,12 @@ class _WorkPartnersScreen extends State<WorkPartnersScreen> {
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                      color: colorScheme.surface,
+                      color: Colors.white,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
+                          color: Colors.black.withOpacity(0.5),
                           blurRadius: 8,
-                          offset: const Offset(0, -2),
+                          offset: const Offset(2, 5),
                         ),
                       ],
                     ),

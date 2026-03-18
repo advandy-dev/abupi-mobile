@@ -9,7 +9,6 @@ class ExternalRegulationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
 
     final List<ExternalRegulation> externalRegulations = [
@@ -44,7 +43,7 @@ class ExternalRegulationScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
@@ -76,7 +75,6 @@ class ExternalRegulationScreen extends StatelessWidget {
   }
 
   Widget _buildMenuItem(BuildContext context, ExternalRegulation externalRegulation) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
 
     return Container(
@@ -97,9 +95,9 @@ class ExternalRegulationScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Row(
           children: [
-            Icon(
+            const Icon(
               Icons.description_outlined,
-              color: colorScheme.primary,
+              color: Color(0xFF2e2f7f),
               size: 24,
             ),
             const SizedBox(width: 16),
@@ -108,10 +106,10 @@ class ExternalRegulationScreen extends StatelessWidget {
                 externalRegulation.name,
                 maxLines: 4, // Set the maximum number of lines
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
             ),

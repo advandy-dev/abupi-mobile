@@ -276,6 +276,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
           onPressed: () => Navigator.pop(context),
         ),
       ),
+      backgroundColor: Colors.white,
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: _galleries.length,
@@ -298,7 +299,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Color.fromRGBO(50, 50, 50, 1),
+              color: Colors.black,
             ),
           ),
         ),

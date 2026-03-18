@@ -70,11 +70,12 @@ class _RegistrationScreen extends State<RegistrationScreen> {
     }
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
-        title: Text(
-          l10n?.aboutUs ?? 'Tentang Kami',
-          style: const TextStyle(
+        title: const Text(
+          'Join ABUPI',
+          style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
@@ -92,16 +93,26 @@ class _RegistrationScreen extends State<RegistrationScreen> {
           children: [
             Text(
               l10n?.formRegistrationCompanyNameTitle ?? 'Nama Perusahaan',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             TextField(
+              cursorColor: const Color(0xFF2e2f7f),
+              cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
                 hintText: l10n?.formRegistrationCompanyNamePlaceholder ?? 'PT Contoh Indonesia',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 filled: true,
+                fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 12,
@@ -123,16 +134,26 @@ class _RegistrationScreen extends State<RegistrationScreen> {
 
             Text(
               l10n?.formRegistrationPicNameTitle ?? 'Nama PIC',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             TextField(
+              cursorColor: const Color(0xFF2e2f7f),
+              cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
                 hintText: l10n?.formRegistrationPicNamePlaceholder ?? 'Nama lengkap PIC',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 filled: true,
+                fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 12,
@@ -154,18 +175,28 @@ class _RegistrationScreen extends State<RegistrationScreen> {
 
             Text(
               l10n?.formRegistrationCompanyAddressTitle ?? 'Alamat Perusahaan',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             TextField(
               keyboardType: TextInputType.multiline,
               maxLines: 4,
+              cursorColor: const Color(0xFF2e2f7f),
+              cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
                 hintText: l10n?.formRegistrationCompanyAddressPlaceholder ?? 'Alamat lengkap perusahaan',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 filled: true,
+                fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 12,
@@ -187,16 +218,26 @@ class _RegistrationScreen extends State<RegistrationScreen> {
 
             Text(
               l10n?.formRegistrationPicPositionTitle ?? 'Jabatan PIC',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             TextField(
+              cursorColor: const Color(0xFF2e2f7f),
+              cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
                 hintText: l10n?.formRegistrationPicPositionPlaceholder ?? 'Direktur operasional',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 filled: true,
+                fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 12,
@@ -218,16 +259,26 @@ class _RegistrationScreen extends State<RegistrationScreen> {
 
             Text(
               l10n?.formRegistrationPicPhoneNumberTitle ?? 'Nomor Telepon PIC',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             TextField(
+              cursorColor: const Color(0xFF2e2f7f),
+              cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
                 hintText: l10n?.formRegistrationPicPhoneNumberPlaceholder ?? '+6281234567890',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 filled: true,
+                fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 12,
@@ -249,16 +300,26 @@ class _RegistrationScreen extends State<RegistrationScreen> {
 
             Text(
               l10n?.formRegistrationPicEmailTitle ?? 'Email PIC',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             TextField(
+              cursorColor: const Color(0xFF2e2f7f),
+              cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
                 hintText: l10n?.formRegistrationPicEmailPlaceholder ?? 'name@company.com',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 filled: true,
+                fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 12,
@@ -280,7 +341,10 @@ class _RegistrationScreen extends State<RegistrationScreen> {
 
             Text(
               l10n?.formRegistrationTypeOfBusinessTitle ?? 'Jenis Izin Usaha',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             Wrap(
@@ -293,6 +357,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                     Radio<String>(
                       value: 'BUP',
                       groupValue: _typeOfBusiness,
+                      fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                      activeColor: const Color(0xFF2e2f7f),
                       onChanged: (value) {
                         if (value != null) {
                           setState(() {
@@ -301,7 +367,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         }
                       },
                     ),
-                    const Text('BUP'),
+                    const Text('BUP', style: TextStyle(color: Colors.black)),
                   ],
                 ),
                 Row(
@@ -310,6 +376,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                     Radio<String>(
                       value: 'TUKS',
                       groupValue: _typeOfBusiness,
+                      fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                      activeColor: const Color(0xFF2e2f7f),
                       onChanged: (value) {
                         if (value != null) {
                           setState(() {
@@ -318,7 +386,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         }
                       },
                     ),
-                    const Text('TUKS'),
+                    const Text('TUKS', style: TextStyle(color: Colors.black)),
                   ],
                 ),
                 Row(
@@ -327,6 +395,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                     Radio<String>(
                       value: 'Tersus',
                       groupValue: _typeOfBusiness,
+                      fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                      activeColor: const Color(0xFF2e2f7f),
                       onChanged: (value) {
                         if (value != null) {
                           setState(() {
@@ -335,7 +405,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         }
                       },
                     ),
-                    const Text('Tersus'),
+                    const Text('Tersus', style: TextStyle(color: Colors.black)),
                   ],
                 ),
               ],
@@ -350,7 +420,10 @@ class _RegistrationScreen extends State<RegistrationScreen> {
 
             Text(
               l10n?.formRegistrationStatusCompanyTitle ?? 'Status Perusahaan',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             Wrap(
@@ -363,6 +436,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                     Radio<String>(
                       value: 'BUMN',
                       groupValue: _companyStatus,
+                      fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                      activeColor: const Color(0xFF2e2f7f),
                       onChanged: (value) {
                         if (value != null) {
                           setState(() {
@@ -371,7 +446,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         }
                       },
                     ),
-                    const Text('BUMN'),
+                    const Text('BUMN', style: TextStyle(color: Colors.black)),
                   ],
                 ),
                 Row(
@@ -380,6 +455,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                     Radio<String>(
                       value: 'BUMD',
                       groupValue: _companyStatus,
+                      fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                      activeColor: const Color(0xFF2e2f7f),
                       onChanged: (value) {
                         if (value != null) {
                           setState(() {
@@ -388,7 +465,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         }
                       },
                     ),
-                    const Text('BUMD'),
+                    const Text('BUMD', style: TextStyle(color: Colors.black)),
                   ],
                 ),
                 Row(
@@ -397,6 +474,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                     Radio<String>(
                       value: 'Private International',
                       groupValue: _companyStatus,
+                      fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                      activeColor: const Color(0xFF2e2f7f),
                       onChanged: (value) {
                         if (value != null) {
                           setState(() {
@@ -405,7 +484,10 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         }
                       },
                     ),
-                    const Text('Private International'),
+                    const Text(
+                      'Private International',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ],
                 ),
                 Row(
@@ -414,6 +496,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                     Radio<String>(
                       value: 'Private Domestic',
                       groupValue: _companyStatus,
+                      fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                      activeColor: const Color(0xFF2e2f7f),
                       onChanged: (value) {
                         if (value != null) {
                           setState(() {
@@ -422,7 +506,10 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         }
                       },
                     ),
-                    const Text('Private Domestic'),
+                    const Text(
+                      'Private Domestic',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ],
                 ),
               ],
@@ -437,7 +524,10 @@ class _RegistrationScreen extends State<RegistrationScreen> {
 
             Text(
               l10n?.formRegistrationMembershipTypeTitle ?? 'Jenis Keanggotaan',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             Wrap(
@@ -450,6 +540,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                     Radio<String>(
                       value: 'BUP',
                       groupValue: _membershipType,
+                      fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                      activeColor: const Color(0xFF2e2f7f),
                       onChanged: (value) {
                         if (value != null) {
                           setState(() {
@@ -458,7 +550,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         }
                       },
                     ),
-                    const Text('BUP'),
+                    const Text('BUP', style: TextStyle(color: Colors.black)),
                   ],
                 ),
                 Row(
@@ -467,6 +559,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                     Radio<String>(
                       value: 'Tersus/TUKS',
                       groupValue: _membershipType,
+                      fillColor: const WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                      activeColor: const Color(0xFF2e2f7f),
                       onChanged: (value) {
                         if (value != null) {
                           setState(() {
@@ -475,7 +569,10 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         }
                       },
                     ),
-                    const Text('Tersus/TUKS'),
+                    const Text(
+                      'Tersus/TUKS',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ],
                 ),
               ],

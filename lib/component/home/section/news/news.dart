@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:abupi/component/home/section/news/news_card.dart';
-import 'package:abupi/helper/launch_url.dart';
+import 'package:abupi/util/launch_url.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/models/news.dart';
 import 'package:flutter/material.dart';

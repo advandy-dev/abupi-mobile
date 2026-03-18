@@ -1,4 +1,4 @@
-import 'package:abupi/helper/launch_url.dart';
+import 'package:abupi/util/launch_url.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/models/strategic_partners.dart';
 import 'package:flutter/material.dart';
@@ -71,11 +71,10 @@ class _StrategicPartnersScreen extends State<StrategicPartnersScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(

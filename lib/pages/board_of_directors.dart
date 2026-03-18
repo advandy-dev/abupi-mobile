@@ -26,7 +26,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Devina',
-          position: 'WAKIL SEKERTARIS UMUM',
+          position: 'WAKIL SEKRETARIS UMUM',
           positionTranslate: 'VICE GENERAL SECRETARY',
           section: '',
           sectionTranslate: '',
@@ -451,6 +451,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
 
   void _showSubordinateBottomSheet(BuildContext context, BoardOfDirector director) {
     showModalBottomSheet(
+      backgroundColor: Colors.white,
       context: context,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
@@ -487,17 +488,18 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(145, 179, 236, 1.0),
+                      color: Color(0xFF2e2f7f),
                     ),
                   ),
                 ),
-                const Divider(),
+                Divider(color: Colors.grey.shade400),
                 Expanded(
                   child: ListView.separated(
                     controller: scrollController,
                     padding: const EdgeInsets.all(16),
                     itemCount: director.subordinate.length,
-                    separatorBuilder: (context, index) => const Divider(height: 24),
+                    separatorBuilder: (context, index) =>
+                        Divider(height: 24, color: Colors.grey.shade400),
                     itemBuilder: (context, index) {
                       final subordinate = director.subordinate[index];
                       return _buildSubordinateRow(context, subordinate);
@@ -547,12 +549,13 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
                 style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(height: 4),
               Text(
                 subordinate.company != null
-                    ? '${position} (${subordinate.company})'
+                    ? '$position (${subordinate.company})'
                     : position,
                 style: TextStyle(
                   fontSize: 13,
@@ -633,6 +636,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -643,15 +647,16 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
                       textAlign: TextAlign.start,
                       style: const TextStyle(
                         fontSize: 14,
+                        color: Colors.black,
                       ),
                     ),
                   ],
                 ),
               ),
               if (isExpandable)
-                const Icon(
+                Icon(
                   Icons.chevron_right,
-                  color: Colors.grey,
+                  color: Colors.grey.shade400,
                   size: 32,
                 ),
             ],
@@ -667,6 +672,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
@@ -730,6 +736,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
           ),
           const SizedBox(height: 12),
@@ -758,6 +765,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
           ),
           const SizedBox(height: 12),
@@ -784,6 +792,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
           ),
           const SizedBox(height: 12),
@@ -810,6 +819,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
           ),
           const SizedBox(height: 12),

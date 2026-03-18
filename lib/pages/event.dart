@@ -3,11 +3,11 @@ import 'dart:convert';
 
 import 'package:abupi/arguments/event_detail_args.dart';
 import 'package:abupi/component/home/section/event/event_card.dart';
-import 'package:abupi/helper/string.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:abupi/models/event.dart';
 import 'package:abupi/services/wordpress_api.dart';
+import 'package:abupi/util/string.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 

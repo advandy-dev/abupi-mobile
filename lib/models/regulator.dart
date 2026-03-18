@@ -1,6 +1,7 @@
 class Regulator {
   final String imageURL;
   final String name;
+  final String name_en;
   final String address;
   final String phone;
   final String email;
@@ -11,6 +12,7 @@ class Regulator {
   Regulator({
     required this.imageURL,
     required this.name,
+    required this.name_en,
     required this.address,
     required this.phone,
     required this.email,

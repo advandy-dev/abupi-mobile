@@ -2,8 +2,9 @@ import 'dart:convert';
 
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/services/wordpress_api.dart';
+import 'package:abupi/util/youtube_helper.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({super.key});
@@ -15,7 +16,8 @@ class AboutUsScreen extends StatefulWidget {
 class _AboutUsScreenState extends State<AboutUsScreen> {
   Map<String, dynamic>? _pageData;
   String? _currentLanguage;
-  String _videoId = '';
+  String _youtubeURL = '';
+  String _videoThumbnailURL = '';
 
   static const _primaryColor = Color.fromRGBO(145, 179, 236, 1.0);
   static const _textColor = Color(0xFF333333);
@@ -53,30 +55,26 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
 
           String videoId = '';
           if (videoUrl != null && videoUrl.isNotEmpty) {
-            // _initializeVideoPlayer(videoUrl);
-            try {
-              Uri uri = Uri.parse(videoUrl);
-              if (uri.host == 'www.youtube.com' || uri.host == 'youtube.com') {
-                // For standard URLs like https://www.youtube.com
-                videoId = uri.queryParameters['v'] ?? '';
-              } else if (uri.host == 'youtu.be') {
-                // For shortened URLs like https://youtu.be/dQw4w9WgXcQ
-                videoId = uri.pathSegments.isNotEmpty ? uri.pathSegments.first : '';
-              }
-            } catch (e) {
-              // Handle invalid URLs
-            }
+            videoId = extractVideoId(videoUrl) ?? '';
           }
           
           setState(() {
             _pageData = data;
-            _videoId = videoId;
+            _youtubeURL = videoUrl ?? '';
+            _videoThumbnailURL = 'https://img.youtube.com/vi/$videoId/hqdefault.jpg';
           });
         }
       } else {
       }
     } catch (e) {
       debugPrint('Error: $e');
+    }
+  }
+
+  Future<void> _openYouTube() async {
+    final uri = Uri.parse(_youtubeURL);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     }
   }
 
@@ -106,10 +104,10 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withOpacity(0.5),
             spreadRadius: 1,
             blurRadius: 4,
-            offset: const Offset(0, 2),
+            offset: const Offset(1, 5),
           ),
         ],
       ),
@@ -164,6 +162,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
@@ -187,37 +186,48 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
               child: Column(
                 children: [
                   const SizedBox(height: 8),
-                  Text(_pageData?['acf']?['about_description'] ?? ''),
+                  Text(
+                    _pageData?['acf']?['about_description'] ?? '',
+                    style: const TextStyle(color: Colors.black),
+                  ),
                   const SizedBox(height: 4),
                   const SizedBox(height: 16),
-                  // AspectRatio(
-                  //   aspectRatio: 16 / 9,
-                  //   child: InAppWebView(
-                  //     initialSettings: InAppWebViewSettings(
-                  //       mediaPlaybackRequiresUserGesture: false,
-                  //       allowsInlineMediaPlayback: true,
-                  //       javaScriptEnabled: true,
-                  //     ),
-                  //     // src="https://www.youtube.com/embed/$_videoURL?playsinline=1&rel=0&modestbranding=1&enablejsapi=1"
-                  //     initialData: InAppWebViewInitialData(
-                  //       data: """
-                  //       <html>
-                  //       <body style="margin:0">
-                  //         <iframe
-                  //           width="100%"
-                  //           height="100%"
-                  //           src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?playsinline=1&rel=0&modestbranding=1&enablejsapi=1"
-                  //           title="YouTube video player"
-                  //           frameborder="0"
-                  //           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  //           allowfullscreen>
-                  //         </iframe>
-                  //       </body>
-                  //       </html>
-                  //       """,
-                  //     ),
-                  //   ),
-                  // ),
+                  GestureDetector(
+                    onTap: _openYouTube,
+                    child: AspectRatio(
+                      aspectRatio: 16 / 9,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12), // Optional: rounded corners
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            // 1. The Thumbnail Image
+                            Image.network(
+                              _videoThumbnailURL,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              // Placeholder while loading
+                              loadingBuilder: (context, child, loadingProgress) {
+                                if (loadingProgress == null) return child;
+                                return Container(color: Colors.grey[300]);
+                              },
+                              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                return const Text('Image failed to load');
+                              },
+                            ),
+                            // 2. A semi-transparent overlay to make the icon pop
+                            Container(color: Colors.black26),
+                            // 3. The Play Icon
+                            const Icon(
+                              Icons.play_circle_fill,
+                              color: Colors.red,
+                              size: 64,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

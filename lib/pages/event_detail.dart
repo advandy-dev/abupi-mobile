@@ -1,3 +1,4 @@
+import 'package:abupi/l10n/locale_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
@@ -15,16 +16,21 @@ class EventDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
           // App bar with image
           SliverAppBar(
             expandedHeight: event?.imageUrl != null ? 250 : 0,
             pinned: true,
-            backgroundColor: const Color(0xFF2e2f7f),
+            backgroundColor: Colors.white.withOpacity(0.5),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () => Navigator.pop(context),
+            ),
             flexibleSpace: FlexibleSpaceBar(
               background: event?.imageUrl != null
                   ? GestureDetector(
@@ -33,7 +39,7 @@ class EventDetailScreen extends StatelessWidget {
                         event?.imageUrl ?? '',
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) => Container(
-                          color: colorScheme.surfaceContainerHighest,
+                          color: Colors.grey,
                         ),
                       ),
                     )
@@ -58,23 +64,23 @@ class EventDetailScreen extends StatelessWidget {
                           vertical: 6,
                         ),
                         decoration: BoxDecoration(
-                          color: colorScheme.primaryContainer,
+                          color: const Color(0xFF2e2f7f),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.calendar_today_outlined,
                               size: 16,
-                              color: colorScheme.onPrimaryContainer,
+                              color: Colors.white,
                             ),
                             const SizedBox(width: 6),
                             Text(
                               event?.formattedDate ?? '',
                               style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                color: colorScheme.onPrimaryContainer,
-                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
@@ -91,23 +97,23 @@ class EventDetailScreen extends StatelessWidget {
                               vertical: 6,
                             ),
                             decoration: BoxDecoration(
-                              color: colorScheme.secondaryContainer,
+                              color: const Color(0xFF2e2f7e),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.location_on_outlined,
                                   size: 16,
-                                  color: colorScheme.onSecondaryContainer,
+                                  color: Colors.white,
                                 ),
                                 const SizedBox(width: 6),
                                 Flexible(
                                   child: Text(
                                     event?.location ?? '',
                                     style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                      color: colorScheme.onSecondaryContainer,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.w500,
                                     ),
                                     overflow: TextOverflow.ellipsis,
@@ -126,18 +132,19 @@ class EventDetailScreen extends StatelessWidget {
                     event?.title ?? '',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),
                   const SizedBox(height: 24),
                   // Divider
-                  Divider(color: colorScheme.outlineVariant),
+                  Divider(color: Colors.grey.shade300),
                   const SizedBox(height: 24),
                   // Description header
                   Text(
-                    'Deskripsi',
+                    l10n?.description ?? 'Deskripsi',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: colorScheme.primary,
+                      color: Colors.black,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -146,6 +153,7 @@ class EventDetailScreen extends StatelessWidget {
                     event?.description ?? '',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       height: 1.6,
+                      color: Colors.black,
                     ),
                   ),
                   const SizedBox(height: 32),

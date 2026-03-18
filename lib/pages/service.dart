@@ -1,4 +1,4 @@
-import 'package:abupi/helper/launch_url.dart';
+import 'package:abupi/util/launch_url.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:flutter/material.dart';
@@ -32,10 +32,10 @@ class _ServiceScreen extends State<ServiceScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withOpacity(0.5),
             spreadRadius: 1,
             blurRadius: 4,
-            offset: const Offset(0, 2),
+            offset: const Offset(1, 5),
           ),
         ],
       ),
@@ -251,6 +251,7 @@ class _ServiceScreen extends State<ServiceScreen> {
     final l10n = AppLocalizations.of(context);
     
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(

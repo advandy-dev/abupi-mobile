@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:abupi/component/home/section/news/news_card.dart';
-import 'package:abupi/helper/launch_url.dart';
+import 'package:abupi/util/launch_url.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/models/news.dart';
 import 'package:abupi/services/wordpress_api.dart';
@@ -115,11 +115,10 @@ class _NewsListScreenState extends State<NewsListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
@@ -145,7 +144,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
           // Sticky search bar
           Container(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
-            color: colorScheme.surface,
+            color: Colors.white,
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
@@ -155,7 +154,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 filled: true,
-                fillColor: colorScheme.surfaceContainerHighest.withOpacity(0.5),
+                fillColor: Colors.white,
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 12,

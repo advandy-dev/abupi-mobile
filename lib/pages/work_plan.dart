@@ -8,11 +8,10 @@ class WorkPlanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
@@ -75,8 +74,6 @@ class WorkPlanScreen extends StatelessWidget {
     required String title,
     required VoidCallback onTap,
   }) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return InkWell(
       onTap: onTap,
       child: Padding(
@@ -85,23 +82,23 @@ class WorkPlanScreen extends StatelessWidget {
           children: [
             Icon(
               icon,
-              color: colorScheme.primary,
+              color: const Color(0xFF2e2f7f),
               size: 24,
             ),
             const SizedBox(width: 16),
             Expanded(
               child: Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
             ),
             Icon(
               Icons.chevron_right,
-              color: colorScheme.onSurface.withOpacity(0.4),
+              color: Colors.grey.shade400,
               size: 24,
             ),
           ],
@@ -115,7 +112,7 @@ class WorkPlanScreen extends StatelessWidget {
       height: 1,
       thickness: 1,
       indent: 60,
-      color: Theme.of(context).colorScheme.outlineVariant.withOpacity(0.3),
+      color: Colors.grey.shade300,
     );
   }
 }

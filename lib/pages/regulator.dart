@@ -1,4 +1,4 @@
-import 'package:abupi/helper/launch_url.dart';
+import 'package:abupi/util/launch_url.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/models/regulator.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +15,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
     Regulator(
       imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/KEMENKOMARVEST-300x210-1.png',
       name: 'KEMENTERIAN KOORDINATOR BIDANG KEMARITIMAN DAN INVESTASI',
+      name_en: 'MINISTRY OF COORDINATOR MARITIME AFFAIRS AND INVESTMENT',
       address: 'Jl. MH. Thamrin No.8, Jakarta Pusat 10340, Indonesia.',
       phone: '(021) 23951100',
       fax: '(021) 3141790',
@@ -24,6 +25,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
     Regulator(
       imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/KEMENHUB-300x210-1.png',
       name: 'KEMENTERIAN PERHUBUNGAN REPUBLIK INDONESIA',
+      name_en: 'MINISTRY OF TRANSPORTATION OF THE REPUBLIC OF INDONESIA',
       address: 'Jl. Medan Merdeka Barat No. 8 Jakarta Pusat DKI Jakarta 10110',
       phone: '(021) 23951100',
       fax: '(021) 3141790',
@@ -34,6 +36,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
     Regulator(
       imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/kkp2-300x300-1.png',
       name: 'KEMENTERIAN KELAUTAN DAN PERIKANAN',
+      name_en: 'MINISTRY OF MARINE AFFAIRS AND FISHERIES',
       address: 'Medan Merdeka Timur No.16 Jakarta Pusat',
       phone: '(021) 3519070',
       fax: '(021) 3864293',
@@ -44,6 +47,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
     Regulator(
       imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/KEMENKEU-300x210-1.png',
       name: 'KEMENTERIAN KEUANGAN REPUBLIK INDONESIA',
+      name_en: 'MINISTRY OF FINANCE OF THE REPUBLIC OF INDONESIA',
       address: 'Gedung Djuanda I, Kementerian Keuangan, Jl. Dr. Wahidin Raya No.1, Pasar Baru, Sawah Besar, Central Jakarta City, Jakarta 10710',
       phone: '(021) 3449230',
       callCenter: '134',
@@ -53,6 +57,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
     Regulator(
       imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/lklhk2-300x300-1.png',
       name: 'KEMENTERIAN LINGKUNGAN HIDUP DAN KEHUTANAN',
+      name_en: 'MINISTRY OF ENVIRONMENT AND FORESTRY',
       address: 'Jl. Pejompongan Raya No.1, RT.1/RW.3, Bend. Hilir, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270',
       phone: '(021) 5704501',
       callCenter: '134',
@@ -68,10 +73,8 @@ class _RegulatorScreen extends State<RegulatorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Scaffold(
-      backgroundColor: colorScheme.surface,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: const Text(
@@ -98,6 +101,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
 
   Widget _buildRegulatorItem(BuildContext context, Regulator regulator) {
     final l10n = AppLocalizations.of(context);
+    final language = l10n?.language;
 
     var phoneFaxText = '';
     var phone = '${l10n?.phoneShort ?? 'Telp'}: ${regulator.phone}';
@@ -128,7 +132,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
           children: [
             // Name/Title
             Text(
-              regulator.name,
+              language == null || language == 'id' ? regulator.name : regulator.name_en,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
