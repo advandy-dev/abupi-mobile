@@ -173,33 +173,9 @@ class _NewsListScreenState extends State<NewsListScreen> {
             ),
           ),
           if (_isLoading && _page == 1) ...[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
-                  childAspectRatio: 1,
-                ),
-                itemCount: 4,
-                itemBuilder: (context, imageIndex) {
-                  return SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: Shimmer.fromColors(
-                      baseColor: Colors.grey.shade300,
-                      highlightColor: Colors.grey.shade100,
-                      child: Container(
-                        width: double.infinity,
-                        height: 50,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  );
-                },
+            const Expanded(
+              child: Center(
+                child: CircularProgressIndicator(color: Color(0xFF2e2f7f)),
               ),
             ),
           ]

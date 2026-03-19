@@ -207,29 +207,40 @@ class _MapsSectionState extends State<MapsSection> {
                     child: InkWell(
                       onTap: () => showRegionPopup(member),
                       borderRadius: BorderRadius.circular(20),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 8,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(member.colorHex),
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Colors.black,
-                              blurRadius: 4,
-                              offset: Offset(0, 2),
+                      child: IntrinsicWidth( // Ensures the pill only takes required width
+                        child: Container(
+                          constraints: const BoxConstraints(
+                            minHeight: 32,
+                            minWidth: 50, // Reduced minWidth to let smaller words fit
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(member.colorHex),
+                            borderRadius: BorderRadius.circular(24),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black26,
+                                blurRadius: 4,
+                                offset: Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          // Simplified centering: child is just the text
+                          child: Center(
+                            child: Text(
+                              name,
+                              textAlign: TextAlign.center,
+                              softWrap: false, // Prevents text from trying to wrap to a second line
+                              overflow: TextOverflow.visible, // Ensures text isn't clipped by the engine
+                              style: TextStyle(
+                                color: _contrastColor(member.colorHex),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
-                          ],
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          name,
-                          style: TextStyle(
-                            color: _contrastColor(member.colorHex),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),

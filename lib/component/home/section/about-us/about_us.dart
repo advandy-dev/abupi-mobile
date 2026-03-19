@@ -113,7 +113,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
         alignment: Alignment.center,
         child: Text(
           _errorMessage!,
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
           textAlign: TextAlign.center,
         ),
       );
@@ -171,7 +171,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
             ),
           ),
           const SizedBox(height: 16),
-          GestureDetector(
+          if (_youtubeURL.isNotEmpty) ...[GestureDetector(
             onTap: _openYouTube,
             child: AspectRatio(
               aspectRatio: 16 / 9,
@@ -206,7 +206,7 @@ class _AboutUsSectionState extends State<AboutUsSection> {
                 ),
               ),
             ),
-          ),
+          )],
         ],
       ),
     );

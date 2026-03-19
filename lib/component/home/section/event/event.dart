@@ -84,9 +84,11 @@ class _EventSectionState extends State<EventSection> {
             );
           }).toList();
 
-          setState(() {
-            _eventList = events;
-          });
+          if (mounted) {
+            setState(() {
+              _eventList = events;
+            });
+          }
         }
       }
       // Check scroll buttons after frame is rendered
@@ -96,9 +98,11 @@ class _EventSectionState extends State<EventSection> {
     } catch (e) {
       debugPrint('$e');
     } finally {
-      setState(() {
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
   }
 

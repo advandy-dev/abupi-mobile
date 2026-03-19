@@ -266,7 +266,6 @@ class _ServiceScreen extends State<ServiceScreen> {
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(
           children: [
-            const SizedBox(height: 12),
             _buildExpandableCapsule(
               context,
               title: l10n?.consultationService ?? 'Konsultasi BUP/Tersus/TUKS',

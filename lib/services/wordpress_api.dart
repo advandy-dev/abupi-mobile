@@ -6,7 +6,6 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:http/io_client.dart';
-import 'package:abupi/models/post.dart';
 
 /// Service class for WordPress REST API calls
 class WordPressApi {
@@ -19,102 +18,6 @@ class WordPressApi {
     final httpClient = HttpClient()
       ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
     return IOClient(httpClient);
-  }
-
-  /// Fetch posts from WordPress
-  /// [perPage] - Number of posts to fetch (default: 10)
-  /// [page] - Page number for pagination (default: 1)
-  static Future<List<Post>> getPosts({int perPage = 10, int page = 1}) async {
-    final client = _createHttpClient();
-    try {
-      final uri = Uri.parse('$baseUrl/posts').replace(
-        queryParameters: {
-          'per_page': perPage.toString(),
-          'page': page.toString(),
-          '_embed': 'true', // Include featured images
-        },
-      );
-
-      final response = await client.get(
-        uri,
-        headers: {
-          'Accept': 'application/json',
-        },
-      );
-
-      if (response.statusCode == 200) {
-        final List<dynamic> jsonList = json.decode(response.body);
-        return jsonList.map((json) => Post.fromJson(json)).toList();
-      } else {
-        throw Exception('Failed to load posts: ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception('Error fetching posts: $e');
-    } finally {
-      client.close();
-    }
-  }
-
-  /// Fetch a single post by ID
-  static Future<Post> getPost(int id) async {
-    final client = _createHttpClient();
-    try {
-      final uri = Uri.parse('$baseUrl/posts/$id').replace(
-        queryParameters: {
-          '_embed': 'true',
-        },
-      );
-
-      final response = await client.get(
-        uri,
-        headers: {
-          'Accept': 'application/json',
-        },
-      );
-
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> jsonData = json.decode(response.body);
-        return Post.fromJson(jsonData);
-      } else {
-        throw Exception('Failed to load post: ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception('Error fetching post: $e');
-    } finally {
-      client.close();
-    }
-  }
-
-  /// Search posts by keyword
-  static Future<List<Post>> searchPosts(String query, {int perPage = 10}) async {
-    final client = _createHttpClient();
-    try {
-      final uri = Uri.parse('$baseUrl/posts').replace(
-        queryParameters: {
-          'search': query,
-          'per_page': perPage.toString(),
-          '_embed': 'true',
-        },
-      );
-
-      final response = await client.get(
-        uri,
-        headers: {
-          'Accept': 'application/json',
-        },
-      );
-
-      if (response.statusCode == 200) {
-        final List<dynamic> jsonList = json.decode(response.body);
-        return jsonList.map((json) => Post.fromJson(json)).toList();
-      } else {
-        throw Exception('Failed to search posts: ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception('Error searching posts: $e');
-    } finally {
-      client.close();
-    }
   }
 
   /// Fetch posts from WordPress

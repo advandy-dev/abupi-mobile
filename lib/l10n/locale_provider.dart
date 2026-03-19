@@ -143,6 +143,7 @@ class AppLocalizations {
       'newsletter': 'Buletin',
       'journal': 'Jurnal',
       'description': 'Deskripsi',
+      'pillar_description': 'Untuk mewujudkan visi tersebut, ABUPI berkomitmen memperkuat kolaborasi, tata kelola, dan keberlanjutan melalui tiga pilar utama berikut:',
     },
     'en': {
       'home': 'Home',
@@ -236,6 +237,7 @@ class AppLocalizations {
       'newsletter': 'Newsletter',
       'journal': 'Journal',
       'description': 'Description',
+      'pillar_description': 'To realize this vision, ABUPI is committed to strengthening collaboration, governance, and sustainability through the following three main pillars:',
     },
   };
 
@@ -334,6 +336,7 @@ class AppLocalizations {
   String get newsletter => translate('newsletter');
   String get journal => translate('journal');
   String get description => translate('description');
+  String get pillarDescription => translate('pillar_description');
 }
 
 class _AppLocalizationsDelegate

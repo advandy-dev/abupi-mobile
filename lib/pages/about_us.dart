@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:abupi/l10n/locale_provider.dart';
+import 'package:abupi/models/pillar.dart';
 import 'package:abupi/services/wordpress_api.dart';
 import 'package:abupi/util/youtube_helper.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,30 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
   static const _primaryColor = Color.fromRGBO(145, 179, 236, 1.0);
   static const _textColor = Color(0xFF333333);
   static const _textStyle = TextStyle(fontSize: 14, color: _textColor);
+
+  final List<Pillar> _pillars = [
+    Pillar(
+      title: 'Pilar Tata Kelola',
+      titleTranslate: 'Governance Pillar',
+      description: 'Mendorong tata kelola asosiasi yang transparan, akuntabel, dan adaptif terhadap perkembangan sektor kepelabuhanan.',
+      descriptionTranslate: 'Promote association governance that is transparent, accountable, and adaptive to developments in the port sector.',
+      colorHex: 0xFF7135b1,
+    ),
+    Pillar(
+      title: 'Pilar Ekonomi',
+      titleTranslate: 'Economy Pillar',
+      description: 'Mengakselerasi pertumbuhan ekonomi maritim melalui peningkatan daya saing anggota, inovasi, dan kolaborasi bisnis.',
+      descriptionTranslate: 'Accelerate maritime economic growth through increased member competitiveness, innovation, and business collaboration.',
+      colorHex: 0xFFffcf24,
+    ),
+    Pillar(
+      title: 'Pilar Sosial-Lingkungan',
+      titleTranslate: 'Social-Evironmental Pillar',
+      description: 'Membangun ekosistem kepelabuhanan yang inklusif, berkelanjutan, dan berdampak positif bagi masyarakat.',
+      descriptionTranslate: 'Build a port ecosystem that is inclusive, sustainable, and positively impacts the community.',
+      colorHex: 0xFFf7682b,
+    ),
+  ];
 
   @override
   void didChangeDependencies() {
@@ -157,6 +182,65 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
     return Column(children: items.map(_buildBulletPoint).toList());
   }
 
+  Widget _buildPillar(String title, String description, int colorHex) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: Colors.grey.shade300,
+          width: 1,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(16),
+            constraints: const BoxConstraints(
+              minWidth: double.infinity,
+              minHeight: 32,
+            ),
+            decoration: BoxDecoration(
+              color: Color(colorHex),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
+              ),
+            ),
+            child: Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          // Divider(color: Colors.grey.shade300),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              ),
+            ),
+            child: Text(
+              description,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -192,7 +276,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                   ),
                   const SizedBox(height: 4),
                   const SizedBox(height: 16),
-                  GestureDetector(
+                  if (_youtubeURL.isNotEmpty) ...[GestureDetector(
                     onTap: _openYouTube,
                     child: AspectRatio(
                       aspectRatio: 16 / 9,
@@ -227,7 +311,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                         ),
                       ),
                     ),
-                  ),
+                  )],
                 ],
               ),
             ),
@@ -275,6 +359,25 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                 ]),
               ],
             ),
+
+            // pillar
+            Padding(
+              padding: const EdgeInsets.only(top: 16, left: 20, right: 20, bottom: 12),
+              child: Text(
+                l10n?.pillarDescription ?? 'Untuk mewujudkan visi tersebut, ABUPI berkomitmen memperkuat kolaborasi, tata kelola, dan keberlanjutan melalui tiga pilar utama berikut:',
+                style: const TextStyle(color: Colors.black),
+              ),
+            ),
+
+            ..._pillars.map((pillar) => _buildPillar(
+              _currentLanguage == 'id' ? pillar.title : pillar.titleTranslate,
+              _currentLanguage == 'id' ? pillar.description : pillar.descriptionTranslate,
+              pillar.colorHex,
+            )).expand((element) => [
+              element,
+              const SizedBox(height: 8),
+            ]).toList()
+            ..removeLast(),
           ],
         ),
       ),
