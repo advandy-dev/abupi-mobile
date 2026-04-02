@@ -459,7 +459,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       ),
       builder: (context) {
         final l10n = AppLocalizations.of(context);
-        final language = l10n?.language;
+        final language = l10n?.locale.languageCode ?? 'id';
         final section = language == 'id' ? director.section : director.sectionTranslate;
         final position = language == 'id' ? director.position : director.positionTranslate;
 
@@ -516,7 +516,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
 
   Widget _buildSubordinateRow(BuildContext context, Subordinate subordinate) {
     final l10n = AppLocalizations.of(context);
-    final language = l10n?.language;
+    final language = l10n?.locale.languageCode ?? 'id';
     final position = language == 'id' ? subordinate.position : subordinate.positionTranslate;
 
     return Row(
@@ -725,7 +725,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
 
   Widget _buildBODGeneral(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final language = l10n?.language;
+    final language = l10n?.locale.languageCode ?? 'id';
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
@@ -847,7 +847,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
 
   Widget _buildAdvisoryBoard(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final language = l10n?.language;
+    final language = l10n?.locale.languageCode ?? 'id';
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
@@ -873,7 +873,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
 
   Widget _buildSupervisoryBoard(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final language = l10n?.language;
+    final language = l10n?.locale.languageCode ?? 'id';
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
@@ -899,7 +899,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
 
   Widget _buildExpertAdvisoryBoard(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final language = l10n?.language;
+    final language = l10n?.locale.languageCode ?? 'id';
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),

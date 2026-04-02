@@ -27,6 +27,15 @@ class MediaScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          _buildDivider(context),
+          _buildMenuItem(
+            context,
+            icon: Icons.newspaper_outlined,
+            title: l10n?.news ?? 'Berita',
+            onTap: () {
+              Navigator.pushNamed(context, AbupiApp.newsRoute);
+            },
+          ),
           _buildMenuItem(
             context,
             icon: Icons.photo_library_outlined,
@@ -38,19 +47,19 @@ class MediaScreen extends StatelessWidget {
           _buildDivider(context),
           _buildMenuItem(
             context,
-            icon: Icons.newspaper_outlined,
-            title: l10n?.news ?? 'Berita',
+            icon: Icons.markunread_mailbox,
+            title: l10n?.newsletter ?? 'Buletin',
             onTap: () {
-              Navigator.pushNamed(context, AbupiApp.newsRoute);
+              // TODO newsletter page
             },
           ),
           _buildDivider(context),
           _buildMenuItem(
             context,
-            icon: Icons.markunread_mailbox,
-            title: l10n?.newsletter ?? 'Buletin',
+            icon: Icons.my_library_books,
+            title: l10n?.pressRelease ?? 'Siaran Pers',
             onTap: () {
-              // TODO newsletter page
+              // TODO journal page
             },
           ),
           _buildDivider(context),

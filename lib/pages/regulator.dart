@@ -101,7 +101,9 @@ class _RegulatorScreen extends State<RegulatorScreen> {
 
   Widget _buildRegulatorItem(BuildContext context, Regulator regulator) {
     final l10n = AppLocalizations.of(context);
-    final language = l10n?.language;
+    final language = l10n?.locale.languageCode ?? 'id';
+
+    debugPrint('language $language $l10n');
 
     var phoneFaxText = '';
     var phone = '${l10n?.phoneShort ?? 'Telp'}: ${regulator.phone}';

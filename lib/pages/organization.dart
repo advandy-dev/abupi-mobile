@@ -35,15 +35,15 @@ class OrganizationScreen extends StatelessWidget {
               Navigator.pushNamed(context, AbupiApp.boardOfDirectorsRoute);
             },
           ),
-          _buildDivider(context),
-          _buildMenuItem(
-            context,
-            icon: Icons.location_on_outlined,
-            title: l10n?.regionalCoordinator ?? 'Koordinator Wilayah',
-            onTap: () {
-              Navigator.pushNamed(context, AbupiApp.regionalBODRoute);
-            },
-          ),
+          // _buildDivider(context),
+          // _buildMenuItem(
+          //   context,
+          //   icon: Icons.location_on_outlined,
+          //   title: l10n?.regionalCoordinator ?? 'Koordinator Wilayah',
+          //   onTap: () {
+          //     Navigator.pushNamed(context, AbupiApp.regionalBODRoute);
+          //   },
+          // ),
           _buildDivider(context),
           _buildMenuItem(
             context,
@@ -53,20 +53,29 @@ class OrganizationScreen extends StatelessWidget {
               Navigator.pushNamed(context, AbupiApp.memberListRoute);
             },
           ),
-          _buildDivider(context),
-          _buildMenuItem(
-            context,
-            icon: Icons.handshake_outlined,
-            title: l10n?.strategicPartners ?? 'Mitra Strategis',
-            onTap: () {
-              Navigator.pushNamed(context, AbupiApp.strategicPartnersRoute);
-            },
-          ),
+          // _buildDivider(context),
+          // _buildMenuItem(
+          //   context,
+          //   icon: Icons.handshake_outlined,
+          //   title: l10n?.strategicPartners ?? 'Mitra Strategis',
+          //   onTap: () {
+          //     Navigator.pushNamed(context, AbupiApp.strategicPartnersRoute);
+          //   },
+          // ),
+          // _buildDivider(context),
+          // _buildMenuItem(
+          //   context,
+          //   icon: Icons.business_outlined,
+          //   title: l10n?.workPartners ?? 'Mitra Kerja',
+          //   onTap: () {
+          //     Navigator.pushNamed(context, AbupiApp.workPartnersRoute);
+          //   },
+          // ),
           _buildDivider(context),
           _buildMenuItem(
             context,
             icon: Icons.business_outlined,
-            title: l10n?.workPartners ?? 'Mitra Kerja',
+            title: l10n?.stakeholders ?? 'Pemangku Kepentingan',
             onTap: () {
               Navigator.pushNamed(context, AbupiApp.workPartnersRoute);
             },

@@ -17,11 +17,11 @@ class _NewsletterSectionState extends State<NewsletterSection> {
       padding: const EdgeInsets.all(12),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
           colors: [
-            Color(0xFF5C94EC), // Light Blue
-            Color(0xFF2D5FB7), // Darker Blue
+            Color(0xFF2f3fa3),
+            Color(0xFF1fa2b1),
           ],
         ),
       ),
@@ -34,7 +34,11 @@ class _NewsletterSectionState extends State<NewsletterSection> {
             height: 200,
             decoration: BoxDecoration(
               color: const Color(0xFF173B8A).withOpacity(0.5),
-              borderRadius: const BorderRadius.all(Radius.circular(16))
+              borderRadius: const BorderRadius.all(Radius.circular(16)),
+              border: Border.all(
+                color: Colors.grey,
+                width: 4.0, // Set border thickness here
+              ),
             ),
             child: const Center(
               child: Text(

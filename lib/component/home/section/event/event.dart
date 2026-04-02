@@ -66,7 +66,7 @@ class _EventSectionState extends State<EventSection> {
 
   Future<void> _loadData() async {
     try {
-      final response = await WordPressApi.getEvents(1, 3, null);
+      final response = await WordPressApi.getEvents(1, 6, null);
 
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);

@@ -63,7 +63,7 @@ class _NewsSectionState extends State<NewsSection> {
     });
 
     try {
-      final response = await WordPressApi.getNews(1, 3, null);
+      final response = await WordPressApi.getNews(1, 6, null);
       if (!mounted) return;
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);

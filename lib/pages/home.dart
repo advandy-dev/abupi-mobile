@@ -8,6 +8,7 @@ import 'package:abupi/main.dart';
 import 'package:flutter/material.dart';
 import 'package:abupi/component/home/section/banner/banner.dart' as banner_section;
 import 'package:abupi/component/home/section/newsletter/newsletter.dart';
+import 'package:abupi/component/home/section/service/service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -74,6 +75,8 @@ class _HomeScreenState extends State<HomeScreen> {
         const AboutUsSection(),
         const SizedBox(height: 4),
         const EventSection(),
+        const SizedBox(height: 4),
+        const ServiceSection(),
         const SizedBox(height: 4),
         const NewsletterSection(),
         const SizedBox(height: 4),

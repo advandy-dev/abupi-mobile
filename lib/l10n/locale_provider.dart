@@ -144,6 +144,9 @@ class AppLocalizations {
       'journal': 'Jurnal',
       'description': 'Deskripsi',
       'pillar_description': 'Untuk mewujudkan visi tersebut, ABUPI berkomitmen memperkuat kolaborasi, tata kelola, dan keberlanjutan melalui tiga pilar utama berikut:',
+      'regional_operation_section_title': 'Wilayah Operasi Regional ABUPI',
+      'stakeholders': 'Pemangku Kepentingan',
+      'press_release': 'Siaran Pers',
     },
     'en': {
       'home': 'Home',
@@ -238,6 +241,9 @@ class AppLocalizations {
       'journal': 'Journal',
       'description': 'Description',
       'pillar_description': 'To realize this vision, ABUPI is committed to strengthening collaboration, governance, and sustainability through the following three main pillars:',
+      'regional_operation_section_title': 'ABUPI Regional Operational Area',
+      'stakeholders': 'Stakeholders',
+      'press_release': 'Press Release',
     },
   };
 
@@ -337,6 +343,9 @@ class AppLocalizations {
   String get journal => translate('journal');
   String get description => translate('description');
   String get pillarDescription => translate('pillar_description');
+  String get regionalOperationSectionTitle => translate('regional_operation_section_title');
+  String get stakeholders => translate('stakeholders');
+  String get pressRelease => translate('press_release');
 }
 
 class _AppLocalizationsDelegate

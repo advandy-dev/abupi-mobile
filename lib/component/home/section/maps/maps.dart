@@ -190,6 +190,15 @@ class _MapsSectionState extends State<MapsSection> {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         child: Column(
           children: [
+            Text(
+              l10n?.regionalOperationSectionTitle ?? "Wilayah Operasi Regional ABUPI",
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 4),
             SizedBox(
               height: 40,
               child: ListView.separated(
@@ -199,7 +208,7 @@ class _MapsSectionState extends State<MapsSection> {
                 separatorBuilder: (_, __) => const SizedBox(width: 8),
                 itemBuilder: (context, index) {
                   final member = _members[index];
-                  final name = l10n?.language == 'id' ?
+                  final name = l10n?.locale.languageCode == 'id' ?
                     member.region :
                     member.regionTranslate;
                   return Material(
@@ -361,7 +370,7 @@ class RegionPopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final language = l10n?.language;
+    final language = l10n?.locale.languageCode ?? 'id';
 
     return Container(
       margin: const EdgeInsets.all(16),
