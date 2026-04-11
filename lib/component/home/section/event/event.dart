@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:abupi/arguments/event_detail_args.dart';
+import 'package:abupi/arguments/home_args.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:abupi/services/wordpress_api.dart';
@@ -135,7 +136,7 @@ class _EventSectionState extends State<EventSection> {
       context,
       AbupiApp.homeRoute,
       (route) => false,
-      arguments: 1,
+      arguments: HomeScreenArguments(initialIndex: 1),
     );
   }
 

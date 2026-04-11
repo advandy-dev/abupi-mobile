@@ -137,5 +137,43 @@ class WordPressApi {
       return {};
     }
   }
+
+  static Future<Response> getStakeholderCategory(String language) async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseUrl/wp/v2/stakeholder_category?lang=$language');
+      final response = await client.get(
+        uri,
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static Future<Response> getStakeholder(int category, int page) async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseUrl/wp/v2/stakeholder?stakeholder_category=$category&per_page=5&page=$page');
+      final response = await client.get(
+        uri,
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
 }
 

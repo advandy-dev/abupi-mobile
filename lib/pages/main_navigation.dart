@@ -1,3 +1,4 @@
+import 'package:abupi/arguments/service_args.dart';
 import 'package:flutter/material.dart';
 import 'package:abupi/pages/home.dart';
 import 'package:abupi/pages/event.dart';
@@ -6,9 +7,10 @@ import 'package:abupi/main.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 
 class MainNavigation extends StatefulWidget {
-  const MainNavigation({super.key, this.initialIndex = 0});
+  const MainNavigation({super.key, this.initialIndex = 0, this.serviceArgs});
 
   final int initialIndex;
+  final ServiceScreenArguments? serviceArgs;
 
   @override
   State<MainNavigation> createState() => _MainNavigationState();
@@ -17,17 +19,18 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int _currentIndex = 0;
 
+  List<Widget> _pages = [];
+
   @override
   void initState() {
     super.initState();
     _currentIndex = widget.initialIndex;
+    _pages = [
+      const HomeScreen(),
+      const EventScreen(),
+      ServiceScreen(service: widget.serviceArgs?.service),
+    ];
   }
-
-  final List<Widget> _pages = const [
-    HomeScreen(),
-    EventScreen(),
-    ServiceScreen(),
-  ];
 
   void _showOtherMenuPopup() {
     showModalBottomSheet(
@@ -222,6 +225,16 @@ class OtherMenuPopup extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.pushNamed(context, AbupiApp.organizationRoute);
+                  },
+                ),
+                _buildDivider(context),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.policy_outlined,
+                  title: l10n?.regulation ?? 'Regulasi',
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, AbupiApp.externalRegulationRoute);
                   },
                 ),
                 _buildDivider(context),

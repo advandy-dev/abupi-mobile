@@ -1,12 +1,11 @@
-import 'package:abupi/util/launch_url.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ServiceScreen extends StatefulWidget {
+  final int? service;
 
-  const ServiceScreen();
+  const ServiceScreen({super.key, this.service});
 
   @override
   _ServiceScreen createState() => _ServiceScreen();
@@ -22,7 +21,8 @@ class _ServiceScreen extends State<ServiceScreen> {
   Widget _buildExpandableCapsule(
     BuildContext context, {
     required String title,
-    required IconData icon,
+    required String icon,
+    required bool initiallyExpanded,
     required List<Widget> children,
   }) {
     return Container(
@@ -44,206 +44,33 @@ class _ServiceScreen extends State<ServiceScreen> {
         child: Theme(
           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
-          leading: Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: const Color.fromRGBO(145, 179, 236, 0.2),
-              borderRadius: BorderRadius.circular(10),
+            initiallyExpanded: initiallyExpanded,
+            leading: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: const Color.fromRGBO(145, 179, 236, 0.2),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(icon, style: const TextStyle(fontSize: 20)),
             ),
-            child: Icon(
-              icon,
-              color: const Color.fromRGBO(145, 179, 236, 1.0),
+            title: Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 15,
+                color: Color(0xFF333333),
+              ),
             ),
+            iconColor: const Color.fromRGBO(145, 179, 236, 1.0),
+            collapsedIconColor: Colors.grey,
+            backgroundColor: Colors.white,
+            collapsedBackgroundColor: Colors.white,
+            childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            children: children,
           ),
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 15,
-              color: Color(0xFF333333),
-            ),
-          ),
-          iconColor: const Color.fromRGBO(145, 179, 236, 1.0),
-          collapsedIconColor: Colors.grey,
-          backgroundColor: Colors.white,
-          collapsedBackgroundColor: Colors.white,
-          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-          children: children,
-        ),
         ),
       ),
     );
-  }
-
-  Widget _buildContactItem({
-    required IconData icon,
-    required String label,
-    required String value,
-  }) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(
-          icon,
-          size: 20,
-          color: const Color.fromRGBO(145, 179, 236, 1.0),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                label,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                value,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFF333333),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildEmailItem(BuildContext context, List<String> emails) {
-    final l10n = AppLocalizations.of(context);
-
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Icon(
-          Icons.email,
-          size: 20,
-          color: Color.fromRGBO(145, 179, 236, 1.0),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Email',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: 4),
-              ...emails.map((email) => Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: Text(
-                  email,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF333333),
-                  ),
-                ),
-              )),
-              const SizedBox(height: 8),
-              SizedBox(
-                width: double.infinity,
-                child: OutlinedButton.icon(
-                  onPressed: () => launchEmail(emails),
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: const Color(0xFF2e2f7f),
-                    side: const BorderSide(
-                      color: Color(0xFF2e2f7f),
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  icon: const Icon(Icons.send, size: 18),
-                  label: Text(l10n?.sendEmail ?? 'Kirim Email'),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildPhoneItem(BuildContext context, String phone) {
-    final l10n = AppLocalizations.of(context);
-
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Icon(
-          Icons.phone,
-          size: 20,
-          color: Color.fromRGBO(145, 179, 236, 1.0),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                l10n?.phone ?? 'Telepon',
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                phone,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFF333333),
-                ),
-              ),
-              const SizedBox(height: 8),
-              SizedBox(
-                width: double.infinity,
-                child: OutlinedButton.icon(
-                  onPressed: () => _launchPhone(phone),
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: const Color(0xFF2e2f7f),
-                    side: const BorderSide(
-                      color: Color(0xFF2e2f7f),
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  icon: const Icon(Icons.call, size: 18),
-                  label: Text(l10n?.contact ?? 'Hubungi'),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Future<void> _launchPhone(String phone) async {
-    final cleanPhone = phone.replaceAll(' ', '');
-    final Uri phoneUri = Uri(
-      scheme: 'tel',
-      path: cleanPhone,
-    );
-    if (await canLaunchUrl(phoneUri)) {
-      await launchUrl(phoneUri);
-    }
   }
 
   @override
@@ -268,49 +95,144 @@ class _ServiceScreen extends State<ServiceScreen> {
           children: [
             _buildExpandableCapsule(
               context,
-              title: l10n?.consultationService ?? 'Konsultasi BUP/Tersus/TUKS',
-              icon: Icons.support_agent,
+              title: l10n?.serviceConsultationAssistanceTitle ?? '',
+              icon: '🧭',
+              initiallyExpanded: widget.service == 0,
               children: [
                 const SizedBox(height: 8),
-                _buildContactItem(
-                  icon: Icons.location_on,
-                  label: l10n?.address ?? 'Alamat',
-                  value: 'Jl. Boulevard Raya Blok QJ 1 No. 20\nKelapa Gading, Jakarta Utara 14240',
+                Text(
+                    l10n?.serviceConsultationAssistanceDescription ?? '',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-                const SizedBox(height: 12),
-                _buildEmailItem(
-                  context,
-                  ['sekretariat@abupi.or.id', 'abupi.sekretariat@gmail.com'],
+                const SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: ElevatedButton(
+                    style: const ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Color(0xFF2e2f7f)),
+                    ),
+                    onPressed: () => Navigator.pushNamed(
+                      context,
+                      AbupiApp.consultationAndAssistanceFormRoute,
+                    ),
+                    child: Text(
+                      l10n?.serviceConsultationAssistanceFormButton ?? '',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
-                const SizedBox(height: 12),
-                _buildPhoneItem(context, '0813 8823 4109'),
               ],
             ),
             const SizedBox(height: 12),
             _buildExpandableCapsule(
               context,
-              title: l10n?.educationAndTraining ?? 'Pendidikan & Pelatihan',
-              icon: Icons.school,
+              title: l10n?.serviceEducationTrainingTitle ?? '',
+              icon: '📘',
+              initiallyExpanded: widget.service == 1,
               children: [
                 const SizedBox(height: 8),
-                _buildContactItem(
-                  icon: Icons.category,
-                  label: l10n?.trainingType ?? 'Tipe Pelatihan',
-                  value: 'Public Training\nIn-House Training',
+                Text(
+                  l10n?.serviceEducationTrainingDescription ?? '',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-                const SizedBox(height: 12),
-                _buildContactItem(
-                  icon: Icons.location_on,
-                  label: l10n?.address ?? 'Alamat',
-                  value: 'Jl. Boulevard Raya Blok QJ 1 No. 20\nKelapa Gading, Jakarta Utara 14240',
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    ElevatedButton(
+                      style: const ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(Color(0xFF2e2f7f)),
+                      ),
+                      onPressed: () => {},
+                      child: Text(
+                        l10n?.serviceEducationTrainingPublicTrainingButton ?? '',
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    ElevatedButton(
+                      style: const ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(Color(0xFF2e2f7f)),
+                      ),
+                      onPressed: () => {},
+                      child: Text(
+                        l10n?.serviceEducationTrainingInHouseButton ?? '',
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            const SizedBox(height: 12),
+            _buildExpandableCapsule(
+              context,
+              title: l10n?.serviceWebsiteDatabasePartnerTitle ?? '',
+              icon: '🗂️',
+              initiallyExpanded: widget.service == 2,
+              children: [
+                const SizedBox(height: 8),
+                Text(
+                  l10n?.serviceWebsiteDatabasePartnerDescription ?? '',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-                const SizedBox(height: 12),
-                _buildEmailItem(
-                  context,
-                  ['sekretariat@abupi.or.id', 'abupi.sekretariat@gmail.com'],
+                const SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: ElevatedButton(
+                    style: const ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Color(0xFF2e2f7f)),
+                    ),
+                    onPressed: () => {},
+                    child: Text(
+                      l10n?.serviceWebsiteDatabasePartnerButton ?? '',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
-                const SizedBox(height: 12),
-                _buildPhoneItem(context, '0813 8823 4109'),
+              ],
+            ),
+            const SizedBox(height: 12),
+            _buildExpandableCapsule(
+              context,
+              title: l10n?.serviceExternalPartnerServiceTitle ?? '',
+              icon: '🤝',
+              initiallyExpanded: widget.service == 3,
+              children: [
+                const SizedBox(height: 8),
+                Text(
+                  l10n?.serviceExternalPartnerServiceDescription ?? '',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: ElevatedButton(
+                    style: const ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Color(0xFF2e2f7f)),
+                    ),
+                    onPressed: () => {},
+                    child: Text(
+                      l10n?.serviceExternalPartnerServiceVisitButton ?? '',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 16),

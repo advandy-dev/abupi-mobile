@@ -106,6 +106,8 @@ class AppLocalizations {
       'form_registration_pic_name_title': 'Nama PIC',
       'form_registration_pic_name_placeholder': 'Nama lengkap PIC',
       'form_registration_company_address_title': 'Alamat Perusahaan',
+      'form_registration_business_address_title': 'Alamat Lokasi Usaha',
+      'form_registration_business_address_placeholder': 'Alamat lengkap lokasi usaha',
       'form_registration_company_address_placeholder': 'Alamat lengkap perusahaan',
       'form_registration_pic_position_title': 'Jabatan PIC',
       'form_registration_pic_position_placeholder': 'Direktur operasional',
@@ -119,6 +121,7 @@ class AppLocalizations {
       'required_fill': 'Wajib diisi',
       'empty_event': 'Tidak ada acara',
       'empty_news': 'Tidak ada berita',
+      'empty_data': 'Tidak ada data',
       'office_address_value': 'Alamat Kantor Kami',
       'phone_number': 'Nomor Telepon',
       'phone': 'Telepon',
@@ -147,6 +150,37 @@ class AppLocalizations {
       'regional_operation_section_title': 'Wilayah Operasi Regional ABUPI',
       'stakeholders': 'Pemangku Kepentingan',
       'press_release': 'Siaran Pers',
+      'service_consultation_and_assistance_title': 'Konsultasi & Asistensi',
+      'service_consultation_and_assistance_description': 'Dapatkan dukungan dari tim ABUPI untuk konsultasi BUP/Tersus/TUKS.',
+      'service_education_and_training_title': 'Pendidikan & Pelatihan',
+      'service_education_and_training_description': 'Program pengembangan kompetensi melalui Public Training dan In-house Training.',
+      'service_website_database_partner_title': 'Website Database Partner',
+      'service_website_database_partner_description': 'Akses informasi partner dan jaringan kolaborasi ABUPI.',
+      'service_external_partner_service_title': 'Layanan Partner Eksternal',
+      'service_external_partner_service_description': 'Layanan tambahan bersama partner eksternal untuk kebutuhan aanggota.',
+      'service_consultation_and_assistance_form_button': 'Form Konsultasi & Asistensi',
+      'service_education_and_training_public_training_button': 'Public Training',
+      'service_education_and_training_in_house_training_button': 'In-House Training',
+      'service_website_database_partner_button': 'Buka Website Partner',
+      'service_external_partner_service_visit_button': 'Kunjungi Partner',
+      'registration_same_address_label': 'Sama dengan alamat perusahaan',
+      'work_plan_acceleration': 'Akselerasi',
+      'work_plan_inclusion': 'Inklusi',
+      'work_plan_competence': 'Kompetensi',
+      'work_plan_technology': 'Teknologi',
+      'work_plan_sustainability': 'Keberlanjutan',
+      'template_prefix_email_consultation_and_assistance': 'Yth. Pengurus ABUPI\n\nMelalui email ini kami bermaksud mengajukan permohonan untuk konsultasi dan asistensi.\n\nBersamaan dengan email ini, kami lampirkan data perusahaan kami beserta data PIC yang dapat dihubungi.\n',
+      'name': 'Nama',
+      'position': 'Jabatan',
+      'email': 'Email',
+      'contact_number': 'Nomor Kontak',
+      'ABUPI_member_id': 'Nomor Keanggotaan ABUPI',
+      'subject': 'Subject',
+      'problem_description': 'Deskripsi Permasalahan',
+      'consultation_assistance_tnc_description': 'Dengan ini saya menyatakan bahwa seluruh data yang saya isi adalah benar dan dapat dipertanggungjawabkan. Dengan mengisi formulir ini, saya bersedia untuk dihubungi oleh ABUPI guna menindaklanjuti permasalahan yang saya sampaikan.',
+      'agree': 'Saya setuju',
+      'category': 'Kategori',
+      'choose_category': 'Pilih Kategori',
     },
     'en': {
       'home': 'Home',
@@ -203,6 +237,8 @@ class AppLocalizations {
       'form_registration_pic_name_title': 'PIC Name',
       'form_registration_pic_name_placeholder': 'PIC fullname',
       'form_registration_company_address_title': 'Company Address',
+      'form_registration_business_address_title': 'Business Address',
+      'form_registration_business_address_placeholder': 'Business Address',
       'form_registration_company_address_placeholder': 'Company address',
       'form_registration_pic_position_title': 'PIC Position',
       'form_registration_pic_position_placeholder': 'Director of operations',
@@ -216,6 +252,7 @@ class AppLocalizations {
       'required_fill': 'Required to fill',
       'empty_event': 'Event is empty',
       'empty_news': 'News is empty',
+      'empty_data': 'Data is empty',
       'office_address_value': 'Office Address',
       'phone_number': 'Phone Number',
       'phone': 'Phone',
@@ -244,6 +281,37 @@ class AppLocalizations {
       'regional_operation_section_title': 'ABUPI Regional Operational Area',
       'stakeholders': 'Stakeholders',
       'press_release': 'Press Release',
+      'service_consultation_and_assistance_title': 'Consultation & Assistance',
+      'service_consultation_and_assistance_description': 'Get support from the ABUPI team for BUP/Tersus/TUKS consultations.',
+      'service_education_and_training_title': 'Education & Training',
+      'service_education_and_training_description': 'Competency development programs through Public and In-House Training.',
+      'service_website_database_partner_title': 'Website Database Partner',
+      'service_website_database_partner_description': 'Access to partner information and ABUPI`s collaboration network.',
+      'service_external_partner_service_title': 'External Partner Services',
+      'service_external_partner_service_description': 'Additional services with external partners to meet member needs.',
+      'service_consultation_and_assistance_form_button': 'Form Consultation & Assistance',
+      'service_education_and_training_public_training_button': 'Public Training',
+      'service_education_and_training_in_house_training_button': 'In-House Training',
+      'service_website_database_partner_button': 'Open Partner Website',
+      'service_external_partner_service_visit_button': 'Visit Partner',
+      'registration_same_address_label': 'Same like company address',
+      'work_plan_acceleration': 'Acceleration',
+      'work_plan_inclusion': 'Inclusion',
+      'work_plan_competence': 'Competence',
+      'work_plan_technology': 'Technology',
+      'work_plan_sustainability': 'Sustainability',
+      'name': 'Name',
+      'position': 'Position',
+      'email': 'Email',
+      'contact_number': 'Contact Number',
+      'ABUPI_member_id': 'ABUPI Member ID',
+      'subject': 'Subject',
+      'problem_description': 'Description of Problem',
+      'template_prefix_email_consultation_and_assistance': 'Dear ABUPI Management\n\nThrough this email, we would like to apply to consultation dan assistance.\n\nAlong with this email, we attach our company data as well as the contactable PIC information.\n',
+      'agree': 'I agree',
+      'consultation_assistance_tnc_description': 'I confirm that all the details I have entered are true and valid. By filling out this form, I agree to be contacted by ABUPI to follow up on the issues I submitted.',
+      'category': 'Category',
+      'choose_category': 'Choose Category',
     },
   };
 
@@ -305,6 +373,8 @@ class AppLocalizations {
   String get formRegistrationPicNameTitle => translate('form_registration_pic_name_title');
   String get formRegistrationPicNamePlaceholder => translate('form_registration_pic_name_placeholder');
   String get formRegistrationCompanyAddressTitle => translate('form_registration_company_address_title');
+  String get formRegistrationBusinessAddressTitle => translate('form_registration_business_address_title');
+  String get formRegistrationBusinessAddressPlaceholder => translate('form_registration_business_address_placeholder');
   String get formRegistrationCompanyAddressPlaceholder => translate('form_registration_company_address_placeholder');
   String get formRegistrationPicPositionTitle => translate('form_registration_pic_position_title');
   String get formRegistrationPicPositionPlaceholder => translate('form_registration_pic_position_placeholder');
@@ -346,6 +416,38 @@ class AppLocalizations {
   String get regionalOperationSectionTitle => translate('regional_operation_section_title');
   String get stakeholders => translate('stakeholders');
   String get pressRelease => translate('press_release');
+  String get serviceConsultationAssistanceTitle => translate('service_consultation_and_assistance_title');
+  String get serviceConsultationAssistanceDescription => translate('service_consultation_and_assistance_description');
+  String get serviceEducationTrainingTitle => translate('service_education_and_training_title');
+  String get serviceEducationTrainingDescription => translate('service_education_and_training_description');
+  String get serviceWebsiteDatabasePartnerTitle => translate('service_website_database_partner_title');
+  String get serviceWebsiteDatabasePartnerDescription => translate('service_website_database_partner_description');
+  String get serviceExternalPartnerServiceTitle => translate('service_external_partner_service_title');
+  String get serviceExternalPartnerServiceDescription => translate('service_external_partner_service_description');
+  String get serviceConsultationAssistanceFormButton => translate('service_consultation_and_assistance_form_button');
+  String get serviceEducationTrainingPublicTrainingButton => translate('service_education_and_training_public_training_button');
+  String get serviceEducationTrainingInHouseButton => translate('service_education_and_training_in_house_training_button');
+  String get serviceWebsiteDatabasePartnerButton => translate('service_website_database_partner_button');
+  String get serviceExternalPartnerServiceVisitButton => translate('service_external_partner_service_visit_button');
+  String get registrationSameAddressLabel => translate('registration_same_address_label');
+  String get workPlanAcceleration => translate('work_plan_acceleration');
+  String get workPlanInclusion => translate('work_plan_inclusion');
+  String get workPlanCompetence => translate('work_plan_competence');
+  String get workPlanTechnology => translate('work_plan_technology');
+  String get workPlanSustainability => translate('work_plan_sustainability');
+  String get name => translate('name');
+  String get position => translate('position');
+  String get email => translate('email');
+  String get contactNumber => translate('contact_number');
+  String get idMemberABUPI => translate('ABUPI_member_id');
+  String get subject => translate('subject');
+  String get problemDescription => translate('problem_description');
+  String get templatePrefixEmailConsultationAndAssistance => translate('template_prefix_email_consultation_and_assistance');
+  String get agree => translate('agree');
+  String get consultationAssistanceTNCDescription => translate('consultation_assistance_tnc_description');
+  String get category => translate('category');
+  String get chooseCategory => translate('choose_category');
+  String get emptyData => translate('empty_data');
 }
 
 class _AppLocalizationsDelegate

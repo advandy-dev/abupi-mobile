@@ -31,25 +31,25 @@ class WorkPlanScreen extends StatelessWidget {
           _buildMenuItem(
             context,
             icon: Icons.account_balance_outlined,
-            title: 'Regulator',
+            title: l10n?.workPlanAcceleration ?? 'Akselerasi',
             onTap: () {
-              Navigator.pushNamed(context, AbupiApp.regulatorRoute);
+              // TODO inclusion page
             },
           ),
           _buildDivider(context),
           _buildMenuItem(
             context,
             icon: Icons.policy_outlined,
-            title: l10n?.externalRegulation ?? 'Regulasi Eksternal',
+            title: l10n?.workPlanInclusion ?? 'Inklusi',
             onTap: () {
-              Navigator.pushNamed(context, AbupiApp.externalRegulationRoute);
+              // TODO inclusion page
             },
           ),
           _buildDivider(context),
           _buildMenuItem(
             context,
             icon: Icons.safety_divider,
-            title: l10n?.inclusion ?? 'Inklusi',
+            title: l10n?.workPlanCompetence ?? 'Kompetensi',
             onTap: () {
               // TODO inclusion page
             },
@@ -58,9 +58,18 @@ class WorkPlanScreen extends StatelessWidget {
           _buildMenuItem(
             context,
             icon: Icons.people,
-            title: 'SDM, Digitalisasi & Berkelanjutan',
+            title: l10n?.workPlanTechnology ?? 'Teknologi',
             onTap: () {
-              // TODO SDM page
+              // TODO page
+            },
+          ),
+          _buildDivider(context),
+          _buildMenuItem(
+            context,
+            icon: Icons.people,
+            title: l10n?.workPlanSustainability ?? 'Keberlanjutan',
+            onTap: () {
+              // TODO page
             },
           ),
         ],

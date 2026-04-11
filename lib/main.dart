@@ -1,6 +1,7 @@
 import 'package:abupi/arguments/event_detail_args.dart';
 import 'package:abupi/pages/about_us.dart';
 import 'package:abupi/pages/board_of_directors.dart';
+import 'package:abupi/pages/consultation_assistance_form.dart';
 import 'package:abupi/pages/contact_us.dart';
 import 'package:abupi/pages/event_detail.dart';
 import 'package:abupi/pages/gallery.dart';
@@ -11,6 +12,7 @@ import 'package:abupi/pages/pdf.dart';
 import 'package:abupi/pages/organization.dart';
 import 'package:abupi/pages/regional_board_of_director.dart';
 import 'package:abupi/pages/registration.dart';
+import 'package:abupi/pages/stakeholders.dart';
 import 'package:abupi/pages/work_plan.dart';
 import 'package:abupi/pages/media.dart';
 import 'package:abupi/pages/regulator.dart';
@@ -22,6 +24,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 
+import 'arguments/home_args.dart';
 import 'arguments/pdf_args.dart';
 
 void main() {
@@ -57,6 +60,8 @@ class AbupiApp extends StatelessWidget {
   static const String eventRoute = '/acara';
   static const String registrationRoute = '/register';
   static const String newsRoute = '/berita';
+  static const String consultationAndAssistanceFormRoute = '/formulir-konsultasi-asistensi';
+  static const String stakeholderRoute = '/pemangku-kepentingan';
 
   @override
   Widget build(BuildContext context) {
@@ -115,10 +120,11 @@ class AbupiApp extends StatelessWidget {
 
         switch (settings.name) {
           case homeRoute:
-            final initialIndex = settings.arguments as int?;
+            final arg = settings.arguments as HomeScreenArguments?;
             return MaterialPageRoute(
               builder: (context) => MainNavigation(
-                initialIndex: initialIndex ?? 0,
+                initialIndex: arg?.initialIndex ?? 0,
+                serviceArgs: arg?.service,
               ),
             );
           case organizationRoute:
@@ -183,6 +189,14 @@ class AbupiApp extends StatelessWidget {
           case registrationRoute:
             return MaterialPageRoute(
               builder: (context) => const RegistrationScreen(),
+            );
+          case consultationAndAssistanceFormRoute:
+            return MaterialPageRoute(
+              builder: (context) => const ConsultationAndAssistanceFormScreen(),
+            );
+          case stakeholderRoute:
+            return MaterialPageRoute(
+              builder: (context) => const StakeholderScreen(),
             );
           default:
             return MaterialPageRoute(

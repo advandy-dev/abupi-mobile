@@ -96,8 +96,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       name: 'Ariyanto Purboyo',
       position: 'WAKIL KETUA UMUM I',
       positionTranslate: 'VICE CHAIRMAN I',
-      section: 'BIDANG AKSELERASI KEBIJAKAN & BISNIS DEVELOPMENT',
-      sectionTranslate: 'BUSINESS DEVELOPMENT & POLICY ACCELERATION',
+      section: 'Bidang Akselerasi Kebijakan & Peraturan, Rantai Pasok & Biz. Dvlp.',
+      sectionTranslate: 'Policy & Regulatory Acceleration, Supply Chain & Biz. Dvlp.',
       subordinate: [
         Subordinate(
           name: 'Widagdo Pradono Siwi',
@@ -518,6 +518,14 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     final l10n = AppLocalizations.of(context);
     final language = l10n?.locale.languageCode ?? 'id';
     final position = language == 'id' ? subordinate.position : subordinate.positionTranslate;
+    final section = language == 'id' ? subordinate.section : subordinate.sectionTranslate;
+
+    String subtitle = position;
+    if (subordinate.company != null) {
+      subtitle += ' (${subordinate.company})';
+    }
+
+    subtitle += ' - $section';
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -554,9 +562,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
               ),
               const SizedBox(height: 4),
               Text(
-                subordinate.company != null
-                    ? '$position (${subordinate.company})'
-                    : position,
+                subtitle,
                 style: TextStyle(
                   fontSize: 13,
                   color: Colors.grey[600],

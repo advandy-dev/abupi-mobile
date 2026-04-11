@@ -35,15 +35,15 @@ class OrganizationScreen extends StatelessWidget {
               Navigator.pushNamed(context, AbupiApp.boardOfDirectorsRoute);
             },
           ),
-          // _buildDivider(context),
-          // _buildMenuItem(
-          //   context,
-          //   icon: Icons.location_on_outlined,
-          //   title: l10n?.regionalCoordinator ?? 'Koordinator Wilayah',
-          //   onTap: () {
-          //     Navigator.pushNamed(context, AbupiApp.regionalBODRoute);
-          //   },
-          // ),
+          _buildDivider(context),
+          _buildMenuItem(
+            context,
+            icon: Icons.location_on_outlined,
+            title: l10n?.regionalCoordinator ?? 'Koordinator Wilayah',
+            onTap: () {
+              Navigator.pushNamed(context, AbupiApp.regionalBODRoute);
+            },
+          ),
           _buildDivider(context),
           _buildMenuItem(
             context,
@@ -77,7 +77,7 @@ class OrganizationScreen extends StatelessWidget {
             icon: Icons.business_outlined,
             title: l10n?.stakeholders ?? 'Pemangku Kepentingan',
             onTap: () {
-              Navigator.pushNamed(context, AbupiApp.workPartnersRoute);
+              Navigator.pushNamed(context, AbupiApp.stakeholderRoute);
             },
           ),
         ],

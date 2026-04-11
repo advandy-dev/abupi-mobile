@@ -14,12 +14,16 @@ class _RegistrationScreen extends State<RegistrationScreen> {
   String _companyName = '';
   String _picName = '';
   String _companyAddress = '';
+  String _businessAddress = '';
+  bool _isSameAddress = false;
   String _picPosition = '';
   String _picPhoneNumber = '';
   String _picEmail = '';
   String _typeOfBusiness = '';
   String _companyStatus = '';
   String _membershipType = '';
+
+  TextEditingController _businessAddressController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
       if (
         _companyName.isEmpty || _picName.isEmpty || _companyAddress.isEmpty ||
         _picPosition.isEmpty || _picPosition.isEmpty || _picPhoneNumber.isEmpty ||
-        _picEmail.isEmpty || _typeOfBusiness.isEmpty || _companyStatus.isEmpty
+        _picEmail.isEmpty || _typeOfBusiness.isEmpty || _companyStatus.isEmpty ||
+        _businessAddress.isEmpty
       ) {
         debugPrint('empty');
         return;
@@ -41,6 +46,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
       final companyNameLabel = l10n?.formRegistrationCompanyNameTitle ?? 'Nama Perusahaan';
       final picNameLabel = l10n?.formRegistrationPicNameTitle ?? 'Nama PIC';
       final companyAddressLabel = l10n?.formRegistrationCompanyAddressTitle ?? 'Alamat Perusahaan';
+      final businessAddressLabel = l10n?.formRegistrationBusinessAddressTitle ?? 'Alamat Lokasi Usaha';
       final picPositionLabel = l10n?.formRegistrationPicPositionTitle ?? 'Jabatan PIC';
       final picPhoneNumberLabel = l10n?.formRegistrationPicPhoneNumberTitle ?? 'Nomor Telepon PIC';
       final picEmailLabel = l10n?.formRegistrationPicEmailTitle ?? 'Email PIC';
@@ -52,6 +58,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
         '$companyNameLabel: $_companyName',
         '$picNameLabel: $_picName',
         '$companyAddressLabel: $_companyAddress',
+        '$businessAddressLabel: $_businessAddress',
         '$picPositionLabel: $_picPosition',
         '$picPhoneNumberLabel: $_picPhoneNumber',
         '$picEmailLabel: $_picEmail',
@@ -67,6 +74,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
       );
       debugPrint('mailto $mailtoUri');
       launchUrl(mailtoUri);
+      Navigator.pop(context);
     }
 
     return Scaffold(
@@ -100,6 +108,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             ),
             const SizedBox(height: 8),
             TextField(
+              style: const TextStyle(color: Colors.black),
               cursorColor: const Color(0xFF2e2f7f),
               cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
@@ -133,47 +142,6 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             const SizedBox(height: 24),
 
             Text(
-              l10n?.formRegistrationPicNameTitle ?? 'Nama PIC',
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(height: 8),
-            TextField(
-              cursorColor: const Color(0xFF2e2f7f),
-              cursorErrorColor: const Color(0xFF2e2f7f),
-              decoration: InputDecoration(
-                hintText: l10n?.formRegistrationPicNamePlaceholder ?? 'Nama lengkap PIC',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
-              ),
-              onChanged: (value) {
-                setState(() {
-                  _picName = value;
-                });
-              },
-            ),
-            if (_picName.isEmpty && _isSubmitted) ...[
-              Text(
-                l10n?.requiredFill ?? 'Wajib diisi',
-                style: const TextStyle(color: Colors.red),
-              ),
-            ],
-            const SizedBox(height: 24),
-
-            Text(
               l10n?.formRegistrationCompanyAddressTitle ?? 'Alamat Perusahaan',
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
@@ -182,6 +150,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             ),
             const SizedBox(height: 8),
             TextField(
+              style: const TextStyle(color: Colors.black),
               keyboardType: TextInputType.multiline,
               maxLines: 4,
               cursorColor: const Color(0xFF2e2f7f),
@@ -217,6 +186,112 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             const SizedBox(height: 24),
 
             Text(
+              l10n?.formRegistrationBusinessAddressTitle ?? 'Alamat Lokasi Usaha',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(height: 8),
+            TextField(
+              style: const TextStyle(color: Colors.black),
+              keyboardType: TextInputType.multiline,
+              controller: _businessAddressController,
+              maxLines: 4,
+              cursorColor: const Color(0xFF2e2f7f),
+              cursorErrorColor: const Color(0xFF2e2f7f),
+              decoration: InputDecoration(
+                hintText: l10n?.formRegistrationBusinessAddressPlaceholder ?? 'Alamat lengkap lokasi usaha ',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                filled: true,
+                fillColor: Colors.white,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+              ),
+              onChanged: (value) {
+                setState(() {
+                  _businessAddress = value;
+                });
+              },
+            ),
+            if (_businessAddress.isEmpty && _isSubmitted) ...[
+              Text(
+                l10n?.requiredFill ?? 'Wajib diisi',
+                style: const TextStyle(color: Colors.red),
+              ),
+            ],
+            CheckboxListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(
+                l10n?.registrationSameAddressLabel ?? 'Sama dengan alamat perusahaan',
+                style: const TextStyle(color: Colors.black),
+              ),
+              checkColor: Colors.white,
+              activeColor: const Color(0xFF2e2f7f),
+              value: _isSameAddress,
+              onChanged: (newValue) {
+                String address = newValue == true ? _companyAddress : _businessAddress;
+                _businessAddressController.text = address;
+                setState(() {
+                  _isSameAddress = newValue ?? false;
+                  _businessAddress = address;
+                });
+              },
+              controlAffinity: ListTileControlAffinity.leading,
+            ),
+            const SizedBox(height: 24),
+
+            Text(
+              l10n?.formRegistrationPicNameTitle ?? 'Nama PIC',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(height: 8),
+            TextField(
+              style: const TextStyle(color: Colors.black),
+              cursorColor: const Color(0xFF2e2f7f),
+              cursorErrorColor: const Color(0xFF2e2f7f),
+              decoration: InputDecoration(
+                hintText: l10n?.formRegistrationPicNamePlaceholder ?? 'Nama lengkap PIC',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                filled: true,
+                fillColor: Colors.white,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+              ),
+              onChanged: (value) {
+                setState(() {
+                  _picName = value;
+                });
+              },
+            ),
+            if (_picName.isEmpty && _isSubmitted) ...[
+              Text(
+                l10n?.requiredFill ?? 'Wajib diisi',
+                style: const TextStyle(color: Colors.red),
+              ),
+            ],
+            const SizedBox(height: 24),
+
+            Text(
               l10n?.formRegistrationPicPositionTitle ?? 'Jabatan PIC',
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
@@ -225,6 +300,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             ),
             const SizedBox(height: 8),
             TextField(
+              style: const TextStyle(color: Colors.black),
               cursorColor: const Color(0xFF2e2f7f),
               cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
@@ -266,6 +342,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             ),
             const SizedBox(height: 8),
             TextField(
+              style: const TextStyle(color: Colors.black),
               cursorColor: const Color(0xFF2e2f7f),
               cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
@@ -307,6 +384,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             ),
             const SizedBox(height: 8),
             TextField(
+              style: const TextStyle(color: Colors.black),
               cursorColor: const Color(0xFF2e2f7f),
               cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(

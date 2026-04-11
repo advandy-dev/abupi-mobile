@@ -72,7 +72,7 @@ class _PDFScreen extends State<PDFScreen> {
       if (Platform.isAndroid) {
         directory = await getExternalStorageDirectory();
         // Try to save in Downloads folder
-        final downloadsPath = '/storage/emulated/0/Download';
+        const downloadsPath = '/storage/emulated/0/Download';
         if (await Directory(downloadsPath).exists()) {
           directory = Directory(downloadsPath);
         }
