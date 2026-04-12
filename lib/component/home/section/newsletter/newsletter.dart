@@ -1,6 +1,12 @@
+import 'dart:convert';
+
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
+import 'package:abupi/models/newsletter.dart';
+import 'package:abupi/services/wordpress_api.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:shimmer/shimmer.dart';
 
 class NewsletterSection extends StatefulWidget {
   const NewsletterSection({super.key});
@@ -10,9 +16,144 @@ class NewsletterSection extends StatefulWidget {
 }
 
 class _NewsletterSectionState extends State<NewsletterSection> {
+  bool _isLoading = false;
+  Newsletter? _newsletter;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    try {
+      setState(() {
+        _isLoading = true;
+      });
+      final response = await WordPressApi.getNewsletter(1);
+
+      if (response.statusCode == 200) {
+        final List<dynamic> jsonList = json.decode(response.body);
+        if (jsonList.isNotEmpty) {
+          try {
+            var newsletter = jsonList.map((item) {
+              final acf = item['acf'];
+              return Newsletter(
+                title: acf['title'],
+                date: acf['date'],
+                image: acf['image'],
+                fileURL: acf['newsletter_file'],
+              );
+            }).toList();
+
+            setState(() {
+              _newsletter = newsletter[0];
+              _isLoading = false;
+            });
+          } catch (e) {
+            debugPrint('error newsletter list $e');
+            setState(() {
+              _isLoading = false;
+            });
+          }
+        } else {
+          setState(() {
+            _isLoading = false;
+          });
+        }
+      }
+    } catch (e) {
+      debugPrint('$e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final language = l10n?.locale.languageCode;
+
+    String monthAndYear = '';
+    if (_newsletter != null) {
+      final dateTime = DateTime.parse(_newsletter?.date ?? '');
+      monthAndYear = DateFormat('MMMM yyyy', language).format(dateTime);
+    }
+
+    if (_isLoading) {
+      return Container(
+        padding: const EdgeInsets.all(12),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF2f3fa3),
+              Color(0xFF1fa2b1),
+            ],
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 12),
+            Shimmer.fromColors(
+              baseColor: Colors.grey.shade300,
+              highlightColor: Colors.grey.shade100,
+              child: Container(
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF173B8A).withOpacity(0.5),
+                  borderRadius: const BorderRadius.all(Radius.circular(16)),
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 4.0, // Set border thickness here
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Shimmer.fromColors(
+              baseColor: Colors.grey.shade300,
+              highlightColor: Colors.grey.shade100,
+              child: Container(
+                width: 80,
+                height: 20,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF173B8A).withOpacity(0.5),
+                  borderRadius: const BorderRadius.all(Radius.circular(4)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Shimmer.fromColors(
+              baseColor: Colors.grey.shade300,
+              highlightColor: Colors.grey.shade100,
+              child: Container(
+                width: 200,
+                height: 14,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF173B8A).withOpacity(0.5),
+                  borderRadius: const BorderRadius.all(Radius.circular(4)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Shimmer.fromColors(
+              baseColor: Colors.grey.shade300,
+              highlightColor: Colors.grey.shade100,
+              child: Container(
+                width: 150,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF173B8A).withOpacity(0.5),
+                  borderRadius: const BorderRadius.all(Radius.circular(4)),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
 
     return Container(
       padding: const EdgeInsets.all(12),
@@ -41,10 +182,10 @@ class _NewsletterSectionState extends State<NewsletterSection> {
                 width: 4.0, // Set border thickness here
               ),
             ),
-            child: const Center(
-              child: Text(
-                'ABUPI News Jan 2026',
-                style: TextStyle(color: Colors.white),
+            child: Center(
+              child: Image.network(
+                _newsletter?.image ?? '',
+                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -57,9 +198,9 @@ class _NewsletterSectionState extends State<NewsletterSection> {
               fontSize: 20,
             ),
           ),
-          const Text(
-            'ABUPI Newsletter Jan 2026',
-            style: TextStyle(
+          Text(
+            'ABUPI Newsletter $monthAndYear',
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 14,
             ),

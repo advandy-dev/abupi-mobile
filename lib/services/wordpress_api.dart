@@ -155,10 +155,18 @@ class WordPressApi {
     }
   }
 
-  static Future<Response> getStakeholder(int category, int page) async {
+  static Future<Response> getStakeholder(List<int> categories, int? page) async {
     final client = _createHttpClient();
     try {
-      final uri = Uri.parse('$baseUrl/wp/v2/stakeholder?stakeholder_category=$category&per_page=5&page=$page');
+      String categoryParam = '';
+      for (var category in categories) {
+        categoryParam += '$category,';
+      }
+      String pageParam = '';
+      if (page != null) {
+        pageParam = '&per_page=5&page=$page';
+      }
+      final uri = Uri.parse('$baseUrl/wp/v2/stakeholder?stakeholder_category=$categoryParam$pageParam');
       final response = await client.get(
         uri,
         headers: {
@@ -174,10 +182,14 @@ class WordPressApi {
     }
   }
 
-  static Future<Response> getNewsletter() async {
+  static Future<Response> getNewsletter(int? perPage) async {
     final client = _createHttpClient();
     try {
-      final uri = Uri.parse('$baseUrl/wp/v2/newsletter');
+      String perPageParam = '';
+      if (perPage != null) {
+        perPageParam = '?per_page=$perPage';
+      }
+      final uri = Uri.parse('$baseUrl/wp/v2/newsletter$perPageParam');
       final response = await client.get(
         uri,
         headers: {
@@ -216,6 +228,25 @@ class WordPressApi {
     final client = _createHttpClient();
     try {
       final uri = Uri.parse('$baseUrl/wp/v2/journal');
+      final response = await client.get(
+        uri,
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static Future<Response> getPressRelease() async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseUrl/wp/v2/press_release');
       final response = await client.get(
         uri,
         headers: {

@@ -184,6 +184,7 @@ class AppLocalizations {
       'download_newsletter': 'Unduh Buletin',
       'share_to_whatsapp': 'Bagikan melalui Whatsapp',
       'newsletter_information': '* Klik pada Cover di atas untuk membaca buletin',
+      'companies_that_trust_abupi': 'Perusahaan-perusahaan yang mempercayai ABUPI',
     },
     'en': {
       'home': 'Home',
@@ -318,6 +319,7 @@ class AppLocalizations {
       'download_newsletter': 'Download Newsletter',
       'share_to_whatsapp': 'Share to Whatsapp',
       'newsletter_information': '* Click on Cover above for read the newsletter',
+      'companies_that_trust_abupi': 'Companies that trust ABUPI',
     },
   };
 
@@ -457,6 +459,7 @@ class AppLocalizations {
   String get downloadNewsletter => translate('download_newsletter');
   String get shareToWhatsapp => translate('share_to_whatsapp');
   String get newsletterInformation => translate('newsletter_information');
+  String get companiesThatTrustABUPI => translate('companies_that_trust_abupi');
 }
 
 class _AppLocalizationsDelegate

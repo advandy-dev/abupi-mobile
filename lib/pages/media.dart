@@ -60,13 +60,13 @@ class MediaScreen extends StatelessWidget {
             icon: Icons.my_library_books,
             title: l10n?.pressRelease ?? 'Siaran Pers',
             onTap: () {
-              // TODO journal page
+              Navigator.pushNamed(context, AbupiApp.pressReleaseRoute);
             },
           ),
           _buildDivider(context),
           _buildMenuItem(
             context,
-            icon: Icons.my_library_books,
+            icon: Icons.my_library_books_outlined,
             title: l10n?.journal ?? 'Jurnal',
             onTap: () {
               Navigator.pushNamed(context, AbupiApp.journalRoute);

@@ -102,7 +102,7 @@ class _StakeholderScreen extends State<StakeholderScreen> {
       setState(() {
         _isLoadingStakeholder = true;
       });
-      final response = await WordPressApi.getStakeholder(category, _page);
+      final response = await WordPressApi.getStakeholder([category], _page);
 
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);

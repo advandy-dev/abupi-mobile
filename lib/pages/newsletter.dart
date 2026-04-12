@@ -66,7 +66,7 @@ class _NewsletterScreen extends State<NewsletterScreen> {
       setState(() {
         _isLoading = true;
       });
-      final response = await WordPressApi.getNewsletter();
+      final response = await WordPressApi.getNewsletter(null);
 
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);
@@ -82,35 +82,8 @@ class _NewsletterScreen extends State<NewsletterScreen> {
               );
             }).toList();
 
-            List<Newsletter> _temp = [
-              Newsletter(
-                title: 'Testing Buleting 1',
-                date: '2026-03-18 00:00:00',
-                fileURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PM-5-TAHUN-2022-Konsesi-Melaului-Pelelangan.pdf',
-                image: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/IMG_4870-scaled-1.jpg',
-              ),
-              Newsletter(
-                title: 'Testing Buleting 2',
-                date: '2026-03-18 00:00:00',
-                fileURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PM_52_Tahun_2021_JDIH_TERSUS_TUKS.pdf',
-                image: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/IMG_4893-scaled-1.jpg',
-              ),
-              Newsletter(
-                title: 'Testing Buleting 3',
-                date: '2026-03-18 00:00:00',
-                fileURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PM-48-TAHUN-2021-Konsesi-dan-Kerjasama-Bentuk-lainnya.pdf',
-                image: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/HUT-PIC-5.jpg',
-              ),
-              Newsletter(
-                title: 'Testing Buleting 4',
-                date: '2026-03-18 00:00:00',
-                fileURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PP_64_Tahun_2015-Tentang-Perubahan-PP-61-Tahun-2009-Ttg-Kepelabuhanan.pdf',
-                image: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/HUT-PIC-4.jpg',
-              ),
-            ];
-
             setState(() {
-              _newsletter = newsletter + _temp;
+              _newsletter = newsletter;
               _selectedNewsletter = newsletter[0];
               _isLoading = false;
             });
@@ -496,9 +469,9 @@ class _NewsletterScreen extends State<NewsletterScreen> {
   }
 
   Widget _buildNewsletterCard(BuildContext context, Newsletter newsletter) {
+    final l10n = AppLocalizations.of(context);
+    final language = l10n?.locale.languageCode;
     DateTime dateTime = DateTime.parse(newsletter.date);
-    double screenWidth = MediaQuery.of(context).size.width;
-    double maxWidth = (screenWidth / 4) - 10;
 
     return Container(
       padding: const EdgeInsets.all(8),
@@ -561,7 +534,7 @@ class _NewsletterScreen extends State<NewsletterScreen> {
             ),
             const SizedBox(height: 4),
             Text(
-              DateFormat('d MMMM yyyy').format(dateTime),
+              DateFormat('d MMMM yyyy', language).format(dateTime),
               style: const TextStyle(color: Colors.grey, fontSize: 12),
             ),
           ],

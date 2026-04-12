@@ -12,6 +12,7 @@ import 'package:abupi/pages/news.dart';
 import 'package:abupi/pages/newsletter.dart';
 import 'package:abupi/pages/pdf.dart';
 import 'package:abupi/pages/organization.dart';
+import 'package:abupi/pages/press_release.dart';
 import 'package:abupi/pages/regional_board_of_director.dart';
 import 'package:abupi/pages/registration.dart';
 import 'package:abupi/pages/stakeholders.dart';
@@ -66,6 +67,7 @@ class AbupiApp extends StatelessWidget {
   static const String stakeholderRoute = '/pemangku-kepentingan';
   static const String newsletterRoute = '/buletin';
   static const String journalRoute = '/media/journal';
+  static const String pressReleaseRoute = '/media/press-release';
 
   @override
   Widget build(BuildContext context) {
@@ -209,6 +211,10 @@ class AbupiApp extends StatelessWidget {
           case journalRoute:
             return MaterialPageRoute(
               builder: (context) => const JournalScreen(),
+            );
+          case pressReleaseRoute:
+            return MaterialPageRoute(
+              builder: (context) => const PressReleaseScreen(),
             );
           default:
             return MaterialPageRoute(
