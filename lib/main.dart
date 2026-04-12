@@ -16,6 +16,11 @@ import 'package:abupi/pages/press_release.dart';
 import 'package:abupi/pages/regional_board_of_director.dart';
 import 'package:abupi/pages/registration.dart';
 import 'package:abupi/pages/stakeholders.dart';
+import 'package:abupi/pages/acceleration_program.dart';
+import 'package:abupi/pages/inclusion_program.dart';
+import 'package:abupi/pages/technology_program.dart';
+import 'package:abupi/pages/competence_program.dart';
+import 'package:abupi/pages/sustainability_program.dart';
 import 'package:abupi/pages/work_plan.dart';
 import 'package:abupi/pages/media.dart';
 import 'package:abupi/pages/regulator.dart';
@@ -68,6 +73,11 @@ class AbupiApp extends StatelessWidget {
   static const String newsletterRoute = '/buletin';
   static const String journalRoute = '/media/journal';
   static const String pressReleaseRoute = '/media/press-release';
+  static const String competenceRoute = '/kompetensi';
+  static const String accelerationRoute = '/akselerasi';
+  static const String inclusionRoute = '/inklusi';
+  static const String sustainabilityRoute = '/keberlanjutan';
+  static const String technologyRoute = '/teknologi';
 
   @override
   Widget build(BuildContext context) {
@@ -215,6 +225,26 @@ class AbupiApp extends StatelessWidget {
           case pressReleaseRoute:
             return MaterialPageRoute(
               builder: (context) => const PressReleaseScreen(),
+            );
+          case competenceRoute:
+            return MaterialPageRoute(
+              builder: (context) => const CompetenceProgramScreen(),
+            );
+          case accelerationRoute:
+            return MaterialPageRoute(
+              builder: (context) => const AccelerationProgramScreen(),
+            );
+          case inclusionRoute:
+            return MaterialPageRoute(
+              builder: (context) => const InclusionProgramScreen(),
+            );
+          case sustainabilityRoute:
+            return MaterialPageRoute(
+              builder: (context) => const SustainabilityProgramScreen(),
+            );
+          case technologyRoute:
+            return MaterialPageRoute(
+              builder: (context) => const TechnologyProgramScreen(),
             );
           default:
             return MaterialPageRoute(

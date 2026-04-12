@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:abupi/l10n/locale_provider.dart';
+import 'package:abupi/main.dart';
 import 'package:abupi/models/stakeholder_category.dart';
 import 'package:abupi/models/work_partners.dart';
 import 'package:abupi/services/wordpress_api.dart';
@@ -15,65 +16,8 @@ class Partnership extends StatefulWidget {
 }
 
 class _PartnershipState extends State<Partnership> {
-  // final List<WorkPartners> _partnerURL = [
-  //   WorkPartners(
-  //     website: 'https://www.bki.academy/id',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/BKI-1.png',
-  //   ),
-  //   WorkPartners(
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/e-port.jpg',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://www.lsppelabuhan.com/',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LSP-Pelabuhan.jpg',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://www.edustri.com/port-academy/',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/PORT-ACADEMY.jpg',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://www.ccccindonesia.co.id/',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/CCCEI-Logo-3.png',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://fyfeindonesia.com/en/',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/PT-FYFE-FIBRWRAP-INDONESIA.png',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://www.primus.co.id/#home',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/primuss.png',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://www.bki.academy/id',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/BKI-1.png',
-  //   ),
-  //   WorkPartners(
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/e-port.jpg',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://www.lsppelabuhan.com/',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LSP-Pelabuhan.jpg',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://www.edustri.com/port-academy/',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/PORT-ACADEMY.jpg',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://www.ccccindonesia.co.id/',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/CCCEI-Logo-3.png',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://fyfeindonesia.com/en/',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/PT-FYFE-FIBRWRAP-INDONESIA.png',
-  //   ),
-  //   WorkPartners(
-  //     website: 'https://www.primus.co.id/#home',
-  //     imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/primuss.png',
-  //   ),
-  // ];
 
   List<WorkPartners> _partnerURL = [];
-  bool _isLoading = false;
 
   @override
   void initState() {
@@ -89,9 +33,6 @@ class _PartnershipState extends State<Partnership> {
     final language = l10n?.locale.languageCode ?? 'id';
 
     try {
-      setState(() {
-        _isLoading = true;
-      });
       final response = await WordPressApi.getStakeholderCategory(language);
 
       if (response.statusCode == 200) {
@@ -104,14 +45,7 @@ class _PartnershipState extends State<Partnership> {
             _loadStakeholder(categories);
           } catch (e) {
             debugPrint('error stakeholder list $e');
-            setState(() {
-              _isLoading = false;
-            });
           }
-        } else {
-          setState(() {
-            _isLoading = false;
-          });
         }
       }
     } catch (e) {
@@ -140,18 +74,10 @@ class _PartnershipState extends State<Partnership> {
 
             setState(() {
               _partnerURL = stakeholder;
-              _isLoading = false;
             });
           } catch (e) {
             debugPrint('error stakeholder list $e');
-            setState(() {
-              _isLoading = false;
-            });
           }
-        } else {
-          setState(() {
-            _isLoading = false;
-          });
         }
       }
     } catch (e) {
@@ -175,15 +101,19 @@ class _PartnershipState extends State<Partnership> {
       padding: const EdgeInsets.only(top: 12),
       child: Column(
         children: [
-          Text(
-            l10n?.companiesThatTrustABUPI ?? '',
-            style: const TextStyle(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              l10n?.companiesThatTrustABUPI ?? '',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.black
+                color: Colors.black,
+              ),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           Wrap(
             spacing: 12,
             runSpacing: 12,
@@ -211,6 +141,28 @@ class _PartnershipState extends State<Partnership> {
                 ),
               );
             }).toList(),
+          ),
+          const SizedBox(height: 8),
+          IntrinsicWidth(
+            child: ElevatedButton(
+                style: const ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.white),
+                ),
+                onPressed: () => Navigator.pushNamed(context, AbupiApp.stakeholderRoute),
+                child: Row(
+                  children: [
+                    Text(
+                      l10n?.seeAll ?? 'Lihat semua',
+                      style: const TextStyle(color: Colors.black),
+                    ),
+                    const SizedBox(width: 2),
+                    const Icon(
+                      Icons.arrow_circle_right_rounded,
+                      color: Color(0xFF2e2f7f),
+                    )
+                  ],
+                )
+            ),
           ),
           const SizedBox(height: 20),
         ],

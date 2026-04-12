@@ -30,46 +30,46 @@ class WorkPlanScreen extends StatelessWidget {
         children: [
           _buildMenuItem(
             context,
-            icon: Icons.account_balance_outlined,
+            icon: Icons.rocket_launch,
             title: l10n?.workPlanAcceleration ?? 'Akselerasi',
             onTap: () {
-              // TODO inclusion page
+              Navigator.pushNamed(context, AbupiApp.accelerationRoute);
             },
           ),
           _buildDivider(context),
           _buildMenuItem(
             context,
-            icon: Icons.policy_outlined,
+            icon: Icons.diversity_3,
             title: l10n?.workPlanInclusion ?? 'Inklusi',
             onTap: () {
-              // TODO inclusion page
+              Navigator.pushNamed(context, AbupiApp.inclusionRoute);
             },
           ),
           _buildDivider(context),
           _buildMenuItem(
             context,
-            icon: Icons.safety_divider,
+            icon: Icons.workspace_premium,
             title: l10n?.workPlanCompetence ?? 'Kompetensi',
             onTap: () {
-              // TODO inclusion page
+              Navigator.pushNamed(context, AbupiApp.competenceRoute);
             },
           ),
           _buildDivider(context),
           _buildMenuItem(
             context,
-            icon: Icons.people,
+            icon: Icons.precision_manufacturing,
             title: l10n?.workPlanTechnology ?? 'Teknologi',
             onTap: () {
-              // TODO page
+              Navigator.pushNamed(context, AbupiApp.technologyRoute);
             },
           ),
           _buildDivider(context),
           _buildMenuItem(
             context,
-            icon: Icons.people,
+            icon: Icons.recycling,
             title: l10n?.workPlanSustainability ?? 'Keberlanjutan',
             onTap: () {
-              // TODO page
+              Navigator.pushNamed(context, AbupiApp.sustainabilityRoute);
             },
           ),
         ],

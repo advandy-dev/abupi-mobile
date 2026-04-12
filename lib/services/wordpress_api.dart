@@ -261,5 +261,24 @@ class WordPressApi {
       client.close();
     }
   }
+
+  static Future<Response> getMembers(int page) async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseUrl/wp/v2/member?per_page=10&page=$page');
+      final response = await client.get(
+        uri,
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
 }
 
