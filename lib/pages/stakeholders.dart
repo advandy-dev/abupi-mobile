@@ -314,7 +314,6 @@ class _StakeholderScreen extends State<StakeholderScreen> {
             )
           ]
           else
-          // Scrollable grid
             Expanded(
               child: CustomScrollView(
                 controller: _scrollController,

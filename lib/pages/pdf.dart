@@ -42,6 +42,26 @@ class _PDFScreen extends State<PDFScreen> {
     return true; // iOS doesn't need explicit permission for app documents
   }
 
+  Future<String> getUniqueFilePath(String basePath) async {
+    File file = File(basePath);
+    if (!await file.exists()) {
+      return basePath;
+    }
+
+    // If file exists, [name].pdf becomes [name]](1).pdf
+    int counter = 1;
+    String directory = file.parent.path;
+    String name = file.uri.pathSegments.last.split('.').first;
+    String extension = file.uri.pathSegments.last.split('.').last;
+
+    while (await file.exists()) {
+      file = File('$directory/$name($counter).$extension');
+      counter++;
+    }
+
+    return file.path;
+  }
+
   Future<void> _downloadPdf() async {
     if (_isDownloading) return;
 
@@ -88,7 +108,7 @@ class _PDFScreen extends State<PDFScreen> {
       final fileName = widget.fileName ?? 
           widget.url.split('/').last.split('?').first;
       final sanitizedFileName = fileName.endsWith('.pdf') ? fileName : '$fileName.pdf';
-      final filePath = '${directory.path}/$sanitizedFileName';
+      final filePath = await getUniqueFilePath('${directory.path}/$sanitizedFileName');
 
       await dio.download(
         widget.url,
@@ -134,7 +154,8 @@ class _PDFScreen extends State<PDFScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PDF Viewer'),
+        title: const Text('PDF Viewer', style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color(0xFF2e2f7f),
         actions: <Widget>[
           if (_isDownloading)
             Padding(
@@ -146,7 +167,7 @@ class _PDFScreen extends State<PDFScreen> {
                   child: CircularProgressIndicator(
                     value: _downloadProgress > 0 ? _downloadProgress : null,
                     strokeWidth: 2,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -155,7 +176,7 @@ class _PDFScreen extends State<PDFScreen> {
             IconButton(
               icon: const Icon(
                 Icons.download,
-                color: Colors.black,
+                color: Colors.white,
                 semanticLabel: 'Download',
               ),
               onPressed: _downloadPdf,
@@ -163,7 +184,7 @@ class _PDFScreen extends State<PDFScreen> {
           IconButton(
             icon: const Icon(
               Icons.bookmark,
-              color: Colors.black,
+              color: Colors.white,
               semanticLabel: 'Bookmark',
             ),
             onPressed: () {
@@ -171,6 +192,10 @@ class _PDFScreen extends State<PDFScreen> {
             },
           ),
         ],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: SfPdfViewer.network(
         widget.url,

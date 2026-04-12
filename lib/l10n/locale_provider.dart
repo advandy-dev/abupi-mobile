@@ -181,6 +181,9 @@ class AppLocalizations {
       'agree': 'Saya setuju',
       'category': 'Kategori',
       'choose_category': 'Pilih Kategori',
+      'download_newsletter': 'Unduh Buletin',
+      'share_to_whatsapp': 'Bagikan melalui Whatsapp',
+      'newsletter_information': '* Klik pada Cover di atas untuk membaca buletin',
     },
     'en': {
       'home': 'Home',
@@ -312,6 +315,9 @@ class AppLocalizations {
       'consultation_assistance_tnc_description': 'I confirm that all the details I have entered are true and valid. By filling out this form, I agree to be contacted by ABUPI to follow up on the issues I submitted.',
       'category': 'Category',
       'choose_category': 'Choose Category',
+      'download_newsletter': 'Download Newsletter',
+      'share_to_whatsapp': 'Share to Whatsapp',
+      'newsletter_information': '* Click on Cover above for read the newsletter',
     },
   };
 
@@ -448,6 +454,9 @@ class AppLocalizations {
   String get category => translate('category');
   String get chooseCategory => translate('choose_category');
   String get emptyData => translate('empty_data');
+  String get downloadNewsletter => translate('download_newsletter');
+  String get shareToWhatsapp => translate('share_to_whatsapp');
+  String get newsletterInformation => translate('newsletter_information');
 }
 
 class _AppLocalizationsDelegate

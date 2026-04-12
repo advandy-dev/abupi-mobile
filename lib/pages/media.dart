@@ -36,6 +36,7 @@ class MediaScreen extends StatelessWidget {
               Navigator.pushNamed(context, AbupiApp.newsRoute);
             },
           ),
+          _buildDivider(context),
           _buildMenuItem(
             context,
             icon: Icons.photo_library_outlined,

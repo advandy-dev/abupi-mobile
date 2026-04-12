@@ -1,4 +1,5 @@
 import 'package:abupi/l10n/locale_provider.dart';
+import 'package:abupi/main.dart';
 import 'package:flutter/material.dart';
 
 class NewsletterSection extends StatefulWidget {
@@ -72,7 +73,11 @@ class _NewsletterSectionState extends State<NewsletterSection> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(4),
               ),
-            ),            onPressed: () => {},
+            ),
+            onPressed: () => Navigator.pushNamed(
+              context,
+              AbupiApp.newsletterRoute,
+            ),
             child: Text(
               l10n?.readMore ?? 'Selengkapnya',
               style: const TextStyle(color: Colors.black, fontSize: 12),
