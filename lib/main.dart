@@ -5,6 +5,7 @@ import 'package:abupi/pages/consultation_assistance_form.dart';
 import 'package:abupi/pages/contact_us.dart';
 import 'package:abupi/pages/event_detail.dart';
 import 'package:abupi/pages/gallery.dart';
+import 'package:abupi/pages/journal.dart';
 import 'package:abupi/pages/main_navigation.dart';
 import 'package:abupi/pages/member_list.dart';
 import 'package:abupi/pages/news.dart';
@@ -64,6 +65,7 @@ class AbupiApp extends StatelessWidget {
   static const String consultationAndAssistanceFormRoute = '/formulir-konsultasi-asistensi';
   static const String stakeholderRoute = '/pemangku-kepentingan';
   static const String newsletterRoute = '/buletin';
+  static const String journalRoute = '/media/journal';
 
   @override
   Widget build(BuildContext context) {
@@ -203,6 +205,10 @@ class AbupiApp extends StatelessWidget {
           case newsletterRoute:
             return MaterialPageRoute(
               builder: (context) => const NewsletterScreen(),
+            );
+          case journalRoute:
+            return MaterialPageRoute(
+              builder: (context) => const JournalScreen(),
             );
           default:
             return MaterialPageRoute(

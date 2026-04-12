@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:html/dom.dart';
 import 'dart:io';
 import 'package:html/parser.dart';
@@ -180,6 +178,44 @@ class WordPressApi {
     final client = _createHttpClient();
     try {
       final uri = Uri.parse('$baseUrl/wp/v2/newsletter');
+      final response = await client.get(
+        uri,
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static Future<Response> getGalleries() async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseUrl/wp/v2/galleries');
+      final response = await client.get(
+        uri,
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static Future<Response> getJournals() async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseUrl/wp/v2/journal');
       final response = await client.get(
         uri,
         headers: {

@@ -51,7 +51,7 @@ class MediaScreen extends StatelessWidget {
             icon: Icons.markunread_mailbox,
             title: l10n?.newsletter ?? 'Buletin',
             onTap: () {
-              // TODO newsletter page
+              Navigator.pushNamed(context, AbupiApp.newsletterRoute);
             },
           ),
           _buildDivider(context),
@@ -69,7 +69,7 @@ class MediaScreen extends StatelessWidget {
             icon: Icons.my_library_books,
             title: l10n?.journal ?? 'Jurnal',
             onTap: () {
-              // TODO journal page
+              Navigator.pushNamed(context, AbupiApp.journalRoute);
             },
           ),
         ],
