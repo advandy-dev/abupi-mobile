@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:abupi/arguments/pdf_args.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:abupi/models/newsletter.dart';
@@ -183,10 +184,19 @@ class _NewsletterSectionState extends State<NewsletterSection> {
               ),
             ),
             child: Center(
-              child: Image.network(
-                _newsletter?.image ?? '',
-                fit: BoxFit.fill,
-              ),
+              child: InkWell(
+                onTap: () => Navigator.pushNamed(
+                    context,
+                    AbupiApp.pdfRoute,
+                    arguments: PDFScreenArguments(
+                      url: _newsletter?.fileURL ?? '',
+                    ),
+                ),
+                child: Image.network(
+                  _newsletter?.image ?? '',
+                  fit: BoxFit.fill,
+                ),
+              )
             ),
           ),
           const SizedBox(height: 12),

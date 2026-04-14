@@ -13,140 +13,34 @@ class MapsSection extends StatefulWidget {
 }
 
 class _MapsSectionState extends State<MapsSection> {
-  final mapImage = 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/indonesian-map.png';
+  final mapImage = 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Home_Regional-Maps_Full-Regional-scaled-mobile.png';
   final List<RegionMember> _members = [
     RegionMember(
-      region: 'Aceh',
-      regionTranslate: 'Aceh',
-      colorHex: 0xFF01EAC4,
-      totalBUP: 2,
+      region: 'Region 1',
+      regionTranslate: 'Region 1',
+      colorHex: 0xFFff0206,
+      totalBUP: 30,
     ),
     RegionMember(
-      region: 'Sumatera Utara',
-      regionTranslate: 'North Sumatera',
-      colorHex: 0xFF00E268,
-      totalBUP: 2,
+      region: 'Region 2',
+      regionTranslate: 'Region 2',
+      colorHex: 0xFFffff02,
+      totalBUP: 53,
+      totalTUKS: 2,
     ),
     RegionMember(
-      region: 'Riau',
-      regionTranslate: 'Riau',
-      colorHex: 0xFFD66B92,
-      totalBUP: 4,
-    ),
-    RegionMember(
-      region: 'Kepri & Batam',
-      regionTranslate: 'Kepri & Batam',
-      colorHex: 0xFFADF376,
-      totalBUP: 13,
-    ),
-    RegionMember(
-      region: 'Sumatera Selatan',
-      regionTranslate: 'South Sumatera',
-      colorHex: 0xFFF3D62C,
-      totalBUP: 7,
-    ),
-    RegionMember(
-      region: 'Lampung',
-      regionTranslate: 'Lampung',
-      colorHex: 0xFF4AE778,
-      totalBUP: 2,
-      totalTERSUS: 0,
-    ),
-    RegionMember(
-      region: 'Banten',
-      regionTranslate: 'Banten',
-      colorHex: 0xFFEB3BE7,
-      totalBUP: 7,
-      totalTUKS: 1,
-    ),
-    RegionMember(
-      region: 'DKI Jakarta & Jawa Barat',
-      regionTranslate: 'Jakarta & West Java',
-      colorHex: 0xFFEB3BE7,
-      totalBUP: 33,
-    ),
-    RegionMember(
-      region: 'Jawa Tengah',
-      regionTranslate: 'Central Java',
-      colorHex: 0xFFAC39E1,
-      totalBUP: 3,
-    ),
-    RegionMember(
-      region: 'Jawa Timur',
-      regionTranslate: 'East Java',
-      colorHex: 0xFFE0AE74,
-      totalBUP: 8,
-    ),
-    RegionMember(
-      region: 'Kalimantan Barat',
-      regionTranslate: 'West Kalimantan',
-      colorHex: 0xFF7CD475,
-      totalBUP: 3,
+      region: 'Region 3',
+      regionTranslate: 'Region 3',
+      colorHex: 0xFF0202ff,
+      totalBUP: 40,
+      totalTUKS: 3,
       totalTERSUS: 1,
     ),
     RegionMember(
-      region: 'Kalimantan Timur',
-      regionTranslate: 'East Kalimantan',
-      colorHex: 0xFFF095C3,
-      totalBUP: 22,
-      totalTUKS: 1,
-    ),
-    RegionMember(
-      region: 'Kalimantan Tengah',
-      regionTranslate: 'Central Kalimantan',
-      colorHex: 0xFFE7E79B,
-      totalBUP: 5,
-      totalTUKS: 1,
-    ),
-    RegionMember(
-      region: 'Kalimantan Selatan',
-      regionTranslate: 'South Kalimantan',
-      colorHex: 0xFFC3DC49,
-      totalBUP: 10,
-      totalTUKS: 1,
-    ),
-    RegionMember(
-      region: 'Sulawesi Utara',
-      regionTranslate: 'North Sulawesi',
-      colorHex: 0xFF4FCFD9,
-      totalBUP: 1,
-    ),
-    RegionMember(
-      region: 'Sulawesi Tengah',
-      regionTranslate: 'Central Sulawesi',
-      colorHex: 0xFFF17378,
-      totalBUP: 2,
-    ),
-    RegionMember(
-      region: 'Sulawesi Tenggara',
-      regionTranslate: 'South East Sulawesi',
-      colorHex: 0xFF8EE76E,
-      totalBUP: 3,
-    ),
-    RegionMember(
-      region: 'Sulawesi Selatan',
-      regionTranslate: 'South Sulawesi',
-      colorHex: 0xFF4DC2D4,
-      totalBUP: 2,
-    ),
-    RegionMember(
-      region: 'Nusa Tenggara Barat',
-      regionTranslate: 'West Nusa Tenggara',
-      colorHex: 0xFF01A2E3,
-      totalBUP: 1,
-    ),
-    RegionMember(
-      region: 'Papua Barat',
-      regionTranslate: 'West Papua',
-      colorHex: 0xFFCF59E2,
-      totalBUP: 0,
-      totalTUKS: 1,
-    ),
-    RegionMember(
-      region: 'Papua Tengah',
-      regionTranslate: 'Central Papua',
-      colorHex: 0xFFE76681,
-      totalBUP: 1,
+      region: 'Region 4',
+      regionTranslate: 'Region 4',
+      colorHex: 0xFF02ff17,
+      totalBUP: 2 + 3 + 2 + 1,
     ),
   ];
 
@@ -186,7 +80,7 @@ class _MapsSectionState extends State<MapsSection> {
 
     return SizedBox(
       child: Container(
-        color: const Color(0xFF2E2F7F),
+        color: const Color(0xFF1fa2b1),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         child: Column(
           children: [

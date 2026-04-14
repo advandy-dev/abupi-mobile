@@ -65,7 +65,7 @@ class _MemberListScreen extends State<MemberListScreen> {
             }).toList();
 
             setState(() {
-              _memberList = _memberList + members + members + members + members + members + members + members + members + members + members + members + members + members + members + members;
+              _memberList = _memberList + members;
               _isLoading = false;
               _page += 1;
               _isLastPage = members.length < 10;

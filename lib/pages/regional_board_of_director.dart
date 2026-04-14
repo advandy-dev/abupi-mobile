@@ -15,12 +15,14 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
   final List<RegionalBOD> _boardOfDirector = [
     RegionalBOD(
       name: 'Ahmad Jauhari',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi-DPW-Sumatera_Ahmad-Jauhari.png',
       company: 'Maccahma',
       position: 'DPW Sumatera',
       positionTranslate: 'Regional Coordinator of Sumatera',
       subordinate: [
         RegionalBOD(
           name: 'Teuku Ali Devi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Aceh_Teuku-Ali-Devi.png',
           company: 'SPI',
           position: 'DPD Aceh',
           positionTranslate: 'Regional Coordinator of Aceh',
@@ -28,34 +30,23 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
         ),
         RegionalBOD(
           name: 'Capt. Awaluddin',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kepulauan-Riau-Batam_Capt.-Awaluddin.png',
           company: 'PelKepri',
           position: 'DPD Kepri & Batam',
           positionTranslate: 'Regional Coordinator of Kepri & Batam',
           subordinate: [],
         ),
         RegionalBOD(
-          name: 'David C.L Tobing',
-          company: 'Sei Mangkei',
-          position: 'DPD Sumatera Utara',
-          positionTranslate: 'Regional Coordinator of Sumatera Utara',
-          subordinate: [],
-        ),
-        RegionalBOD(
-          name: 'Juprizal',
-          company: 'SS',
-          position: 'DPD Riau',
-          positionTranslate: 'Regional Coordinator of Riau',
-          subordinate: [],
-        ),
-        RegionalBOD(
-          name: 'Sarjono B. Jemu',
-          company: 'PBP',
+          name: 'F. Saragih',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sumatera-Selatan_F.-Saragih.png',
+          company: 'PIT',
           position: 'DPD Sumatera Selatan',
-          positionTranslate: 'Regional Coordinator of Sumatera Selatan',
+          positionTranslate: 'Regional Coordinator of South Sumatera',
           subordinate: [],
         ),
         RegionalBOD(
           name: 'Susmartono',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Lampung_Susmartono.png',
           company: 'SLUP',
           position: 'DPD Lampung',
           positionTranslate: 'Regional Coordinator of Lampung',
@@ -65,12 +56,14 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
     ),
     RegionalBOD(
       name: 'Aep Dedi Laksana',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Jawa-Bali-Nusa-Tenggara_Aep-Dedi-Laksana.png',
       company: 'KBS',
       position: 'DPW Jawa, Bali, & Nusa Tenggara',
       positionTranslate: 'Regional Coordinator of Jawa, Bali, & Nusa Tenggara',
       subordinate: [
         RegionalBOD(
           name: 'Mohamad Rondhi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Jawa-Tengah_Mohamad-Rondhi.png',
           company: 'ATU',
           position: 'DPD Jawa Tengah',
           positionTranslate: 'Regional Coordinator of Jawa Tengah',
@@ -78,20 +71,22 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
         ),
         RegionalBOD(
           name: 'Eko Didik Harnoko',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Banten_Eko-Didik-Harnoko.png',
           company: 'PCM',
           position: 'DPD Banten',
           positionTranslate: 'Regional Coordinator of Banten',
           subordinate: [],
         ),
         RegionalBOD(
-          name: 'Eva Debora',
-          company: 'PTI',
+          name: 'Eky Kurniawan',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-DKI-Jakarta-Jawa-Barat_Eky-Kurniawan.png',
           position: 'DPD Daerah Khusus Jakarta & Jawa Barat',
-          positionTranslate: 'Regional Coordinator of Jakarta & Jawa Barat',
+          positionTranslate: 'Regional Coordinator of Special Region of Jakarta & West Java',
           subordinate: [],
         ),
         RegionalBOD(
           name: 'Marianus Oei',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Jawa-Timur_Marianus-Oei.png',
           company: 'SMP',
           position: 'DPD Jawa Timur',
           positionTranslate: 'Regional Coordinator of Jawa Timur',
@@ -99,6 +94,7 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
         ),
         RegionalBOD(
           name: 'Sudarta',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Lembar_Sudarta.png',
           company: 'PLS',
           position: 'DPD Lembar',
           positionTranslate: 'Regional Coordinator of Lembar',
@@ -108,12 +104,14 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
     ),
     RegionalBOD(
       name: 'Nurcahyo Adi Putranto',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Kalimantan_Nurcahyo-Adi-Putranto.png',
       company: 'TIA',
       position: 'DPW Kalimantan',
       positionTranslate: 'Regional Coordinator of Kalimantan',
       subordinate: [
         RegionalBOD(
           name: 'Ahmad Zabidi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Tengah_Ahmad-Zabidi.png',
           company: 'AMS',
           position: 'DPD Kalimantan Tengah',
           positionTranslate: 'Regional Coordinator of Kalimantan Tengah',
@@ -121,6 +119,7 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
         ),
         RegionalBOD(
           name: 'Kamaruddin Abtami',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Timur_Kamaruddin-Abtami.png',
           company: 'PTB',
           position: 'DPD Kalimantan Timur',
           positionTranslate: 'Regional Coordinator of Kalimantan Timur',
@@ -128,6 +127,7 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
         ),
         RegionalBOD(
           name: 'Slamet Riyadi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Tanjung-Redeb_Slamet-Riyadi.png',
           company: 'GAN',
           position: 'DPC Tj. Redeb',
           positionTranslate: 'Regional Coordinator of Tj. Redeb',
@@ -135,6 +135,7 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
         ),
         RegionalBOD(
           name: 'Rinaldy Perdana',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Balikpapan_Rinaldy-Perdana.png',
           company: 'HNJ',
           position: 'DPC Balikpapan',
           positionTranslate: 'Regional Coordinator of Balikpapan',
@@ -144,12 +145,14 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
     ),
     RegionalBOD(
       name: 'Salman Dianda Anwar',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Sulawesi_Salman-Dianda-Anwar.png',
       company: 'BBI',
       position: 'DPW Sulawesi',
       positionTranslate: 'Regional Coordinator of Sulawesi',
       subordinate: [
         RegionalBOD(
           name: 'Agung Wibisono',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sulawesi-Selatan_Agung-Wibisono.png',
           company: 'BBI',
           position: 'DPD Sulawesi Selatan',
           positionTranslate: 'Regional Coordinator of Sulawesi Selatan',
@@ -157,6 +160,7 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
         ),
         RegionalBOD(
           name: 'Felix Febrian',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sulawesi-Tenggara_Felix-Febrian.png',
           company: 'APN',
           position: 'DPD Sulawesi Tenggara',
           positionTranslate: 'Regional Coordinator of Sulawesi Tenggara',
@@ -164,6 +168,7 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
         ),
         RegionalBOD(
           name: 'Mohamad Guruh',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Kendari_Mohamad-Guruh.png',
           company: 'APN',
           position: 'DPD Kendari',
           positionTranslate: 'Regional Coordinator of Kendari',
@@ -274,7 +279,7 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
               ),
               const SizedBox(height: 4),
               Text(
-                subordinate.company != null
+                subordinate.company != null || (subordinate.company?.isNotEmpty ?? false)
                     ? '${subordinate.position} (${subordinate.company})'
                     : subordinate.position,
                 style: TextStyle(
@@ -301,6 +306,7 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
   Widget _buildDirectorCard({
     required String name,
     required String position,
+    required String imageURL,
     bool isExpandable = false,
     VoidCallback? onTap,
   }) {
@@ -339,14 +345,12 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  width: 64,
-                  height: 64,
-                  decoration: const BoxDecoration(
-                    color: Colors.grey,
-                    shape: BoxShape.circle,
+                if (imageURL.isNotEmpty) ...[
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: NetworkImage(imageURL),
                   ),
-                ),
+                ],
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(
@@ -420,6 +424,7 @@ class _RegionalBoardOfDirectorsScreen extends State<RegionalBoardOfDirectorsScre
             return _buildDirectorCard(
               name: director.name,
               position: director.position,
+              imageURL: director.imageURL ?? '',
               isExpandable: director.subordinate.isNotEmpty,
               onTap: director.subordinate.isNotEmpty
                   ? () => _showSubordinateBottomSheet(context, director)

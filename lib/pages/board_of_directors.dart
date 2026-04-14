@@ -15,44 +15,29 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
   late TabController _tabController;
 
   final List<BoardOfDirector> _chairperson = [
-    BoardOfDirector(name: 'Liana Trisnawati', position: 'KETUA UMUM', positionTranslate: 'CHAIRMAN', subordinate: []),
+    BoardOfDirector(
+      name: 'Liana Trisnawati',
+      position: 'KETUA UMUM',
+      positionTranslate: 'CHAIRMAN',
+      subordinate: [],
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Stuktur-Organisasi_Ketua-Umum_Liana-Trisnawati.png',
+    ),
   ];
 
   final List<BoardOfDirector> _generalSecretary = [
     BoardOfDirector(
       name: 'Okke Permadhi',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Sekretaris-Umum_Okke-Permadi.png',
       position: 'SEKRETARIS UMUM',
       positionTranslate: 'GENERAL SECRETARY',
       subordinate: [
         Subordinate(
-          name: 'Devina',
+          name: 'WAKIL SEKRETARIS UMUM',
           position: 'WAKIL SEKRETARIS UMUM',
           positionTranslate: 'VICE GENERAL SECRETARY',
           section: '',
           sectionTranslate: '',
           company: 'MSK',
-        ),
-        Subordinate(
-          name: 'Adinda R. D. M.',
-          position: 'HUMAS',
-          positionTranslate: 'PUBLIC RELATIONS',
-          section: '',
-          sectionTranslate: '',
-          company: 'CCP',
-        ),
-      ],
-    ),
-    BoardOfDirector(
-      name: 'Adinda R. D. M.',
-      position: 'HUMAS',
-      positionTranslate: 'PUBLIC RELATIONS',
-      subordinate: [
-        Subordinate(
-          name: 'Hendy Lubis',
-          position: 'ABUPI GOLF',
-          positionTranslate: 'ABUPI GOLF',
-          section: '',
-          sectionTranslate: '',
         ),
       ],
     ),
@@ -63,9 +48,10 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       name: 'Hikmatul Laila',
       position: 'BENDAHARA UMUM',
       positionTranslate: 'GENERAL TREASURER',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Bendahara-Umum_Hikmatul-Laila.png',
       subordinate: [
         Subordinate(
-          name: 'Imay Dyna Redra',
+          name: 'WAKIL BENDAHARA UMUM',
           position: 'WAKIL BENDAHARA UMUM',
           positionTranslate: 'VICE GENERAL TREASURER',
           section: '',
@@ -74,26 +60,12 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
       ],
     ),
-    BoardOfDirector(
-      name: 'Imay Dyna Redra',
-      position: 'WAKIL BENDAHARA UMUM',
-      positionTranslate: 'VICE GENERAL TREASURER',
-      subordinate: [
-        Subordinate(
-          name: 'Tony Wijaya',
-          position: 'ABUPI CSR',
-          positionTranslate: 'ABUPI CSR',
-          section: '',
-          sectionTranslate: '',
-          company: 'PCNI',
-        ),
-      ],
-    ),
   ];
 
   final List<BoardOfDirector> _viceChairperson = [
     BoardOfDirector(
-      name: 'Ariyanto Purboyo',
+      name: 'Ariyanto Purboyo (STT)',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-I_Ariyanto-Purboyo.png',
       position: 'WAKIL KETUA UMUM I',
       positionTranslate: 'VICE CHAIRMAN I',
       section: 'Bidang Akselerasi Kebijakan & Peraturan, Rantai Pasok & Biz. Dvlp.',
@@ -101,6 +73,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Widagdo Pradono Siwi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-1_Widagdo-Pradono-Siwi.png',
           position: 'Kepala Bidang 1',
           positionTranslate: 'Head of Division 1',
           section: 'Aksesibilitas Perizinan',
@@ -110,13 +83,24 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'M. Arif Widyoadi',
           position: 'Kepala Bidang 2',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-2_M.-Arif-Widyoadi.png',
           positionTranslate: 'Head of Division 2',
           section: 'Standarisasi Supply Chain dan Tarif Kepelabuhan',
           sectionTranslate: 'Standardization of Supply Chain and Port Tariff',
           company: 'Samudera Port',
         ),
         Subordinate(
-          name: 'Priyonggo Sidharta',
+          name: 'Pryonggo Sidharta',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-3_Pryonggo-Sidharta.png',
+          position: 'Kepala Bidang 3',
+          positionTranslate: 'Head of Division 3',
+          section: 'Akses Permodalan & Investasi',
+          sectionTranslate: 'Access to Capital & Investment',
+          company: 'BLS',
+        ),
+        Subordinate(
+          name: 'Gregorius Riyan',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-3_Gregorius-Riyan.png',
           position: 'Kepala Bidang 3',
           positionTranslate: 'Head of Division 3',
           section: 'Akses Permodalan & Investasi',
@@ -125,6 +109,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Imamudin Qusyairi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-4_Imamudin-Qusyairi.png',
           position: 'Kepala Bidang 4',
           positionTranslate: 'Head of Division 4',
           section: 'Pengawasan Perizinan, Konsesi, dan Kerjasama Bentuk Lainnya',
@@ -134,7 +119,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       ],
     ),
     BoardOfDirector(
-      name: 'Muhammad Willy',
+      name: 'Muhammad Willy (PCM)',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-II_Muhammad-Willy.png',
       position: 'WAKIL KETUA UMUM II',
       positionTranslate: 'VICE CHAIRMAN II',
       section: 'BIDANG PENGEMBANGAN ANGGOTA',
@@ -142,6 +128,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Harry Buana Putra',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-5_Harry-Buana-Putra.png',
           position: 'Kepala Bidang 5',
           positionTranslate: 'Head of Division 5',
           section: 'Kolaborasi & Kemitraan',
@@ -150,6 +137,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Rusmin Abdulgani',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-6_Rusmin-Abdulgani.png',
           position: 'Kepala Bidang 6',
           positionTranslate: 'Head of Division 6',
           section: 'Sinergi Antar Pemangku Kepentingan',
@@ -158,6 +146,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Yuni Elvina',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-6_Yuni-Elvina.png',
           position: 'Kepala Bidang 6',
           positionTranslate: 'Head of Division 6',
           section: 'Sinergi Antar Pemangku Kepentingan',
@@ -166,6 +155,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Christianne Kezia Lydia',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-7_Christianne-Kezia-Lydia.png',
           position: 'Kepala Bidang 7',
           positionTranslate: 'Head of Division 7',
           section: 'Kerjasama Internasional',
@@ -174,6 +164,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Indah Nugrohowati',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-7_Indah-Nugrohowati.png',
           position: 'Kepala Bidang 7',
           positionTranslate: 'Head of Division 7',
           section: 'Kerjasama Internasional',
@@ -182,6 +173,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Aghnia Nadhira',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-7_Aghnia-Nadhira.png',
           position: 'Kepala Bidang 7',
           positionTranslate: 'Head of Division 7',
           section: 'Kerjasama Internasional',
@@ -190,7 +182,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       ],
     ),
     BoardOfDirector(
-      name: 'Sakiman',
+      name: 'Sakiman (APN)',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-III_Sakiman.png',
       position: 'WAKIL KETUA UMUM III',
       positionTranslate: 'VICE CHAIRMAN III',
       section: 'BIDANG PENGAMBANGAN SUMBER DAYA MANUSIA (SDM)',
@@ -198,6 +191,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
             name: 'Rosita Septiani',
+            imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-8_Rosita-Septiani.png',
             position: 'Kepala Bidang 8',
             positionTranslate: 'Head of Division 8',
             section: 'Peningkatan Kompetensi SDM',
@@ -206,6 +200,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
             name: 'Abdulloh',
+            imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-9_Abdulloh.png',
             position: 'Kepala Bidang 9',
             positionTranslate: 'Head of Division 9',
             section: 'Program Magang dan Pendampingan',
@@ -214,6 +209,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
             name: 'Sadana Murti Nugroho',
+            imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-9_Sadana-Murti-Nugroho.png',
             position: 'Kepala Bidang 9',
             positionTranslate: 'Head of Division 9',
             section: 'Program Magang dan Pendampingan',
@@ -222,6 +218,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
             name: 'Pandu Dewantara',
+            imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-10_Pandu-Dewantara.png',
             position: 'Kepala Bidang 10',
             positionTranslate: 'Head of Division 10',
             section: 'Pelatihan Soft Skill',
@@ -230,6 +227,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Azis Muttaqien',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-11_Azis-Muttaqien.png',
           position: 'Kepala Bidang 11',
           positionTranslate: 'Head of Division 11',
           section: 'Sertifikasi Standar Global Kepelabuhan',
@@ -238,6 +236,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Andri Yansyah',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-11_Andri-Yansyah.png',
           position: 'Kepala Bidang 11',
           positionTranslate: 'Head of Division 11',
           section: 'Sertifikasi Standar Global Kepelabuhan',
@@ -247,14 +246,16 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       ],
     ),
     BoardOfDirector(
-      name: 'Adi Darma Shima',
+      name: 'Adi Darma Shima (ILSS)',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-IV_Adi-Darma-Shima.png',
       position: 'WAKIL KETUA UMUM IV',
       positionTranslate: 'VICE CHAIRMAN IV',
       section: 'BIDANG PENINGKATAN & PENGEMBANGAN DAYA SAING PELABUHAN',
       sectionTranslate: 'PORT COMPETITIVENESS & INNOVATION DEVELOPMENT',
       subordinate: [
         Subordinate(
-          name: 'Jalmo Jagat',
+          name: 'Kepala Bidang XII',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-12_Menunggu-PAW.png',
           position: 'Kepala Bidang 12',
           positionTranslate: 'Head of Division 12',
           section: 'Standarisasi Keamanan Pelabuhan (ISPS Code)',
@@ -263,6 +264,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Dhany Yudha',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-13_Dhany-Yudha.png',
           position: 'Kepala Bidang 13',
           positionTranslate: 'Head of Division 13',
           section: 'Kabid Integrasi System Port to Port',
@@ -271,6 +273,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Ashari Trisna',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-14_Ashari-Trisna.png',
           position: 'Kepala Bidang 14',
           positionTranslate: 'Head of Division 14',
           section: 'Inovasi Teknonolog Masa Depan',
@@ -279,6 +282,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Wien Goerindro',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-15_Wien-Goerindro.png',
           position: 'Kepala Bidang 15',
           positionTranslate: 'Head of Division 15',
           section: 'Standarisasi Alat & Sistem Pelayanan',
@@ -287,16 +291,27 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Tri Andika Syam',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-16_Tri-Andika-Syam.png',
           position: 'Kepala Bidang 16',
           positionTranslate: 'Head of Division 16',
           section: 'Promotion & Branding (BUP)',
           sectionTranslate: 'Promotion & Branding (BUP)',
           company: 'AGP',
         ),
+        Subordinate(
+          name: 'Hendy Lubis',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_ABUPI-Golf_Hendy-Lubis.png',
+          position: 'Kepala Bidang 16',
+          positionTranslate: 'Head of Division 16',
+          section: 'Promotion & Branding (BUP) - ABUPI Golf',
+          sectionTranslate: 'Promotion & Branding (BUP) - ABUPI Golf',
+          company: 'AGP',
+        ),
       ],
     ),
     BoardOfDirector(
-      name: 'Iwan Wiranto',
+      name: 'WAKIL KETUA UMUM V',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-V_Agus-Salim.png',
       position: 'WAKIL KETUA UMUM V',
       positionTranslate: 'VICE CHAIRMAN V',
       section: 'BIDANG KEBERLANJUTAN PELABUHAN & INDUSTRI MANUFAKTUR',
@@ -304,6 +319,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Sony Sidjaja',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-17_Sonny-Sidjaja.png',
           position: 'Kepala Bidang 17',
           positionTranslate: 'Head of Division 17',
           section: 'Investasi Keberlanjutan',
@@ -312,6 +328,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Joko Widatmoko',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-17_Joko-Widiatmoko.png',
           position: 'Kepala Bidang 17',
           positionTranslate: 'Head of Division 17',
           section: 'Investasi Keberlanjutan',
@@ -320,6 +337,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Donny Adolf',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-18_-Donny-Adolf.png',
           position: 'Kepala Bidang 18',
           positionTranslate: 'Head of Division 18',
           section: 'Komitmen Keberlanjutan BUP',
@@ -328,6 +346,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Ilvy Wiliyanti',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-18_-Ilvy-Wiliyanti.png',
           position: 'Kepala Bidang 18',
           positionTranslate: 'Head of Division 18',
           section: 'Komitmen Keberlanjutan BUP',
@@ -388,52 +407,95 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
 
   final List<BoardOfDirector> _exprtise = [
     BoardOfDirector(
-      name: 'Bay Mokhamad Hasani',
+      name: 'KEPELABUHANAN',
       position: 'KEPELABUHANAN',
       positionTranslate: 'MARITIME',
-      subordinate: [],
+      subordinate: [
+        Subordinate(
+          name: 'Bay Mokhamad Hasani',
+          position: '',
+          positionTranslate: '',
+          section: '',
+          sectionTranslate: '',
+        ),
+        Subordinate(
+          name: 'Pasoroan Herman Harianja',
+          position: '',
+          positionTranslate: '',
+          section: '',
+          sectionTranslate: '',
+        ),
+      ],
     ),
     BoardOfDirector(
-      name: 'Pasoroan Herman Harianja',
-      position: 'KEPELABUHANAN',
-      positionTranslate: 'MARITIME',
-      subordinate: [],
-    ),
-    BoardOfDirector(
-      name: 'Prof. Saut Gurning',
+      name: 'Logistik & Rantai Pasok',
       position: 'Logistik & Rantai Pasok',
       positionTranslate: 'Logistics & Supply Chain',
-      subordinate: [],
+      subordinate: [
+        Subordinate(
+          name: 'Prof. Saut Gurning',
+          position: '',
+          positionTranslate: '',
+          section: '',
+          sectionTranslate: '',
+        ),
+        Subordinate(
+          name: 'Dr. Nofrisel, SE, MM',
+          position: '',
+          positionTranslate: '',
+          section: '',
+          sectionTranslate: '',
+        ),
+      ],
     ),
     BoardOfDirector(
-      name: 'Dr. Nofrisel, SE, MM.',
-      position: 'Logistik & Rantai Pasok',
-      positionTranslate: 'Logistics & Supply Chain',
-      subordinate: [],
-    ),
-    BoardOfDirector(
-      name: 'Capt. Alioth Willem Belseran, MM, M.Mar',
+      name: 'Hukum & Kelembagaan',
       position: 'Hukum & Kelembagaan',
       positionTranslate: 'Legal & Governance',
-      subordinate: [],
+      subordinate: [
+        Subordinate(
+          name: 'Capt. Alioth Willem Belseran, MM, M.Mar',
+          position: '',
+          positionTranslate: '',
+          section: '',
+          sectionTranslate: '',
+        ),
+        Subordinate(
+          name: 'Neneng Sofiati',
+          position: '',
+          positionTranslate: '',
+          section: '',
+          sectionTranslate: '',
+        ),
+      ],
     ),
     BoardOfDirector(
-      name: 'Neneng Sofiati',
-      position: 'Hukum & Kelembagaan',
-      positionTranslate: 'Legal & Governance',
-      subordinate: [],
-    ),
-    BoardOfDirector(
-      name: 'Dr. Gugus Wijonarko, MM',
+      name: 'Sumber Daya Manusia',
       position: 'Sumber Daya Manusia',
       positionTranslate: 'Human Resources',
-      subordinate: [],
+      subordinate: [
+        Subordinate(
+          name: 'Dr. Gugus Wijonarko, MM',
+          position: '',
+          positionTranslate: '',
+          section: '',
+          sectionTranslate: '',
+        ),
+      ],
     ),
     BoardOfDirector(
-      name: 'Dr. Lucky Bayu Purnomo',
+      name: 'Keuangan & Investasi',
       position: 'Keuangan & Investasi',
       positionTranslate: 'Finance & Investment',
-      subordinate: [],
+      subordinate: [
+        Subordinate(
+          name: 'Dr. Lucky Bayu Purnomo',
+          position: '',
+          positionTranslate: '',
+          section: '',
+          sectionTranslate: '',
+        ),
+      ],
     ),
   ];
 
@@ -521,9 +583,6 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     final section = language == 'id' ? subordinate.section : subordinate.sectionTranslate;
 
     String subtitle = position;
-    if (subordinate.company != null) {
-      subtitle += ' (${subordinate.company})';
-    }
 
     subtitle += ' - $section';
 
@@ -586,6 +645,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
   Widget _buildDirectorCard({
     required String name,
     required String position,
+    required String imageURL,
     bool isExpandable = false,
     VoidCallback? onTap,
   }) {
@@ -624,14 +684,12 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 64,
-                height: 64,
-                decoration: const BoxDecoration(
-                  color: Colors.grey,
-                  shape: BoxShape.circle,
+              if (imageURL.isNotEmpty) ...[
+                CircleAvatar(
+                  radius: 40,
+                  backgroundImage: NetworkImage(imageURL),
                 ),
-              ),
+              ],
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -721,8 +779,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         controller: _tabController,
         children: [
           _buildBODGeneral(context),
-          _buildAdvisoryBoard(context),
           _buildSupervisoryBoard(context),
+          _buildAdvisoryBoard(context),
           _buildExpertAdvisoryBoard(context),
         ],
       ),
@@ -754,6 +812,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
             itemBuilder: (context, index) {
               final director = _chairperson[index];
               return _buildDirectorCard(
+                imageURL: director.imageURL ?? '',
                 name: director.name,
                 position: language == 'id' ?
                   director.position :
@@ -785,6 +844,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
               return _buildDirectorCard(
                 name: director.name,
                 position: language == 'id' ? director.position : director.positionTranslate,
+                imageURL: director.imageURL ?? '',
                 isExpandable: director.subordinate.isNotEmpty,
                 onTap: director.subordinate.isNotEmpty
                     ? () => _showSubordinateBottomSheet(context, director)
@@ -811,6 +871,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
               final director = _generalTreasurer[index];
               return _buildDirectorCard(
                 name: director.name,
+                imageURL: director.imageURL ?? '',
                 position: language == 'id' ? director.position : director.positionTranslate,
                 isExpandable: director.subordinate.isNotEmpty,
                 onTap: director.subordinate.isNotEmpty
@@ -838,6 +899,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
               final director = _viceChairperson[index];
               return _buildDirectorCard(
                 name: director.name,
+                imageURL: director.imageURL ?? '',
                 position: language == 'id' ? director.position : director.positionTranslate,
                 isExpandable: director.subordinate.isNotEmpty,
                 onTap: director.subordinate.isNotEmpty
@@ -866,6 +928,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
           final director = _advisory[index];
           return _buildDirectorCard(
             name: director.name,
+            imageURL: director.imageURL ?? '',
             position: language == 'id' ? director.position : director.positionTranslate,
             isExpandable: director.subordinate.isNotEmpty,
             onTap: director.subordinate.isNotEmpty
@@ -892,6 +955,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
           final director = _supervisory[index];
           return _buildDirectorCard(
             name: director.name,
+            imageURL: director.imageURL ?? '',
             position: language == 'id' ? director.position : director.positionTranslate,
             isExpandable: director.subordinate.isNotEmpty,
             onTap: director.subordinate.isNotEmpty
@@ -917,7 +981,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         itemBuilder: (context, index) {
           final director = _exprtise[index];
           return _buildDirectorCard(
-            name: director.name,
+            name: language == 'id' ? director.position : director.positionTranslate,
+            imageURL: director.imageURL ?? '',
             position: language == 'id' ? director.position : director.positionTranslate,
             isExpandable: director.subordinate.isNotEmpty,
             onTap: director.subordinate.isNotEmpty

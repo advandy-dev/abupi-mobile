@@ -68,8 +68,8 @@ class ServiceSection extends StatelessWidget {
           const SizedBox(height: 8),
           _buildItem(
             '🗂️',
-            (l10n?.serviceWebsiteDatabasePartnerTitle ?? ''),
-            (l10n?.serviceWebsiteDatabasePartnerDescription ?? ''),
+            (l10n?.serviceCooperationAndPartnershipTitle ?? ''),
+            (l10n?.serviceCooperationAndPartnershipDescription ?? ''),
             () => Navigator.pushNamedAndRemoveUntil(
               context,
               AbupiApp.homeRoute,
@@ -83,8 +83,8 @@ class ServiceSection extends StatelessWidget {
           const SizedBox(height: 8),
           _buildItem(
             '🤝',
-            (l10n?.serviceExternalPartnerServiceTitle ?? ''),
-            (l10n?.serviceExternalPartnerServiceDescription ?? ''),
+            (l10n?.serviceFinancingTitle ?? ''),
+            (l10n?.serviceFinancingDescription ?? ''),
             () => Navigator.pushNamedAndRemoveUntil(
               context,
               AbupiApp.homeRoute,

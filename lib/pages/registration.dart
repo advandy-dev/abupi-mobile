@@ -69,7 +69,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
       ].join('\n');
       final mailtoUri = Uri(
         scheme: 'mailto',
-        path: 'royadvandy@gmail.com',
+        path: 'sekretariat@abupi.or.id',
         query: 'subject=${Uri.encodeComponent('ABUPI Member Registration')}&body=${Uri.encodeComponent(body)}',
       );
       debugPrint('mailto $mailtoUri');

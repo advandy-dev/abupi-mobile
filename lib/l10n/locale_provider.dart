@@ -91,16 +91,19 @@ class AppLocalizations {
       'done': 'Selesai',
       'search_event_placeholder': 'Masukkan nama acara',
       'vision': 'Visi',
+      'our_vision': 'Visi Kami',
       'mission': 'Misi',
+      'our_mission': 'Misi Kami',
       'basis_foundation_abupi': 'Dasar Pendirian ABUPI',
       'basis_foundation_description_abupi': 'Dasar pendirian ABUPI adalah untuk mendukung program reformasi pelabuhan seperti yang diamanatkan pada Undang-undang No. 17 Tahun 2008 tentang Pelayaran dan Peraturan Pemerintah No. 61 Tahun 2009 tentang Kepelabuhanan.',
       'deed_of_establishment_abupi': 'Akta Pendirian ABUPI',
       'deed_of_establishment_description_abupi': 'ABUPI didirikan dengan akte pendirian No. 010 tanggal 16 Februari 2015 di hadapan Notaris Elly Rustam SH dan dikukuhkan dengan pengesahan dari Kementrian Hukum dan Hak Asasi Manusia Republik Indonesia No. AHU-001650.AH.01, Tahun 2015.',
-      'vision_description': 'Sebagai badan usaha yang mengedepankan kerjasama antara Badan Usaha Pelabuhan (BUP), Terminal Untuk Kepentingan Sendiri (TUKS) dan Terminal Khusus (TerSus) dalam mendukung pembangunan sektor maritim di Indonesia.',
-      'mission_description_1': 'Menghimpun, membina dan mengembangkan usaha para anggotanya untuk dapat lebih berperan serta di dalam meningkatkan pembangunan perekonomian nasional.',
-      'mission_description_2': 'Melindungi kepentingan kegiatan Jasa Kepelabuhanan dengan menjunjung tinggi etika dan professionalisme para anggota dalam mengantisipasi perkembangan yang terjadi, baik secara Nasional maupun Internasional.',
-      'mission_description_3': 'Melindungi kepentingan anggota dan mencegah timbulnya persaingan usaha yang tidak sehat dalam dunia usaha Jasa Kepelabuhanan.',
-      'mission_description_4': 'Meningkatkan kemampuan serta pengetahuan sember daya manusia (SDM) para anggota di bidang Jasa Kepelabuhanan sejalan dengan kemajuan teknologi di berbagai bidang.',
+      'vision_description': 'Organisasi ABUPI mempunyai Visi menjadikan anggota sebagai pengelola pelabuhan yang berdaya saing global.',
+      'mission_description_1': 'Mendukung kebijakan pemerintah dalam program pembangunan ekonomi nasional.',
+      'mission_description_2': 'Mengembangkan pelayanan jasa kepelabuhanan di dalam dan di luar negeri',
+      'mission_description_3': 'Mengembangkan kemampuan anggota sebagai tulang punggung kelancaran pelayanan kepelabuhanan.',
+      'mission_description_4': 'Menjadikan kegiatan jasa kepelabuhanan sebagai industri jasa yang berdaya saing global.',
+      'mission_description_5': 'Menjadikan para anggota sebagai pelaku professional di dalam bidang kepelabuhanan yang berorientasi pada kepuasan pelanggan.',
       'form_registration_company_name_title': 'Nama Perusahaan',
       'form_registration_company_name_placeholder': 'PT Contoh Indonesia',
       'form_registration_pic_name_title': 'Nama PIC',
@@ -162,7 +165,13 @@ class AppLocalizations {
       'service_education_and_training_public_training_button': 'Public Training',
       'service_education_and_training_in_house_training_button': 'In-House Training',
       'service_website_database_partner_button': 'Buka Website Partner',
+      'service_cooperation_and_partnership_title': 'Kerjasama dan Kemitraan',
+      'service_cooperation_and_partnership_description': 'Akses informasi partner dan jaringan kolaborasi ABUPI.',
+      'service_cooperation_and_partnership_button': 'Informasi Jaringan',
       'service_external_partner_service_visit_button': 'Kunjungi Partner',
+      'service_financing_title': 'Pembiayaan',
+      'service_financing_description': 'Solusi Pembiayaan Pengembangan Pelabuhan mulai dari skema KPBU, Investasi.',
+      'service_financing_button': 'Hubungi Kami',
       'registration_same_address_label': 'Sama dengan alamat perusahaan',
       'work_plan_acceleration': 'Akselerasi',
       'work_plan_inclusion': 'Inklusi',
@@ -226,16 +235,19 @@ class AppLocalizations {
       'done': 'Done',
       'search_event_placeholder': 'Input event name',
       'vision': 'Vision',
+      'our_vision': 'Our Vision',
       'mission': 'Mission',
+      'our_mission': 'Our Mission',
       'basis_foundation_abupi': 'Basis Foundation of ABUPI',
       'basis_foundation_description_abupi': 'The basis for establishing ABUPI is to support the port reform program as mandated by Law No. 17 of 2008 concerning Shipping and Government Regulation No. 61 of 2009 concerning Ports.',
       'deed_of_establishment_abupi': 'Deed of Establishment ABUPI',
       'deed_of_establishment_description_abupi': 'ABUPI was established with deed of establishment No. 010 dated February 16, 2015 before Notary Elly Rustam SH and confirmed with ratification from the Ministry of Law and Human Rights of the Republic of Indonesia No. AHU-001650.AH.01, Year 2015.',
-      'vision_description': 'As a business entity that prioritizes cooperation between Port Business Entities (BUP), Terminals for Self-Use (TUKS) and Special Terminals (TerSus) in supporting the development of the maritime sector in Indonesia.',
-      'mission_description_1': 'To gather, foster, and develop the businesses of its members so they can play a greater role in enhancing national economic development.',
-      'mission_description_2': 'To protect the interests of port services by upholding the ethics and professionalism of its members in anticipating developments, both nationally and internationally.',
-      'mission_description_3': 'To protect the interests of its members and prevent unfair business competition in the port services industry.',
-      'mission_description_4': 'To improve the skills and knowledge of its members human resources in the port services sector in line with technological advances in various fields.',
+      'vision_description': "ABUPI's vision is to make its members globally competitive port operators.",
+      'mission_description_1': 'Supporting government policies in the national economic development program.',
+      'mission_description_2': 'Developing maritime services domestically and internationally.',
+      'mission_description_3': 'Developing member capabilities as the backbone of smooth port services.',
+      'mission_description_4': 'Making maritime services a globally competitive service industry.',
+      'mission_description_5': 'Making members professional actors in the field of ports oriented towards customer satisfaction.',
       'form_registration_company_name_title': 'Company Name',
       'form_registration_company_name_placeholder': 'Example Company',
       'form_registration_pic_name_title': 'PIC Name',
@@ -291,6 +303,9 @@ class AppLocalizations {
       'service_education_and_training_description': 'Competency development programs through Public and In-House Training.',
       'service_website_database_partner_title': 'Website Database Partner',
       'service_website_database_partner_description': 'Access to partner information and ABUPI`s collaboration network.',
+      'service_cooperation_and_partnership_title': 'Cooperation dan Partnership',
+      'service_cooperation_and_partnership_description': 'Access to partner information and ABUPI`s collaboration network.',
+      'service_cooperation_and_partnership_button': 'Network Information',
       'service_external_partner_service_title': 'External Partner Services',
       'service_external_partner_service_description': 'Additional services with external partners to meet member needs.',
       'service_consultation_and_assistance_form_button': 'Form Consultation & Assistance',
@@ -298,6 +313,9 @@ class AppLocalizations {
       'service_education_and_training_in_house_training_button': 'In-House Training',
       'service_website_database_partner_button': 'Open Partner Website',
       'service_external_partner_service_visit_button': 'Visit Partner',
+      'service_financing_title': 'Financing',
+      'service_financing_description': 'Port Development Financing Solutions from KPBU schemes to Investment.',
+      'service_financing_button': 'Contact Us',
       'registration_same_address_label': 'Same like company address',
       'work_plan_acceleration': 'Acceleration',
       'work_plan_inclusion': 'Inclusion',
@@ -367,6 +385,8 @@ class AppLocalizations {
   String get searchEventPlaceholder => translate('search_event_placeholder');
   String get vision => translate('vision');
   String get mission => translate('mission');
+  String get ourVision => translate('our_vision');
+  String get ourMission => translate('our_mission');
   String get basisFoundationABUPI => translate('basis_foundation_abupi');
   String get deedEstablishmentABUPI => translate('deed_of_establishment_abupi');
   String get basisFoundationDescriptionABUPI => translate('basis_foundation_description_abupi');
@@ -376,6 +396,7 @@ class AppLocalizations {
   String get missionDescription2 => translate('mission_description_2');
   String get missionDescription3 => translate('mission_description_3');
   String get missionDescription4 => translate('mission_description_4');
+  String get missionDescription5 => translate('mission_description_5');
   String get formRegistrationCompanyNameTitle => translate('form_registration_company_name_title');
   String get formRegistrationCompanyNamePlaceholder => translate('form_registration_company_name_placeholder');
   String get formRegistrationPicNameTitle => translate('form_registration_pic_name_title');
@@ -432,6 +453,12 @@ class AppLocalizations {
   String get serviceWebsiteDatabasePartnerDescription => translate('service_website_database_partner_description');
   String get serviceExternalPartnerServiceTitle => translate('service_external_partner_service_title');
   String get serviceExternalPartnerServiceDescription => translate('service_external_partner_service_description');
+  String get serviceCooperationAndPartnershipTitle => translate('service_cooperation_and_partnership_title');
+  String get serviceCooperationAndPartnershipDescription => translate('service_cooperation_and_partnership_description');
+  String get serviceCooperationAndPartnershipButton => translate('service_cooperation_and_partnership_button');
+  String get serviceFinancingTitle => translate('service_financing_title');
+  String get serviceFinancingDescription => translate('service_financing_description');
+  String get serviceFinancingButton => translate('service_financing_button');
   String get serviceConsultationAssistanceFormButton => translate('service_consultation_and_assistance_form_button');
   String get serviceEducationTrainingPublicTrainingButton => translate('service_education_and_training_public_training_button');
   String get serviceEducationTrainingInHouseButton => translate('service_education_and_training_in_house_training_button');

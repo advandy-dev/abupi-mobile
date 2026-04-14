@@ -64,7 +64,7 @@ class _ConsultationAndAssistanceFormScreen extends State<ConsultationAndAssistan
       ].join('\n');
       final mailtoUri = Uri(
         scheme: 'mailto',
-        path: 'royadvandy@gmail.com',
+        path: 'sekretariat@abupi.or.id',
         query: 'subject=${Uri.encodeComponent('ABUPI Consultation & Assistance')}&body=${Uri.encodeComponent(body)}',
       );
       debugPrint('mailto $mailtoUri');

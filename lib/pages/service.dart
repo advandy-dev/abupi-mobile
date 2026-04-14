@@ -1,6 +1,9 @@
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
+import 'package:abupi/util/launch_url.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ServiceScreen extends StatefulWidget {
   final int? service;
@@ -66,6 +69,7 @@ class _ServiceScreen extends State<ServiceScreen> {
             backgroundColor: Colors.white,
             collapsedBackgroundColor: Colors.white,
             childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            expandedCrossAxisAlignment: CrossAxisAlignment.start,
             children: children,
           ),
         ),
@@ -144,43 +148,44 @@ class _ServiceScreen extends State<ServiceScreen> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Row(
+                Wrap(
+                  spacing: 12,
+                  runSpacing: 8,
                   children: [
                     ElevatedButton(
                       style: const ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(Color(0xFF2e2f7f)),
                       ),
-                      onPressed: () => {},
-                      child: Text(
-                        l10n?.serviceEducationTrainingPublicTrainingButton ?? '',
-                        style: const TextStyle(color: Colors.white),
+                      onPressed: () => launchWebsite('https://www.instagram.com/port_learningcenter/'),
+                      child: const Text(
+                        'Port Learning Center',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    const SizedBox(width: 8),
                     ElevatedButton(
                       style: const ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(Color(0xFF2e2f7f)),
                       ),
-                      onPressed: () => {},
-                      child: Text(
-                        l10n?.serviceEducationTrainingInHouseButton ?? '',
-                        style: const TextStyle(color: Colors.white),
+                      onPressed: () => launchWebsite('https://www.instagram.com/lsp_pelabuhan/'),
+                      child: const Text(
+                        'LSP Pelabuhan',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
             const SizedBox(height: 12),
             _buildExpandableCapsule(
               context,
-              title: l10n?.serviceWebsiteDatabasePartnerTitle ?? '',
+              title: l10n?.serviceCooperationAndPartnershipTitle ?? '',
               icon: '🗂️',
               initiallyExpanded: widget.service == 2,
               children: [
                 const SizedBox(height: 8),
                 Text(
-                  l10n?.serviceWebsiteDatabasePartnerDescription ?? '',
+                  l10n?.serviceCooperationAndPartnershipDescription ?? '',
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.grey,
@@ -194,9 +199,9 @@ class _ServiceScreen extends State<ServiceScreen> {
                     style: const ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Color(0xFF2e2f7f)),
                     ),
-                    onPressed: () => {},
+                    onPressed: () => Navigator.pushNamed(context, AbupiApp.stakeholderRoute),
                     child: Text(
-                      l10n?.serviceWebsiteDatabasePartnerButton ?? '',
+                      l10n?.serviceCooperationAndPartnershipButton ?? '',
                       style: const TextStyle(color: Colors.white),
                     ),
                   ),
@@ -206,13 +211,13 @@ class _ServiceScreen extends State<ServiceScreen> {
             const SizedBox(height: 12),
             _buildExpandableCapsule(
               context,
-              title: l10n?.serviceExternalPartnerServiceTitle ?? '',
+              title: l10n?.serviceFinancingTitle ?? '',
               icon: '🤝',
               initiallyExpanded: widget.service == 3,
               children: [
                 const SizedBox(height: 8),
                 Text(
-                  l10n?.serviceExternalPartnerServiceDescription ?? '',
+                  l10n?.serviceFinancingDescription ?? '',
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.grey,
@@ -226,9 +231,9 @@ class _ServiceScreen extends State<ServiceScreen> {
                     style: const ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Color(0xFF2e2f7f)),
                     ),
-                    onPressed: () => {},
+                    onPressed: () => launchUrlString('https://wa.me/message/XRU4Y4HHCOK2K1'),
                     child: Text(
-                      l10n?.serviceExternalPartnerServiceVisitButton ?? '',
+                      l10n?.serviceFinancingButton ?? '',
                       style: const TextStyle(color: Colors.white),
                     ),
                   ),

@@ -265,7 +265,7 @@ class WordPressApi {
   static Future<Response> getMembers(int page) async {
     final client = _createHttpClient();
     try {
-      final uri = Uri.parse('$baseUrl/wp/v2/member?per_page=10&page=$page');
+      final uri = Uri.parse('$baseUrl/wp/v2/member?per_page=15&page=$page');
       final response = await client.get(
         uri,
         headers: {

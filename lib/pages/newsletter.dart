@@ -288,180 +288,191 @@ class _NewsletterScreen extends State<NewsletterScreen> {
                     ),
                   ),
                 ]
-            else
-              Container(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        if (_selectedNewsletter != null) {
-                          Navigator.pushNamed(
-                            context,
-                            AbupiApp.pdfRoute,
-                            arguments: PDFScreenArguments(
-                              url: _selectedNewsletter!.fileURL,
-                            ),
-                          );
-                        }
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20.0),
-                        child: Image.network(
-                          _selectedNewsletter?.image ?? '',
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: 360,
-                          errorBuilder: (context, error, stackTrace) =>
-                              Container(
-                                color: Colors.grey.shade500,
-                                child: const Center(
-                                  child: Icon(
-                                    Icons.event_rounded,
-                                    size: 32,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
-                          loadingBuilder: (context, child, loadingProgress) {
-                            if (loadingProgress == null) return child;
-                            return Container(
-                              color: Colors.grey.shade500,
-                              child: const Center(
-                                child: CircularProgressIndicator(strokeWidth: 2),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      l10n?.newsletterInformation ?? '',
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: Colors.black,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Column(
+                else
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: _isDownloading ?
-                              const WidgetStatePropertyAll<Color>(Colors.grey) :
-                              const WidgetStatePropertyAll<Color>(Colors.blue),
+                        InkWell(
+                          onTap: () {
+                            if (_selectedNewsletter != null) {
+                              Navigator.pushNamed(
+                                context,
+                                AbupiApp.pdfRoute,
+                                arguments: PDFScreenArguments(
+                                  url: _selectedNewsletter!.fileURL,
+                                ),
+                              );
+                            }
+                          },
+                          child: AspectRatio(
+                            aspectRatio: 2 / 3,
+                            child: LayoutBuilder(
+                              builder: (context, constraints) {
+                                return ClipRRect(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  child: Image.network(
+                                    _selectedNewsletter?.image ?? '',
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error,
+                                        stackTrace) =>
+                                        Container(
+                                          color: Colors.grey.shade500,
+                                          child: const Center(
+                                            child: Icon(
+                                              Icons.event_rounded,
+                                              size: 32,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        ),
+                                    loadingBuilder: (context, child,
+                                        loadingProgress) {
+                                      if (loadingProgress == null) return child;
+                                      return Container(
+                                        color: Colors.grey.shade500,
+                                        child: const Center(
+                                          child: CircularProgressIndicator(
+                                              strokeWidth: 2),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                );
+                              }
                           ),
-                          onPressed: () => _downloadPdf(),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(
-                                Icons.download,
-                                color: Colors.white,
-                              ),
-                              const SizedBox(width: 8),
-                              Text(
-                                l10n?.downloadNewsletter ?? '',
-                                style: const TextStyle(color: Colors.white, fontSize: 10),
-                              ),
-                            ],
                           ),
                         ),
-                        ElevatedButton(
-                          style: const ButtonStyle(
-                            backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFF25D366)),
+                        const SizedBox(height: 2),
+                        Text(
+                          l10n?.newsletterInformation ?? '',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.black,
                           ),
-                          onPressed: () => launchWhatsapp(),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(
-                                CupertinoIcons.chat_bubble_fill,
-                                color: Colors.white,
+                        ),
+                        const SizedBox(height: 8),
+                        Column(
+                          children: [
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: _isDownloading ?
+                                  const WidgetStatePropertyAll<Color>(Colors.grey) :
+                                  const WidgetStatePropertyAll<Color>(Colors.blue),
                               ),
-                              const SizedBox(width: 8),
-                              Text(
-                                l10n?.shareToWhatsapp ?? '',
-                                style: const TextStyle(color: Colors.white, fontSize: 10),
+                              onPressed: () => _downloadPdf(),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.download,
+                                    color: Colors.white,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    l10n?.downloadNewsletter ?? '',
+                                    style: const TextStyle(color: Colors.white, fontSize: 14),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                            ElevatedButton(
+                              style: const ButtonStyle(
+                                backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFF25D366)),
+                              ),
+                              onPressed: () => launchWhatsapp(),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    CupertinoIcons.chat_bubble_fill,
+                                    color: Colors.white,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    l10n?.shareToWhatsapp ?? '',
+                                    style: const TextStyle(color: Colors.white, fontSize: 14),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 12),
-              SizedBox(
-                height: 250,
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    // Card list
-                    ListView.separated(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      controller: _scrollController,
-                      scrollDirection: Axis.horizontal,
-                      separatorBuilder: (context, index) => const SizedBox(width: 4),
-                      itemCount: _newsletter.length,
-                      itemBuilder: (context, index) {
-                        final newsletter = _newsletter[index];
-                        return _buildNewsletterCard(context, newsletter);
-                      },
+                  ),
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    height: 250,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        // Card list
+                        ListView.separated(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          controller: _scrollController,
+                          scrollDirection: Axis.horizontal,
+                          separatorBuilder: (context, index) => const SizedBox(width: 4),
+                          itemCount: _newsletter.length,
+                          itemBuilder: (context, index) {
+                            final newsletter = _newsletter[index];
+                            if (newsletter.fileURL.isNotEmpty) {
+                              return _buildNewsletterCard(context, newsletter);
+                            }
+                            return Container();
+                          },
+                        ),
+                        // Left navigation button
+                        if (_canScrollLeft)
+                          Positioned(
+                            left: -8,
+                            bottom: 100,
+                            child: IconButton(
+                              onPressed: _scrollLeft,
+                              icon: const Icon(
+                                Icons.chevron_left_rounded,
+                                color: Colors.black,
+                              ),
+                              style: IconButton.styleFrom(
+                                backgroundColor: Colors.grey.shade100,
+                              ),
+                              iconSize: 24,
+                              constraints: const BoxConstraints(
+                                minWidth: 36,
+                                minHeight: 36,
+                              ),
+                              padding: EdgeInsets.zero,
+                            ),
+                          ),
+                        // Right navigation button
+                        if (_canScrollRight)
+                          Positioned(
+                            right: 0,
+                            bottom: 100,
+                            child: IconButton(
+                              onPressed: _scrollRight,
+                              icon: const Icon(
+                                Icons.chevron_right_rounded,
+                                color: Colors.black,
+                              ),
+                              style: IconButton.styleFrom(
+                                backgroundColor: Colors.grey.shade100,
+                              ),
+                              iconSize: 24,
+                              constraints: const BoxConstraints(
+                                minWidth: 36,
+                                minHeight: 36,
+                              ),
+                              padding: EdgeInsets.zero,
+                            ),
+                          ),
+                      ],
                     ),
-                    // Left navigation button
-                    if (_canScrollLeft)
-                      Positioned(
-                        left: -8,
-                        bottom: 100,
-                        child: IconButton(
-                          onPressed: _scrollLeft,
-                          icon: const Icon(
-                            Icons.chevron_left_rounded,
-                            color: Colors.black,
-                          ),
-                          style: IconButton.styleFrom(
-                            backgroundColor: Colors.grey.shade100,
-                          ),
-                          iconSize: 24,
-                          constraints: const BoxConstraints(
-                            minWidth: 36,
-                            minHeight: 36,
-                          ),
-                          padding: EdgeInsets.zero,
-                        ),
-                      ),
-                    // Right navigation button
-                    if (_canScrollRight)
-                      Positioned(
-                        right: 0,
-                        bottom: 100,
-                        child: IconButton(
-                          onPressed: _scrollRight,
-                          icon: const Icon(
-                            Icons.chevron_right_rounded,
-                            color: Colors.black,
-                          ),
-                          style: IconButton.styleFrom(
-                            backgroundColor: Colors.grey.shade100,
-                          ),
-                          iconSize: 24,
-                          constraints: const BoxConstraints(
-                            minWidth: 36,
-                            minHeight: 36,
-                          ),
-                          padding: EdgeInsets.zero,
-                        ),
-                      ),
+                  ),
+                  const SizedBox(height: 12),
                   ],
                 ),
-              ),
-              const SizedBox(height: 12),
-              ],
-            ),
           );
         },
       ),
@@ -495,35 +506,37 @@ class _NewsletterScreen extends State<NewsletterScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.network(
-                newsletter.image,
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: 120,
-                errorBuilder: (context, error, stackTrace) =>
-                    Container(
-                      color: Colors.grey.shade500,
-                      child: const Center(
-                        child: Icon(
-                          Icons.event_rounded,
-                          size: 32,
-                          color: Colors.grey,
+            if (newsletter.image.isNotEmpty) ...[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.network(
+                  newsletter.image,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 120,
+                  errorBuilder: (context, error, stackTrace) =>
+                      Container(
+                        color: Colors.grey.shade500,
+                        child: const Center(
+                          child: Icon(
+                            Icons.event_rounded,
+                            size: 32,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
-                    ),
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return Container(
-                    color: Colors.grey.shade500,
-                    child: const Center(
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    ),
-                  );
-                },
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return Container(
+                      color: Colors.grey.shade500,
+                      child: const Center(
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
+            ],
             const SizedBox(height: 8),
             Text(
               newsletter.title,

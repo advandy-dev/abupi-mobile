@@ -245,6 +245,14 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
+    final missionDescriptions = [
+      l10n?.missionDescription1 ?? '',
+      l10n?.missionDescription2 ?? '',
+      l10n?.missionDescription3 ?? '',
+      l10n?.missionDescription4 ?? '',
+      l10n?.missionDescription5 ?? '',
+    ];
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -262,122 +270,159 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  const SizedBox(height: 8),
-                  Text(
-                    _pageData?['acf']?['about_description'] ?? '',
-                    style: const TextStyle(color: Colors.black),
+            Column(
+              children: [
+                const SizedBox(height: 8),
+                Text(
+                  _pageData?['acf']?['about_description'] ?? '',
+                  style: const TextStyle(color: Colors.black),
+                ),
+                const SizedBox(height: 4),
+                const SizedBox(height: 16),
+                if (_youtubeURL.isNotEmpty) ...[GestureDetector(
+                  onTap: _openYouTube,
+                  child: AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12), // Optional: rounded corners
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          // 1. The Thumbnail Image
+                          Image.network(
+                            _videoThumbnailURL,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            // Placeholder while loading
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return Container(color: Colors.grey[300]);
+                            },
+                            errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                              return const Text('Image failed to load');
+                            },
+                          ),
+                          // 2. A semi-transparent overlay to make the icon pop
+                          Container(color: Colors.black26),
+                          // 3. The Play Icon
+                          const Icon(
+                            Icons.play_circle_fill,
+                            color: Colors.red,
+                            size: 64,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  const SizedBox(height: 4),
-                  const SizedBox(height: 16),
-                  if (_youtubeURL.isNotEmpty) ...[GestureDetector(
-                    onTap: _openYouTube,
-                    child: AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12), // Optional: rounded corners
-                        child: Stack(
-                          alignment: Alignment.center,
+                )],
+              ],
+            ),
+            const SizedBox(height: 12),
+
+            // const SizedBox(height: 12),
+            // _buildExpandableCapsule(
+            //   title: l10n?.ourVision ?? 'Visi Kami',
+            //   icon: Icons.visibility,
+            //   children: [
+            //     _buildTextSection([
+            //       l10n?.visionDescription ?? 'Sebagai badan usaha yang mengedepankan kerjasama antara Badan Usaha Pelabuhan (BUP), Terminal Untuk Kepentingan Sendiri (TUKS) dan Terminal Khusus (TerSus) dalam mendukung pembangunan sektor maritim di Indonesia.',
+            //     ]),
+            //   ],
+            // ),
+            // _buildExpandableCapsule(
+            //   title: l10n?.ourMission ?? 'Misi Kami',
+            //   icon: Icons.flag,
+            //   children: [
+            //     _buildBulletSection([
+            //       l10n?.missionDescription1 ?? 'Menghimpun, membina dan mengembangkan usaha para anggotanya untuk dapat lebih berperan serta di dalam meningkatkan pembangunan perekonomian nasional.',
+            //       l10n?.missionDescription2 ?? 'Melindungi kepentingan kegiatan Jasa Kepelabuhanan dengan menjunjung tinggi etika dan professionalisme para anggota dalam mengantisipasi perkembangan yang terjadi, baik secara Nasional maupun Internasional.',
+            //       l10n?.missionDescription3 ?? 'Melindungi kepentingan anggota dan mencegah timbulnya persaingan usaha yang tidak sehat dalam dunia usaha Jasa Kepelabuhanan.',
+            //       l10n?.missionDescription4 ?? 'Meningkatkan kemampuan serta pengetahuan sember daya manusia (SDM) para anggota di bidang Jasa Kepelabuhanan sejalan dengan kemajuan teknologi di berbagai bidang.',
+            //     ]),
+            //   ],
+            // ),
+
+              Container(
+                padding: const EdgeInsets.all(16),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: Colors.grey.shade300,
+                    width: 1,
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      l10n?.ourVision ?? 'Visi Kami',
+                      textAlign: TextAlign.start,
+                      style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      l10n?.visionDescription ?? '',
+                      textAlign: TextAlign.start,
+                      style: const TextStyle(
+                          fontSize: 16,
+                          color: Colors.black,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      l10n?.ourMission ?? 'Misi Kami',
+                      textAlign: TextAlign.start,
+                      style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    ...missionDescriptions.map((description) =>
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        padding: const EdgeInsets.all(12),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFfcf9fa),
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: Colors.grey.shade300,
+                            width: 1,
+                          ),
+                        ),
+                        child: Row(
                           children: [
-                            // 1. The Thumbnail Image
-                            Image.network(
-                              _videoThumbnailURL,
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              // Placeholder while loading
-                              loadingBuilder: (context, child, loadingProgress) {
-                                if (loadingProgress == null) return child;
-                                return Container(color: Colors.grey[300]);
-                              },
-                              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                                return const Text('Image failed to load');
-                              },
-                            ),
-                            // 2. A semi-transparent overlay to make the icon pop
-                            Container(color: Colors.black26),
-                            // 3. The Play Icon
                             const Icon(
-                              Icons.play_circle_fill,
-                              color: Colors.red,
-                              size: 64,
+                              Icons.check_circle_outline,
+                              color: Colors.deepPurple,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                description,
+                                style: const TextStyle(color: Colors.black),
+                              ),
                             ),
                           ],
                         ),
-                      ),
+                      )
                     ),
-                  )],
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 12),
-
-            _buildExpandableCapsule(
-              title: l10n?.basisFoundationABUPI ?? 'Dasar Pendirian',
-              icon: Icons.foundation,
-              children: [
-                _buildTextSection([
-                  l10n?.basisFoundationDescriptionABUPI ?? 'Dasar pendirian ABUPI adalah untuk mendukung program reformasi pelabuhan seperti yang diamanatkan pada Undang-undang No. 17 Tahun 2008 tentang Pelayaran dan Peraturan Pemerintah No. 61 Tahun 2009 tentang Kepelabuhanan.',
-                ]),
-              ],
-            ),
-            const SizedBox(height: 12),
-            _buildExpandableCapsule(
-              title: l10n?.deedEstablishmentABUPI ?? 'Akta Pendirian ABUPI',
-              icon: Icons.assignment,
-              children: [
-                _buildTextSection([
-                  l10n?.deedEstablishmentDescriptionABUPI ?? 'ABUPI didirikan dengan akte pendirian No. 010 tanggal 16 Februari 2015 di hadapan Notaris Elly Rustam SH dan dikukuhkan dengan pengesahan dari Kementrian Hukum dan Hak Asasi Manusia Republik Indonesia No. AHU-001650.AH.01, Tahun 2015.',
-                ]),
-              ],
-            ),
-            const SizedBox(height: 12),
-            _buildExpandableCapsule(
-              title: l10n?.vision ?? 'Visi',
-              icon: Icons.visibility,
-              children: [
-                _buildTextSection([
-                  l10n?.visionDescription ?? 'Sebagai badan usaha yang mengedepankan kerjasama antara Badan Usaha Pelabuhan (BUP), Terminal Untuk Kepentingan Sendiri (TUKS) dan Terminal Khusus (TerSus) dalam mendukung pembangunan sektor maritim di Indonesia.',
-                ]),
-              ],
-            ),
-            const SizedBox(height: 12),
-            _buildExpandableCapsule(
-              title: l10n?.mission ?? 'Misi',
-              icon: Icons.flag,
-              children: [
-                _buildBulletSection([
-                  l10n?.missionDescription1 ?? 'Menghimpun, membina dan mengembangkan usaha para anggotanya untuk dapat lebih berperan serta di dalam meningkatkan pembangunan perekonomian nasional.',
-                  l10n?.missionDescription2 ?? 'Melindungi kepentingan kegiatan Jasa Kepelabuhanan dengan menjunjung tinggi etika dan professionalisme para anggota dalam mengantisipasi perkembangan yang terjadi, baik secara Nasional maupun Internasional.',
-                  l10n?.missionDescription3 ?? 'Melindungi kepentingan anggota dan mencegah timbulnya persaingan usaha yang tidak sehat dalam dunia usaha Jasa Kepelabuhanan.',
-                  l10n?.missionDescription4 ?? 'Meningkatkan kemampuan serta pengetahuan sember daya manusia (SDM) para anggota di bidang Jasa Kepelabuhanan sejalan dengan kemajuan teknologi di berbagai bidang.',
-                ]),
-              ],
-            ),
-
-            // pillar
-            Padding(
-              padding: const EdgeInsets.only(top: 16, left: 20, right: 20, bottom: 12),
-              child: Text(
-                l10n?.pillarDescription ?? 'Untuk mewujudkan visi tersebut, ABUPI berkomitmen memperkuat kolaborasi, tata kelola, dan keberlanjutan melalui tiga pilar utama berikut:',
-                style: const TextStyle(color: Colors.black),
-              ),
-            ),
-
-            ..._pillars.map((pillar) => _buildPillar(
-              _currentLanguage == 'id' ? pillar.title : pillar.titleTranslate,
-              _currentLanguage == 'id' ? pillar.description : pillar.descriptionTranslate,
-              pillar.colorHex,
-            )).expand((element) => [
-              element,
-              const SizedBox(height: 8),
-            ]).toList()
-            ..removeLast(),
           ],
         ),
       ),
