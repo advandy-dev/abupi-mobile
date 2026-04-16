@@ -1,5 +1,6 @@
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/models/bod.dart';
+import 'package:abupi/models/regional_bod.dart';
 import 'package:flutter/material.dart';
 
 class BoardOfDirectorsScreen extends StatefulWidget {
@@ -74,17 +75,26 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Widagdo Pradono Siwi',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-1_Widagdo-Pradono-Siwi.png',
-          position: 'Kepala Bidang 1',
-          positionTranslate: 'Head of Division 1',
+          position: 'Kepala Bidang I',
+          positionTranslate: 'Head of Division I',
+          section: 'Aksesibilitas Perizinan',
+          sectionTranslate: 'PERMISSION ACCESSIBILITY',
+          company: 'Ter. Anugerah Indonesia',
+        ),
+        Subordinate(
+          name: 'Dody Rachmady',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-1_Dody-Rachmady.png',
+          position: 'Kepala Bidang I',
+          positionTranslate: 'Head of Division I',
           section: 'Aksesibilitas Perizinan',
           sectionTranslate: 'PERMISSION ACCESSIBILITY',
           company: 'Ter. Anugerah Indonesia',
         ),
         Subordinate(
           name: 'M. Arif Widyoadi',
-          position: 'Kepala Bidang 2',
+          position: 'Kepala Bidang II',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-2_M.-Arif-Widyoadi.png',
-          positionTranslate: 'Head of Division 2',
+          positionTranslate: 'Head of Division II',
           section: 'Standarisasi Supply Chain dan Tarif Kepelabuhan',
           sectionTranslate: 'Standardization of Supply Chain and Port Tariff',
           company: 'Samudera Port',
@@ -92,8 +102,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Pryonggo Sidharta',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-3_Pryonggo-Sidharta.png',
-          position: 'Kepala Bidang 3',
-          positionTranslate: 'Head of Division 3',
+          position: 'Kepala Bidang III',
+          positionTranslate: 'Head of Division III',
           section: 'Akses Permodalan & Investasi',
           sectionTranslate: 'Access to Capital & Investment',
           company: 'BLS',
@@ -101,8 +111,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Gregorius Riyan',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-3_Gregorius-Riyan.png',
-          position: 'Kepala Bidang 3',
-          positionTranslate: 'Head of Division 3',
+          position: 'Kepala Bidang III',
+          positionTranslate: 'Head of Division III',
           section: 'Akses Permodalan & Investasi',
           sectionTranslate: 'Access to Capital & Investment',
           company: 'BLS',
@@ -110,8 +120,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Imamudin Qusyairi',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-4_Imamudin-Qusyairi.png',
-          position: 'Kepala Bidang 4',
-          positionTranslate: 'Head of Division 4',
+          position: 'Kepala Bidang IV',
+          positionTranslate: 'Head of Division IV',
           section: 'Pengawasan Perizinan, Konsesi, dan Kerjasama Bentuk Lainnya',
           sectionTranslate: 'Supervision of Permits, Concessions, and Other Forms of Cooperation',
           company: 'SMP',
@@ -129,8 +139,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Harry Buana Putra',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-5_Harry-Buana-Putra.png',
-          position: 'Kepala Bidang 5',
-          positionTranslate: 'Head of Division 5',
+          position: 'Kepala Bidang V',
+          positionTranslate: 'Head of Division V',
           section: 'Kolaborasi & Kemitraan',
           sectionTranslate: 'Collaboration & Partnership',
           company: 'LLL',
@@ -138,8 +148,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Rusmin Abdulgani',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-6_Rusmin-Abdulgani.png',
-          position: 'Kepala Bidang 6',
-          positionTranslate: 'Head of Division 6',
+          position: 'Kepala Bidang VI',
+          positionTranslate: 'Head of Division VI',
           section: 'Sinergi Antar Pemangku Kepentingan',
           sectionTranslate: 'Inter-Stakeholder Synergy',
           company: 'Triple Eight',
@@ -147,8 +157,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Yuni Elvina',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-6_Yuni-Elvina.png',
-          position: 'Kepala Bidang 6',
-          positionTranslate: 'Head of Division 6',
+          position: 'Kepala Bidang VI',
+          positionTranslate: 'Head of Division VI',
           section: 'Sinergi Antar Pemangku Kepentingan',
           sectionTranslate: 'Inter-Stakeholder Synergy',
           company: 'PBR',
@@ -156,8 +166,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Christianne Kezia Lydia',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-7_Christianne-Kezia-Lydia.png',
-          position: 'Kepala Bidang 7',
-          positionTranslate: 'Head of Division 7',
+          position: 'kepala bidang VII',
+          positionTranslate: 'Head of Division VII',
           section: 'Kerjasama Internasional',
           sectionTranslate: 'International Cooperation',
           company: 'BKN',
@@ -165,8 +175,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Indah Nugrohowati',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-7_Indah-Nugrohowati.png',
-          position: 'Kepala Bidang 7',
-          positionTranslate: 'Head of Division 7',
+          position: 'kepala bidang VII',
+          positionTranslate: 'Head of Division VII',
           section: 'Kerjasama Internasional',
           sectionTranslate: 'International Cooperation',
           company: 'TTI',
@@ -174,10 +184,26 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Aghnia Nadhira',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-7_Aghnia-Nadhira.png',
-          position: 'Kepala Bidang 7',
-          positionTranslate: 'Head of Division 7',
+          position: 'kepala bidang VII',
+          positionTranslate: 'Head of Division VII',
           section: 'Kerjasama Internasional',
           sectionTranslate: 'International Cooperation',
+        ),
+        Subordinate(
+          name: 'Tony Wijaya',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_ABUPI-Peduli-CSR_Tony-Wijaya.png',
+          position: 'ABUPI Peduli',
+          positionTranslate: 'ABUPI Care',
+          section: '',
+          sectionTranslate: '',
+        ),
+        Subordinate(
+          name: 'Hendy Lubis',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_ABUPI-Golf_Hendy-Lubis.png',
+          position: 'ABUPI Golf',
+          positionTranslate: 'ABUPI Golf',
+          section: '',
+          sectionTranslate: '',
         ),
       ],
     ),
@@ -192,8 +218,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
             name: 'Rosita Septiani',
             imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-8_Rosita-Septiani.png',
-            position: 'Kepala Bidang 8',
-            positionTranslate: 'Head of Division 8',
+            position: 'Kepala Bidang VIII',
+            positionTranslate: 'Head of Division VIII',
             section: 'Peningkatan Kompetensi SDM',
             sectionTranslate: 'Competency Development',
             company: 'Maccahma'
@@ -201,8 +227,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
             name: 'Abdulloh',
             imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-9_Abdulloh.png',
-            position: 'Kepala Bidang 9',
-            positionTranslate: 'Head of Division 9',
+            position: 'Kepala Bidang IX',
+            positionTranslate: 'Head of Division IX',
             section: 'Program Magang dan Pendampingan',
             sectionTranslate: 'Internship & Mentoring Program',
             company: 'KBS'
@@ -210,8 +236,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
             name: 'Sadana Murti Nugroho',
             imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-9_Sadana-Murti-Nugroho.png',
-            position: 'Kepala Bidang 9',
-            positionTranslate: 'Head of Division 9',
+            position: 'Kepala Bidang IX',
+            positionTranslate: 'Head of Division IX',
             section: 'Program Magang dan Pendampingan',
             sectionTranslate: 'Internship & Mentoring Program',
             company: 'KBS'
@@ -219,8 +245,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
             name: 'Pandu Dewantara',
             imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-10_Pandu-Dewantara.png',
-            position: 'Kepala Bidang 10',
-            positionTranslate: 'Head of Division 10',
+            position: 'Kepala Bidang X',
+            positionTranslate: 'Head of Division X',
             section: 'Pelatihan Soft Skill',
             sectionTranslate: 'Soft Skill Training',
             company: 'TIS'
@@ -228,8 +254,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Azis Muttaqien',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-11_Azis-Muttaqien.png',
-          position: 'Kepala Bidang 11',
-          positionTranslate: 'Head of Division 11',
+          position: 'Kepala Bidang XI',
+          positionTranslate: 'Head of Division XI',
           section: 'Sertifikasi Standar Global Kepelabuhan',
           sectionTranslate: 'Global Standard Certification',
           company: 'SLUP',
@@ -237,8 +263,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Andri Yansyah',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-11_Andri-Yansyah.png',
-          position: 'Kepala Bidang 11',
-          positionTranslate: 'Head of Division 11',
+          position: 'Kepala Bidang XI',
+          positionTranslate: 'Head of Division XI',
           section: 'Sertifikasi Standar Global Kepelabuhan',
           sectionTranslate: 'Global Standard Certification',
           company: 'LLL',
@@ -256,8 +282,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Kepala Bidang XII',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-12_Menunggu-PAW.png',
-          position: 'Kepala Bidang 12',
-          positionTranslate: 'Head of Division 12',
+          position: 'Kepala Bidang XII',
+          positionTranslate: 'Head of Division XII',
           section: 'Standarisasi Keamanan Pelabuhan (ISPS Code)',
           sectionTranslate: 'Standardization of Port Security (ISPS Code)',
           company: 'SCN',
@@ -265,8 +291,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Dhany Yudha',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-13_Dhany-Yudha.png',
-          position: 'Kepala Bidang 13',
-          positionTranslate: 'Head of Division 13',
+          position: 'Kepala Bidang XIII',
+          positionTranslate: 'Head of Division XIII',
           section: 'Kabid Integrasi System Port to Port',
           sectionTranslate: 'Integration of Port to Port System',
           company: 'Samudera Port',
@@ -274,8 +300,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Ashari Trisna',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-14_Ashari-Trisna.png',
-          position: 'Kepala Bidang 14',
-          positionTranslate: 'Head of Division 14',
+          position: 'Kepala Bidang XIV',
+          positionTranslate: 'Head of Division XIV',
           section: 'Inovasi Teknonolog Masa Depan',
           sectionTranslate: 'Future Technology Innovation',
           company: 'KBS',
@@ -283,8 +309,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Wien Goerindro',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-15_Wien-Goerindro.png',
-          position: 'Kepala Bidang 15',
-          positionTranslate: 'Head of Division 15',
+          position: 'Kepala Bidang XV',
+          positionTranslate: 'Head of Division XV',
           section: 'Standarisasi Alat & Sistem Pelayanan',
           sectionTranslate: 'Standardization of Equipment & Service Systems',
           company: 'ILSS',
@@ -292,19 +318,10 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Tri Andika Syam',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-16_Tri-Andika-Syam.png',
-          position: 'Kepala Bidang 16',
-          positionTranslate: 'Head of Division 16',
+          position: 'Kepala Bidang XVI',
+          positionTranslate: 'Head of Division XVI',
           section: 'Promotion & Branding (BUP)',
           sectionTranslate: 'Promotion & Branding (BUP)',
-          company: 'AGP',
-        ),
-        Subordinate(
-          name: 'Hendy Lubis',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_ABUPI-Golf_Hendy-Lubis.png',
-          position: 'Kepala Bidang 16',
-          positionTranslate: 'Head of Division 16',
-          section: 'Promotion & Branding (BUP) - ABUPI Golf',
-          sectionTranslate: 'Promotion & Branding (BUP) - ABUPI Golf',
           company: 'AGP',
         ),
       ],
@@ -320,8 +337,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Sony Sidjaja',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-17_Sonny-Sidjaja.png',
-          position: 'Kepala Bidang 17',
-          positionTranslate: 'Head of Division 17',
+          position: 'Kepala Bidang XVII',
+          positionTranslate: 'Head of Division XVII',
           section: 'Investasi Keberlanjutan',
           sectionTranslate: 'Sustainability Investment',
           company: 'IMPT',
@@ -329,8 +346,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Joko Widatmoko',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-17_Joko-Widiatmoko.png',
-          position: 'Kepala Bidang 17',
-          positionTranslate: 'Head of Division 17',
+          position: 'Kepala Bidang XVII',
+          positionTranslate: 'Head of Division XVII',
           section: 'Investasi Keberlanjutan',
           sectionTranslate: 'Sustainability Investment',
           company: 'BBI',
@@ -338,8 +355,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Donny Adolf',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-18_-Donny-Adolf.png',
-          position: 'Kepala Bidang 18',
-          positionTranslate: 'Head of Division 18',
+          position: 'Kepala Bidang XVIII',
+          positionTranslate: 'Head of Division XVIII',
           section: 'Komitmen Keberlanjutan BUP',
           sectionTranslate: 'Commitment to BUP Sustainability',
           company: 'CCP',
@@ -347,11 +364,20 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'Ilvy Wiliyanti',
           imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-18_-Ilvy-Wiliyanti.png',
-          position: 'Kepala Bidang 18',
-          positionTranslate: 'Head of Division 18',
+          position: 'Kepala Bidang XVIII',
+          positionTranslate: 'Head of Division XVIII',
           section: 'Komitmen Keberlanjutan BUP',
           sectionTranslate: 'Commitment to BUP Sustainability',
           company: 'CPN',
+        ),
+        Subordinate(
+          name: 'Adinda R.D.M',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-18_-Adinda-R.-D.-M.png',
+          position: 'Kepala Bidang XVIII',
+          positionTranslate: 'Head of Division XVIII',
+          section: 'Komitmen Keberlanjutan BUP',
+          sectionTranslate: 'Commitment to BUP Sustainability',
+          company: '',
         ),
       ],
     ),
@@ -360,12 +386,14 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
   final List<BoardOfDirector> _advisory = [
     BoardOfDirector(
       name: 'Carmelita Hartoto',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-12_Menunggu-PAW.png',
       position: 'Dewan Penasehat',
       positionTranslate: 'Advisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'M. Akbar Djohan',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Penasihat_M.-Akbar-Djohan.png',
       position: 'Dewan Penasehat',
       positionTranslate: 'Advisory Board',
       subordinate: [],
@@ -375,30 +403,35 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
   final List<BoardOfDirector> _supervisory = [
     BoardOfDirector(
       name: 'Aulia Febrial Fatwa (PMN)',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Ketua-Dewan-Pembina_Aulia-Febrial-Fatwa.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'Ayi Paryana (MSK)',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_Ayi-Paryana.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'David Rahadian (GE)',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_David-Rahadian.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'Edi Rivai (CAP)',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_Edi-Rivai.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'Mindo Herbert Sitorus (PRK)',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_Mindo-Herbert-Sitorus.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
@@ -413,6 +446,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Bay Mokhamad Hasani',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Kepelabuhanan_Bay-Mokhamad-Hasani.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -420,6 +454,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Pasoroan Herman Harianja',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Luwu-Timur_Ikal.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -434,6 +469,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Prof. Saut Gurning',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Logistik-Rantai-Pasok_Saut-Gurning.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -441,6 +477,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Dr. Nofrisel, SE, MM',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Logistik-Rantai-Pasok_Nofrisel.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -455,6 +492,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Capt. Alioth Willem Belseran, MM, M.Mar',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Hukum-Kelembagaan_Capt.-Alioth-Willem-B.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -462,6 +500,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Neneng Sofiati',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Hukum-Kelembagaan_Neneng-Sofiati.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -476,6 +515,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Dr. Gugus Wijonarko, MM',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Sumber-Daya-Manusia_Gugus-Wijonarko.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -490,10 +530,209 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Dr. Lucky Bayu Purnomo',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Keuangan-Investasi_Lucky-Bayu-Purnomo.png',
           position: '',
           positionTranslate: '',
           section: '',
           sectionTranslate: '',
+        ),
+      ],
+    ),
+  ];
+
+  final List<RegionalBOD> _boardOfDirector = [
+    RegionalBOD(
+      name: 'Ahmad Jauhari',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi-DPW-Sumatera_Ahmad-Jauhari.png',
+      company: 'Maccahma',
+      position: 'DPW Sumatera',
+      positionTranslate: 'Regional Coordinator of Sumatera',
+      subordinate: [
+        RegionalBOD(
+          name: 'Teuku Ali Devi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Aceh_Teuku-Ali-Devi.png',
+          company: 'SPI',
+          position: 'DPD Aceh',
+          positionTranslate: 'Regional Coordinator of Aceh',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Capt. Awaluddin',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kepulauan-Riau-Batam_Capt.-Awaluddin.png',
+          company: 'PelKepri',
+          position: 'DPD Kepri & Batam',
+          positionTranslate: 'Regional Coordinator of Kepri & Batam',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'F. Saragih',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sumatera-Selatan_F.-Saragih.png',
+          company: 'PIT',
+          position: 'DPD Sumatera Selatan',
+          positionTranslate: 'Regional Coordinator of South Sumatera',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Susmartono',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Lampung_Susmartono.png',
+          company: 'SLUP',
+          position: 'DPD Lampung',
+          positionTranslate: 'Regional Coordinator of Lampung',
+          subordinate: [],
+        ),
+      ],
+    ),
+    RegionalBOD(
+      name: 'Aep Dedi Laksana',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Jawa-Bali-Nusa-Tenggara_Aep-Dedi-Laksana.png',
+      company: 'KBS',
+      position: 'DPW Jawa, Bali, & Nusa Tenggara',
+      positionTranslate: 'Regional Coordinator of Jawa, Bali, & Nusa Tenggara',
+      subordinate: [
+        RegionalBOD(
+          name: 'Mohamad Rondhi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Jawa-Tengah_Mohamad-Rondhi.png',
+          company: 'ATU',
+          position: 'DPD Jawa Tengah',
+          positionTranslate: 'Regional Coordinator of Jawa Tengah',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Eko Didik Harnoko',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Banten_Eko-Didik-Harnoko.png',
+          company: 'PCM',
+          position: 'DPD Banten',
+          positionTranslate: 'Regional Coordinator of Banten',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Eky Kurniawan',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-DKI-Jakarta-Jawa-Barat_Eky-Kurniawan.png',
+          position: 'DPD Daerah Khusus Jakarta & Jawa Barat',
+          positionTranslate: 'Regional Coordinator of Special Region of Jakarta & West Java',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Marianus Oei',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Jawa-Timur_Marianus-Oei.png',
+          company: 'SMP',
+          position: 'DPD Jawa Timur',
+          positionTranslate: 'Regional Coordinator of Jawa Timur',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Sudarta',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Lembar_Sudarta.png',
+          company: 'PLS',
+          position: 'DPD Lembar',
+          positionTranslate: 'Regional Coordinator of Lembar',
+          subordinate: [],
+        ),
+      ],
+    ),
+    RegionalBOD(
+      name: 'Nurcahyo Adi Putranto',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Kalimantan_Nurcahyo-Adi-Putranto.png',
+      company: 'TIA',
+      position: 'DPW Kalimantan',
+      positionTranslate: 'Regional Coordinator of Kalimantan',
+      subordinate: [
+        RegionalBOD(
+          name: 'Ahmad Zabidi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Tengah_Ahmad-Zabidi.png',
+          company: 'AMS',
+          position: 'DPD Kalimantan Tengah',
+          positionTranslate: 'Regional Coordinator of Kalimantan Tengah',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Kamaruddin Abtami',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Timur_Kamaruddin-Abtami.png',
+          company: 'PTB',
+          position: 'DPD Kalimantan Timur',
+          positionTranslate: 'Regional Coordinator of Kalimantan Timur',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Slamet Riyadi',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Tanjung-Redeb_Slamet-Riyadi.png',
+          company: 'GAN',
+          position: 'DPC Tj. Redeb',
+          positionTranslate: 'Regional Coordinator of Tj. Redeb',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Rinaldy Perdana',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Balikpapan_Rinaldy-Perdana.png',
+          company: 'HNJ',
+          position: 'DPC Balikpapan',
+          positionTranslate: 'Regional Coordinator of Balikpapan',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Harun Gemilang',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Samarinda_Harun-Gemilang.png',
+          company: '(PSP)',
+          position: 'DPC Samarinda',
+          positionTranslate: 'Regional Coordinator of Samarinda',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'DPD Kalimantan Barat',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Barat_Menunggu-PAW.png',
+          company: '(PSP)',
+          position: 'DPD Kalimantan Barat',
+          positionTranslate: 'Regional Coordinator of West Kalimantan',
+          subordinate: [],
+        ),
+      ],
+    ),
+    RegionalBOD(
+      name: 'Salman Dianda Anwar',
+      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Sulawesi_Salman-Dianda-Anwar.png',
+      company: 'BBI',
+      position: 'DPW Sulawesi',
+      positionTranslate: 'Regional Coordinator of Sulawesi',
+      subordinate: [
+        RegionalBOD(
+          name: 'Agung Wibisono',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sulawesi-Selatan_Agung-Wibisono.png',
+          company: 'BBI',
+          position: 'DPD Sulawesi Selatan',
+          positionTranslate: 'Regional Coordinator of Sulawesi Selatan',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Felix Febrian',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sulawesi-Tenggara_Felix-Febrian.png',
+          company: 'APN',
+          position: 'DPD Sulawesi Tenggara',
+          positionTranslate: 'Regional Coordinator of Sulawesi Tenggara',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Mohamad Guruh',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Kendari_Mohamad-Guruh.png',
+          company: 'APN',
+          position: 'DPD Kendari',
+          positionTranslate: 'Regional Coordinator of Kendari',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Zainudin',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Barat_Menunggu-PAW.png',
+          company: 'PBR',
+          position: 'DPD Kalimantan Selatan',
+          positionTranslate: 'Regional Coordinator of South Kalimantan',
+          subordinate: [],
+        ),
+        RegionalBOD(
+          name: 'Ikmal',
+          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Barat_Menunggu-PAW.png',
+          company: 'PMI',
+          position: 'DPC Luwu Timur',
+          positionTranslate: 'Regional Coordinator of East Luwu',
+          subordinate: [],
         ),
       ],
     ),
@@ -509,6 +748,117 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
   void dispose() {
     _tabController.dispose();
     super.dispose();
+  }
+
+  void _showSubordinateRegionalBottomSheet(BuildContext context, RegionalBOD director) {
+    showModalBottomSheet(
+      backgroundColor: Colors.white,
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return DraggableScrollableSheet(
+          initialChildSize: 0.5,
+          minChildSize: 0.3,
+          maxChildSize: 0.9,
+          expand: false,
+          builder: (context, scrollController) {
+            return Column(
+              children: [
+                Container(
+                  width: 40,
+                  height: 4,
+                  margin: const EdgeInsets.symmetric(vertical: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Text(
+                    director.position,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF2e2f7f),
+                    ),
+                  ),
+                ),
+                Divider(color: Colors.grey.shade400),
+                Expanded(
+                  child: ListView.separated(
+                    controller: scrollController,
+                    padding: const EdgeInsets.all(16),
+                    itemCount: director.subordinate.length,
+                    separatorBuilder: (context, index) =>
+                        Divider(height: 24, color: Colors.grey.shade400),
+                    itemBuilder: (context, index) {
+                      final subordinate = director.subordinate[index];
+                      return _buildSubordinateRegionalRow(subordinate);
+                    },
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildSubordinateRegionalRow(RegionalBOD subordinate) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          width: 56,
+          height: 56,
+          decoration: BoxDecoration(
+            color: Colors.grey[300],
+            shape: BoxShape.circle,
+            image: subordinate.imageURL != null
+                ? DecorationImage(
+              image: NetworkImage(subordinate.imageURL!),
+              fit: BoxFit.cover,
+            )
+                : null,
+          ),
+          child: subordinate.imageURL == null
+              ? const Icon(Icons.person, color: Colors.grey, size: 32)
+              : null,
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                subordinate.name,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                subordinate.company != null || (subordinate.company?.isNotEmpty ?? false)
+                    ? '${subordinate.position} (${subordinate.company})'
+                    : subordinate.position,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Colors.grey[600],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
   }
 
   void _showSubordinateBottomSheet(BuildContext context, BoardOfDirector director) {
@@ -769,8 +1119,8 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
           ),
           tabs: [
             Tab(text: l10n?.boardOfDirectors ?? 'Dewan Pengurus'),
-            Tab(text: l10n?.advisoryBoard ?? 'Dewan Penasihat'),
             Tab(text: l10n?.supervisoryBoard ?? 'Dewan Pembina'),
+            Tab(text: l10n?.advisoryBoard ?? 'Dewan Penasihat'),
             Tab(text: l10n?.expertAdvisoryBoard ?? 'Dewan Pakar'),
           ],
         ),
@@ -904,6 +1254,34 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
                 isExpandable: director.subordinate.isNotEmpty,
                 onTap: director.subordinate.isNotEmpty
                     ? () => _showSubordinateBottomSheet(context, director)
+                    : null,
+              );
+            },
+          ),
+          const SizedBox(height: 24),
+          const Text(
+            'DPW, DPD & DPC',
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          const SizedBox(height: 12),
+          ListView.separated(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: _boardOfDirector.length,
+            separatorBuilder: (context, index) => const SizedBox(height: 12),
+            itemBuilder: (context, index) {
+              final director = _boardOfDirector[index];
+              return _buildDirectorCard(
+                name: director.name,
+                position: director.position,
+                imageURL: director.imageURL ?? '',
+                isExpandable: director.subordinate.isNotEmpty,
+                onTap: director.subordinate.isNotEmpty
+                    ? () => _showSubordinateRegionalBottomSheet(context, director)
                     : null,
               );
             },

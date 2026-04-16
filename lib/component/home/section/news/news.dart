@@ -210,7 +210,10 @@ class _NewsSectionState extends State<NewsSection> {
       return SizedBox(
         height: 200,
         child: Center(
-          child: Text(l10n?.emptyEvent ?? 'Tidak ada acara'),
+          child: Text(
+            l10n?.emptyEvent ?? 'Tidak ada acara',
+            style: const TextStyle(color: Colors.black),
+          ),
         ),
       );
     }

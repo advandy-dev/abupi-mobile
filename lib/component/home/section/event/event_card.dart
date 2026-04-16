@@ -35,193 +35,108 @@ class EventCard extends StatelessWidget {
         child: compact
             ? LayoutBuilder(
                 builder: (context, constraints) {
-                  return SizedBox(
-                    height: constraints.maxHeight,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(16),
-                              topRight: Radius.circular(16),
-                            ),
-                            child: Stack(
-                              fit: StackFit.expand,
-                              children: [
-                                event.imageUrl != null
-                                  ? Image.network(
-                                      event.imageUrl!,
-                                      fit: BoxFit.cover,
-                                      width: double.infinity,
-                                      errorBuilder: (context, error,
-                                          stackTrace) =>
-                                          Container(
-                                            color: Colors.grey.shade500,
-                                            decoration: BoxDecoration(
-                                              color: Colors.grey.shade500,
-                                              // Match the ClipRRect radius here!
-                                              borderRadius: const BorderRadius.only(
-                                                topLeft: Radius.circular(16),
-                                                topRight: Radius.circular(16),
-                                              ),
-                                            ),
-                                            child: const Center(
-                                              child: Icon(
-                                                Icons.event_rounded,
-                                                size: 32,
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                          ),
-                                      loadingBuilder: (context, child,
-                                          loadingProgress) {
-                                        if (loadingProgress == null) return child;
-                                        return Container(
-                                          color: Colors.grey,
-                                          child: const Center(
-                                            child: CircularProgressIndicator(
-                                                strokeWidth: 2),
-                                          ),
-                                        );
-                                      },
-                                  )
-                                : Container(
-                                    color: Colors.grey.shade500,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.shade500,
-                                      // Match the ClipRRect radius here!
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(16),
-                                        topRight: Radius.circular(16),
-                                      ),
-                                    ),
-                                    child: const Center(
-                                      child: Icon(
-                                        Icons.event_rounded,
-                                        size: 32,
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                  ),
-                                if (DateTime.now()
-                                    .isAfter(DateTime.parse(event.endDate)))
-                                  Positioned(
-                                    top: 0,
-                                    right: 0,
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 6, vertical: 2),
-                                      decoration: const BoxDecoration(
-                                        color: Color(0xFFe2642a),
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(6),
-                                          topRight: Radius.circular(6),
-                                        ),
-                                      ),
-                                      child: Text(
-                                        l10n?.done ?? 'Selesai',
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 10,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                              ],
-                            ),
-                          ),
+                  return Column(
+                    mainAxisSize: MainAxisSize.min, // Shrinks to fit content
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // 1. Image has a fixed height
+                      SizedBox(
+                        height: 140, // Set exactly how tall you want the image
+                        width: double.infinity,
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                          child: Image.network(event.imageUrl!, fit: BoxFit.fitHeight),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              if (event.location != null)
-                                Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.location_on_outlined,
-                                      size: 10,
-                                      color: Color(0xFF632f9c),
-                                    ),
-                                    const SizedBox(width: 2),
-                                    Expanded(
-                                      child: Text(
-                                        event.location!,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .labelSmall
-                                            ?.copyWith(
-                                              color: const Color(0xFF632f9c),
-                                              fontSize: 10,
-                                            ),
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              if (event.location != null)
-                                const SizedBox(height: 2),
-                              Text(
-                                event.title,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
-                                    ?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  fontSize: 12,
-                                ),
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                event.description,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall
-                                    ?.copyWith(
-                                  fontSize: 12,
-                                  color: Colors.grey.shade500
-                                ),
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(height: 8),
+                      ),
+                      // 2. Text area grows naturally
+                      Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (event.location != null)
                               Row(
                                 children: [
                                   const Icon(
-                                    Icons.calendar_today_outlined,
+                                    Icons.location_on_outlined,
                                     size: 10,
-                                    color: Colors.black,
+                                    color: Color(0xFF632f9c),
                                   ),
-                                  const SizedBox(width: 4),
-                                  Flexible(
+                                  const SizedBox(width: 2),
+                                  Expanded(
                                     child: Text(
-                                      event.formattedDate,
+                                      event.location!,
                                       style: Theme.of(context)
                                           .textTheme
                                           .labelSmall
                                           ?.copyWith(
-                                            color: Colors.black,
-                                            fontSize: 10,
-                                          ),
+                                        color: const Color(0xFF632f9c),
+                                        fontSize: 10,
+                                      ),
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
+                            if (event.location != null)
+                              const SizedBox(height: 2),
+                            Text(
+                              event.title,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall
+                                  ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 12,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              event.description,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall
+                                  ?.copyWith(
+                                  fontSize: 12,
+                                  color: Colors.grey.shade500
+                              ),
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            const SizedBox(height: 8),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.calendar_today_outlined,
+                                  size: 10,
+                                  color: Colors.black,
+                                ),
+                                const SizedBox(width: 4),
+                                Flexible(
+                                  child: Text(
+                                    event.formattedDate,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelSmall
+                                        ?.copyWith(
+                                      color: Colors.black,
+                                      fontSize: 10,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   );
                 },
               )
@@ -238,10 +153,10 @@ class EventCard extends StatelessWidget {
                 children: [
                   // Event image
                   AspectRatio(
-                    aspectRatio: 16 / 9,
+                    aspectRatio: 16 / 13,
                     child: event.imageUrl != null ? Image.network(
                       event.imageUrl!,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fitHeight,
                       errorBuilder: (context, error, stackTrace) => Container(
                         color: Colors.grey.shade500,
                         child: const Center(

@@ -6,6 +6,7 @@ import 'package:abupi/component/home/section/event/event_card.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:abupi/models/event.dart';
+import 'package:abupi/models/event_category.dart';
 import 'package:abupi/services/wordpress_api.dart';
 import 'package:abupi/util/string.dart';
 import 'package:flutter/material.dart';
@@ -30,12 +31,17 @@ class _EventScreenState extends State<EventScreen> {
   String _keyword = '';
 
   List<Event> _eventList = [];
+  List<EventCategory> _categories = [];
+  int _selectedCategory = 0;
   bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    _loadData(_keyword);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // This code runs AFTER the widget is rendered
+      _loadData(context, _keyword, true, null);
+    });
     _scrollController.addListener(_onScroll);
   }
 
@@ -43,24 +49,35 @@ class _EventScreenState extends State<EventScreen> {
     // Trigger when the user is 200 pixels from the bottom
     if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
       if (!_isLoading) {
-        _loadData(_keyword);
+        _loadData(context, _keyword, false, _selectedCategory);
       }
     }
   }
 
-  Future<void> _loadData(String keyword) async {
+  Future<void> _loadData(
+    BuildContext context,
+    String keyword,
+    bool shouldFetchCategory,
+    int? selectedCategory,
+  ) async {
     if (_isLastPage) {
       return;
     }
 
     try {
+      final l10n = AppLocalizations.of(context);
+      final language = l10n?.locale.languageCode ?? 'id';
+
       setState(() {
         _isLoading = true;
       });
-      final response = await WordPressApi.getEvents(_page, maxPerPage, keyword);
+      List<dynamic> response = await Future.wait([
+        WordPressApi.getEvents(_page, maxPerPage, keyword, selectedCategory),
+        shouldFetchCategory ? WordPressApi.getEventCategory() : Future.value(null),
+      ]);
 
-      if (response.statusCode == 200) {
-        final List<dynamic> jsonList = json.decode(response.body);
+      if (response[0].statusCode == 200) {
+        final List<dynamic> jsonList = json.decode(response[0].body);
         if (jsonList.isNotEmpty) {
           try {
             var events = jsonList.map((item) {
@@ -77,9 +94,9 @@ class _EventScreenState extends State<EventScreen> {
             }).toList();
             setState(() {
               _eventList = _eventList + events;
-              _isLoading = false;
               _isLastPage = events.length < maxPerPage;
               _page = events.length < maxPerPage ? _page : (_page + 1);
+              _isLoading = shouldFetchCategory;
             });
           } catch (e) {
             debugPrint('error event list $e');
@@ -89,22 +106,61 @@ class _EventScreenState extends State<EventScreen> {
           }
         } else {
           setState(() {
+            _eventList = [];
+            _isLastPage = true;
             _isLoading = false;
           });
         }
+      } else {
+        setState(() {
+          _isLastPage = true;
+          _isLoading = false;
+        });
+      }
+
+      if (response[1]?.statusCode == 200) {
+        final List<dynamic> jsonList = json.decode(response[1]?.body);
+        if (jsonList.isNotEmpty) {
+          try {
+            var categories = jsonList.map((item) {
+              return EventCategory(
+                id: _parseInt(item['id']),
+                title: stringOrEmpty(item['name']),
+              );
+            }).toList();
+            setState(() {
+              _categories = [EventCategory(
+                id: 0,
+                title: language == 'id' ? 'Semua' : 'All',
+              )] + categories;
+              _selectedCategory = 0;
+              _isLoading = false;
+            });
+          } catch (e) {
+            debugPrint('error event list $e');
+            setState(() {
+              _isLoading = false;
+            });
+          }
+        }
+      } else {
+        setState(() {
+          _isLoading = false;
+        });
       }
     } catch (e) {
       debugPrint('$e');
     }
   }
 
-  Future<void> _onRefresh() async {
+  Future<void> _onRefresh(BuildContext context) async {
     setState(() {
       _page = 1;
       _eventList = [];
       _isLastPage = false;
+      _categories = [];
     });
-    _loadData(_keyword);
+    _loadData(context, _keyword, true, _selectedCategory);
   }
 
   @override
@@ -140,7 +196,7 @@ class _EventScreenState extends State<EventScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh, color: Colors.white),
-            onPressed: () => _onRefresh(),
+            onPressed: () => _onRefresh(context),
           ),
         ],
       ),
@@ -150,32 +206,106 @@ class _EventScreenState extends State<EventScreen> {
           Container(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
             color: Colors.white,
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                hintText: l10n?.searchEventPlaceholder ?? 'Masukkan nama acara',
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
+            child: Column(
+              children: [
+                TextField(
+                  style: const TextStyle(color: Colors.black),
+                  controller: _searchController,
+                  cursorColor: const Color(0xFF2e2f7f),
+                  decoration: InputDecoration(
+                    hintText: l10n?.searchEventPlaceholder ?? 'Masukkan nama acara',
+                    prefixIcon: const Icon(Icons.search),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Color(0xFF2e2f7f)), // Focused color
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _keyword = value;
+                      _page = 1;
+                      _isLastPage = false;
+                      _eventList = [];
+                    });
+                    _debounceTimer?.cancel();
+                    _debounceTimer = Timer(_debounceDuration, () => _loadData(context, value, false, _selectedCategory));
+                  },
                 ),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
+                const SizedBox(height: 8),
+                SizedBox(
+                  height: 40,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    itemCount: _categories.length,
+                    separatorBuilder: (_, __) => const SizedBox(width: 8),
+                    itemBuilder: (context, index) {
+                      final category = _categories[index];
+                      return Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              _selectedCategory = category.id;
+                              _page = 1;
+                              _isLastPage = false;
+                              _eventList = [];
+                            });
+                            _loadData(context, _keyword, false, category.id == 0 ? null : category.id);
+                          },
+                          borderRadius: BorderRadius.circular(20),
+                          child: IntrinsicWidth( // Ensures the pill only takes required width
+                            child: Container(
+                              constraints: const BoxConstraints(
+                                minHeight: 32,
+                                minWidth: 50, // Reduced minWidth to let smaller words fit
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                color: _selectedCategory == category.id ? const Color(0xFF2e2f7f) : Colors.white,
+                                borderRadius: BorderRadius.circular(24),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black26,
+                                    blurRadius: 4,
+                                    offset: Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                              // Simplified centering: child is just the text
+                              child: Center(
+                                child: Text(
+                                  category.title,
+                                  textAlign: TextAlign.center,
+                                  softWrap: false, // Prevents text from trying to wrap to a second line
+                                  overflow: TextOverflow.visible, // Ensures text isn't clipped by the engine
+                                  style: TextStyle(
+                                    color: _selectedCategory == category.id ? Colors.white : Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              onChanged: (value) {
-                debugPrint('search $value');
-                setState(() {
-                  _keyword = value;
-                  _page = 1;
-                  _isLastPage = false;
-                  _eventList = [];
-                });
-                _debounceTimer?.cancel();
-                _debounceTimer = Timer(_debounceDuration, () => _loadData(value));
-              },
+              ],
             ),
           ),
           if (_isLoading && _page == 1) ...[
@@ -188,7 +318,10 @@ class _EventScreenState extends State<EventScreen> {
           else if (!_isLoading && _eventList.isEmpty) ...[
             Expanded(
               child: Center(
-                child: Text(l10n?.emptyEvent ?? 'Tidak ada acara'),
+                child: Text(
+                  l10n?.emptyEvent ?? 'Tidak ada acara',
+                  style: const TextStyle(color: Colors.black),
+                ),
               ),
             )
           ]
@@ -205,7 +338,7 @@ class _EventScreenState extends State<EventScreen> {
                       crossAxisCount: 2,
                       mainAxisSpacing: 12,
                       crossAxisSpacing: 12,
-                      childAspectRatio: 0.72,
+                      childAspectRatio: 0.6,
                     ),
                     delegate: SliverChildBuilderDelegate(
                           (context, index) {

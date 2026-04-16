@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:html/dom.dart';
 import 'dart:io';
 import 'package:html/parser.dart';
@@ -44,14 +45,37 @@ class WordPressApi {
     }
   }
 
-  static Future<Response> getEvents(int page, int perPage, String? search) async {
+  static Future<Response> getEvents(int page, int perPage, String? search, int? category) async {
     final client = _createHttpClient();
     try {
-      var searchParam = '';
+      String searchParam = '';
       if (search != null) {
         searchParam = '&search=$search';
       }
-      final uri = Uri.parse('$baseUrl/wp/v2/events?page=$page&per_page=$perPage$searchParam');
+      String categoryParam = '';
+      if (category != null) {
+        categoryParam = '&event_category=$category';
+      }
+      final uri = Uri.parse('$baseUrl/wp/v2/events?page=$page&per_page=$perPage$categoryParam$searchParam');
+      final response = await client.get(
+        uri,
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static Future<Response> getEventCategory() async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseUrl/wp/v2/event_category');
       final response = await client.get(
         uri,
         headers: {
@@ -224,10 +248,38 @@ class WordPressApi {
     }
   }
 
-  static Future<Response> getJournals() async {
+  static Future<Response> getJournals(int page, String? search, int? category) async {
     final client = _createHttpClient();
     try {
-      final uri = Uri.parse('$baseUrl/wp/v2/journal');
+      String searchParam = '';
+      if (search != null) {
+        searchParam = '&search=$search';
+      }
+      String categoryParam = '';
+      if (category != null) {
+        categoryParam = '&journal_category=$category';
+      }
+      debugPrint('$baseUrl/wp/v2/journal?per_page=10&page=$page$searchParam$categoryParam');
+      final uri = Uri.parse('$baseUrl/wp/v2/journal?per_page=10&page=$page$searchParam$categoryParam');
+      final response = await client.get(
+        uri,
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static Future<Response> getJournalCategory() async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseUrl/wp/v2/journal_category');
       final response = await client.get(
         uri,
         headers: {

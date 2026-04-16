@@ -67,7 +67,7 @@ class _EventSectionState extends State<EventSection> {
 
   Future<void> _loadData() async {
     try {
-      final response = await WordPressApi.getEvents(1, 6, null);
+      final response = await WordPressApi.getEvents(1, 6, null, null);
 
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);
@@ -217,13 +217,16 @@ class _EventSectionState extends State<EventSection> {
       return SizedBox(
         height: 200,
         child: Center(
-          child: Text(l10n?.emptyEvent ?? 'Tidak ada acara'),
+          child: Text(
+            l10n?.emptyEvent ?? 'Tidak ada acara',
+            style: const TextStyle(color: Colors.black),
+          ),
         ),
       );
     }
 
     return SizedBox(
-      height: 280,
+      height: 360,
       child: Stack(
         clipBehavior: Clip.none,
         children: [

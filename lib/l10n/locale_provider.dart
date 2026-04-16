@@ -194,6 +194,8 @@ class AppLocalizations {
       'share_to_whatsapp': 'Bagikan melalui Whatsapp',
       'newsletter_information': '* Klik pada Cover di atas untuk membaca buletin',
       'companies_that_trust_abupi': 'Perusahaan-perusahaan yang mempercayai ABUPI',
+      'abstract': 'Abstrak',
+      'see_abstract': 'Lihat Abstrak',
     },
     'en': {
       'home': 'Home',
@@ -338,6 +340,8 @@ class AppLocalizations {
       'share_to_whatsapp': 'Share to Whatsapp',
       'newsletter_information': '* Click on Cover above for read the newsletter',
       'companies_that_trust_abupi': 'Companies that trust ABUPI',
+      'abstract': 'Abstract',
+      'see_abstract': 'See Abstract',
     },
   };
 
@@ -487,6 +491,8 @@ class AppLocalizations {
   String get shareToWhatsapp => translate('share_to_whatsapp');
   String get newsletterInformation => translate('newsletter_information');
   String get companiesThatTrustABUPI => translate('companies_that_trust_abupi');
+  String get abstract => translate('abstract');
+  String get seeAbstract => translate('see_abstract');
 }
 
 class _AppLocalizationsDelegate

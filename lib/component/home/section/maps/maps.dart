@@ -13,25 +13,25 @@ class MapsSection extends StatefulWidget {
 }
 
 class _MapsSectionState extends State<MapsSection> {
-  final mapImage = 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Home_Regional-Maps_Full-Regional-scaled-mobile.png';
+  final mapImage = 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Regional-Map-Mobile-App.png';
   final List<RegionMember> _members = [
     RegionMember(
       region: 'Region 1',
       regionTranslate: 'Region 1',
-      colorHex: 0xFFff0206,
+      colorHex: 0xFFffcec1,
       totalBUP: 30,
     ),
     RegionMember(
       region: 'Region 2',
       regionTranslate: 'Region 2',
-      colorHex: 0xFFffff02,
+      colorHex: 0xFFf2e1b6,
       totalBUP: 53,
       totalTUKS: 2,
     ),
     RegionMember(
       region: 'Region 3',
       regionTranslate: 'Region 3',
-      colorHex: 0xFF0202ff,
+      colorHex: 0xFFd0e9c2,
       totalBUP: 40,
       totalTUKS: 3,
       totalTERSUS: 1,
@@ -39,7 +39,7 @@ class _MapsSectionState extends State<MapsSection> {
     RegionMember(
       region: 'Region 4',
       regionTranslate: 'Region 4',
-      colorHex: 0xFF02ff17,
+      colorHex: 0xFFb1e5f2,
       totalBUP: 2 + 3 + 2 + 1,
     ),
   ];

@@ -5,6 +5,7 @@ import 'package:abupi/models/gallery.dart';
 import 'package:abupi/services/wordpress_api.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:html/parser.dart';
 
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({super.key});
@@ -35,8 +36,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
         if (jsonList.isNotEmpty) {
           try {
             var galleries = jsonList.map((item) {
+              final document = parse(item['title']['rendered']);
               return Gallery(
-                title: item['title']['rendered'],
+                title: document.body!.text,
                 imageURL: (item['gallery_images_urls'] as List<dynamic>)
                     .map<String>(
                       (image) =>

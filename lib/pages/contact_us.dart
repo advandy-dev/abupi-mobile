@@ -4,6 +4,7 @@ import 'package:abupi/util/launch_url.dart';
 import 'package:abupi/l10n/locale_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ContactUsScreen extends StatelessWidget {
   const ContactUsScreen({super.key});
@@ -33,6 +34,7 @@ class ContactUsScreen extends StatelessWidget {
     required VoidCallback onPressed,
   }) {
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -64,7 +66,7 @@ class ContactUsScreen extends StatelessWidget {
             const SizedBox(width: 8),
             ElevatedButton(
               style: const ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFFE2642A)),
+                backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
               ),
               onPressed: onPressed,
               child: Text(buttonText, style: const TextStyle(color: Colors.white)),
@@ -80,7 +82,7 @@ class ContactUsScreen extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFE3E3E3),
       appBar: AppBar(
         backgroundColor: const Color(0xFF2e2f7f),
         title: Text(
@@ -95,51 +97,44 @@ class ContactUsScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Stack(
-        children: [
-          Container(
-            color: const Color(0xFFE3E3E3),
-          ),
-          Image.asset('assets/images/office.png'),
-          Container(
-            margin: const EdgeInsets.fromLTRB(16, 120, 16, 0),
-            child: Column(
-              children: [
-                _buildCard(
-                  icon: Icons.location_on,
-                  title: l10n?.officeAddressValue ?? 'Alamat Kantor Kami',
-                  description: 'Jl. Wijaya I No. 381i, Kebayoran Baru, Jakarta Selatan 12170',
-                  buttonText: l10n?.openMap ?? 'Buka Map',
-                  onPressed: () => _launchMaps('ASOSIASI BADAN USAHA PELABUHAN INDONESIA (ABUPI)'),
-                ),
-                const SizedBox(height: 16),
-                _buildCard(
-                  icon: Icons.phone,
-                  title: l10n?.phoneNumber ?? 'Nomor Telepon',
-                  description: '(021) 7206902',
-                  buttonText: l10n?.contact ?? 'Hubungi',
-                  onPressed: () => _launchPhone('0217206902'),
-                ),
-                const SizedBox(height: 16),
-                _buildCard(
-                  icon: Icons.phone,
-                  title: 'Hotline',
-                  description: '0813 8823 4109',
-                  buttonText: l10n?.contact ?? 'Hubungi',
-                  onPressed: () => _launchPhone('081388234109'),
-                ),
-                const SizedBox(height: 16),
-                _buildCard(
-                  icon: Icons.email,
-                  title: l10n?.emailAddress ?? 'Alamat Email',
-                  description: 'sekretariat@abupi.or.id',
-                  buttonText: l10n?.sendEmail ?? 'Kirim Email',
-                  onPressed: () => launchEmail(['sekretariat@abupi.or.id']),
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset('assets/images/office.png'),
+            const SizedBox(height: 12),
+            _buildCard(
+              icon: Icons.location_on,
+              title: l10n?.officeAddressValue ?? 'Alamat Kantor Kami',
+              description: 'Jl. Wijaya I No. 381i, Kebayoran Baru, Jakarta Selatan 12170',
+              buttonText: l10n?.openMap ?? 'Buka Map',
+              onPressed: () => _launchMaps('ASOSIASI BADAN USAHA PELABUHAN INDONESIA (ABUPI)'),
             ),
-          ),
-        ],
+            const SizedBox(height: 16),
+            _buildCard(
+              icon: Icons.phone,
+              title: l10n?.phoneNumber ?? 'Nomor Telepon',
+              description: '(021) 7206902',
+              buttonText: l10n?.contact ?? 'Hubungi',
+              onPressed: () => _launchPhone('0217206902'),
+            ),
+            const SizedBox(height: 16),
+            _buildCard(
+              icon: Icons.phone,
+              title: 'Hotline',
+              description: '0813 8823 4109',
+              buttonText: l10n?.contact ?? 'Hubungi',
+              onPressed: () => launchUrlString('https://wa.me/message/XRU4Y4HHCOK2K1'),
+            ),
+            const SizedBox(height: 16),
+            _buildCard(
+              icon: Icons.email,
+              title: l10n?.emailAddress ?? 'Alamat Email',
+              description: 'sekretariat@abupi.or.id',
+              buttonText: l10n?.sendEmail ?? 'Kirim Email',
+              onPressed: () => launchEmail(['sekretariat@abupi.or.id']),
+            ),
+          ],
+        ),
       )
     );
   }
