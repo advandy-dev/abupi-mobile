@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+import 'package:abupi/models/consultation.dart';
+import 'package:abupi/models/contact_us.dart';
+import 'package:abupi/models/registration.dart';
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart';
 import 'dart:io';
@@ -91,14 +96,37 @@ class WordPressApi {
     }
   }
 
-  static Future<Response> getNews(int page, int perPage, String? search) async {
+  static Future<Response> getNewsCategory() async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseUrl/wp/v2/news_category');
+      final response = await client.get(
+        uri,
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static Future<Response> getNews(int page, int perPage, String? search, int? category) async {
     final client = _createHttpClient();
     try {
       var searchParam = '';
       if (search != null) {
         searchParam = '&search=$search';
       }
-      final uri = Uri.parse('$baseUrl/wp/v2/news?page=$page&per_page=$perPage$searchParam');
+      var categoryParam = '';
+      if (category != null) {
+        categoryParam = '&news_category=$category';
+      }
+      final uri = Uri.parse('$baseUrl/wp/v2/news?page=$page&per_page=$perPage$searchParam$categoryParam');
       final response = await client.get(
         uri,
         headers: {
@@ -259,7 +287,6 @@ class WordPressApi {
       if (category != null) {
         categoryParam = '&journal_category=$category';
       }
-      debugPrint('$baseUrl/wp/v2/journal?per_page=10&page=$page$searchParam$categoryParam');
       final uri = Uri.parse('$baseUrl/wp/v2/journal?per_page=10&page=$page$searchParam$categoryParam');
       final response = await client.get(
         uri,
@@ -314,10 +341,14 @@ class WordPressApi {
     }
   }
 
-  static Future<Response> getMembers(int page) async {
+  static Future<Response> getMembers(int page, int? regionID) async {
     final client = _createHttpClient();
     try {
-      final uri = Uri.parse('$baseUrl/wp/v2/member?per_page=15&page=$page');
+      String memberParam = '';
+      if (regionID != null) {
+        memberParam = '&member_region=$regionID';
+      }
+      final uri = Uri.parse('$baseUrl/wp/v2/member?per_page=15&page=$page$memberParam');
       final response = await client.get(
         uri,
         headers: {
@@ -328,6 +359,74 @@ class WordPressApi {
       return response;
     } catch (e) {
       throw Exception('Error fetching events: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static const String baseSendEmailUrl = 'https://abupi.vercel.app/api';
+
+  static Future<Response> sendContactUs(ContactUs contactUs) async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseSendEmailUrl/contact');
+      final response = await client.post(
+        uri,
+        body: jsonEncode(contactUs),
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error send contact message: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static Future<Response> sendMemberRegistration(Registration registration) async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseSendEmailUrl/member-registration');
+      final response = await client.post(
+        uri,
+        body: jsonEncode(registration),
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      return response;
+    } catch (e) {
+      throw Exception('Error sending member registration: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  /// [attachments] are added as multipart file parts alongside form [consultation] fields.
+  static Future<Response> sendConsultation(
+    Consultation consultation, {
+    List<MultipartFile> attachments = const [],
+  }) async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseSendEmailUrl/consultation-assistance');
+      final request = MultipartRequest('POST', uri);
+      consultation.toJson().forEach((key, value) {
+        if (value != null) {
+          request.fields[key] = value.toString();
+        }
+      });
+      if (attachments.isNotEmpty) {
+        request.files.addAll(attachments);
+      }
+      final streamedResponse = await client.send(request);
+      return await Response.fromStream(streamedResponse);
+    } catch (e) {
+      throw Exception('Error sending consultation: $e');
     } finally {
       client.close();
     }

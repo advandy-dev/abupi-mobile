@@ -1,4 +1,6 @@
 import 'package:abupi/l10n/locale_provider.dart';
+import 'package:abupi/models/registration.dart';
+import 'package:abupi/services/wordpress_api.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,6 +13,7 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreen extends State<RegistrationScreen> {
   bool _isSubmitted = false;
+  bool _isLoading = false;
   String _companyName = '';
   String _picName = '';
   String _companyAddress = '';
@@ -29,10 +32,68 @@ class _RegistrationScreen extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
-    void submitInput() {
+    void showSuccessModal() {
+      showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.transparent,
+        isScrollControlled: true,
+        builder: (context) {
+          final l10n = AppLocalizations.of(context);
+
+          return Container(
+            margin: const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 52),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.15),
+                        blurRadius: 20,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        l10n?.registrationSuccess ?? 'Success',
+                        style: const TextStyle(color: Colors.black, fontSize: 16),
+                      ),
+                      const SizedBox(height: 4),
+                      Container(
+                        width: double.infinity,
+                        alignment: Alignment.bottomRight,
+                        child: ElevatedButton(
+                          style: const ButtonStyle(
+                            backgroundColor: WidgetStatePropertyAll<Color>(Color(0xFF2e2f7f)),
+                          ),
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text('OK', style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    }
+
+    Future<void> _submit() async {
+      if (_isLoading) return;
+
       setState(() {
+        _isLoading = true;
         _isSubmitted = true;
       });
+
       if (
         _companyName.isEmpty || _picName.isEmpty || _companyAddress.isEmpty ||
         _picPosition.isEmpty || _picPosition.isEmpty || _picPhoneNumber.isEmpty ||
@@ -40,41 +101,62 @@ class _RegistrationScreen extends State<RegistrationScreen> {
         _businessAddress.isEmpty
       ) {
         debugPrint('empty');
+        setState(() {
+          _isLoading = false;
+        });
         return;
       }
 
-      final companyNameLabel = l10n?.formRegistrationCompanyNameTitle ?? 'Nama Perusahaan';
-      final picNameLabel = l10n?.formRegistrationPicNameTitle ?? 'Nama PIC';
-      final companyAddressLabel = l10n?.formRegistrationCompanyAddressTitle ?? 'Alamat Perusahaan';
-      final businessAddressLabel = l10n?.formRegistrationBusinessAddressTitle ?? 'Alamat Lokasi Usaha';
-      final picPositionLabel = l10n?.formRegistrationPicPositionTitle ?? 'Jabatan PIC';
-      final picPhoneNumberLabel = l10n?.formRegistrationPicPhoneNumberTitle ?? 'Nomor Telepon PIC';
-      final picEmailLabel = l10n?.formRegistrationPicEmailTitle ?? 'Email PIC';
-      final typeOfBusinessLabel = l10n?.formRegistrationTypeOfBusinessTitle ?? 'Jenis Izin Usaha';
-      final companyStatusLabel = l10n?.formRegistrationStatusCompanyTitle ?? 'Status Perusahaan';
-      final membershipTypeLabel = l10n?.formRegistrationMembershipTypeTitle ?? 'Jenis Keanggotaan';
-      final body = [
-        l10n?.templatePrefixEmailRegistration ?? '',
-        '$companyNameLabel: $_companyName',
-        '$picNameLabel: $_picName',
-        '$companyAddressLabel: $_companyAddress',
-        '$businessAddressLabel: $_businessAddress',
-        '$picPositionLabel: $_picPosition',
-        '$picPhoneNumberLabel: $_picPhoneNumber',
-        '$picEmailLabel: $_picEmail',
-        '$typeOfBusinessLabel: $_typeOfBusiness',
-        '$companyStatusLabel: $_companyStatus',
-        '$membershipTypeLabel: $_membershipType',
-        l10n?.templatePostfixEmailRegistration ?? '',
-      ].join('\n');
-      final mailtoUri = Uri(
-        scheme: 'mailto',
-        path: 'sekretariat@abupi.or.id',
-        query: 'subject=${Uri.encodeComponent('ABUPI Member Registration')}&body=${Uri.encodeComponent(body)}',
-      );
-      debugPrint('mailto $mailtoUri');
-      launchUrl(mailtoUri);
-      Navigator.pop(context);
+      try {
+        Registration registration = Registration(
+          companyName: _companyName,
+          companyAddress: _companyAddress,
+          businessLocationAddress: _businessAddress,
+          businessPermitType: _typeOfBusiness,
+          companyStatus: _companyStatus,
+          picName: _picName,
+          picPosition: _picPosition,
+          picPhone: _picPhoneNumber,
+          picEmail: _picEmail,
+          membershipType: _membershipType,
+        );
+        final response = await WordPressApi.sendMemberRegistration(registration);
+
+        if (response.statusCode == 200) {
+          showSuccessModal();
+          setState(() {
+            _isLoading = false;
+            _isSubmitted = false;
+          });
+        } else {
+          if (context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Request fail', style: TextStyle(color: Colors.white),),
+                backgroundColor: Colors.red,
+              ),
+            );
+          }
+          setState(() {
+            _isLoading = false;
+            _isSubmitted = false;
+          });
+        }
+      } catch (e) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Request fail', style: TextStyle(color: Colors.white),),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+        debugPrint('$e');
+        setState(() {
+          _isLoading = false;
+          _isSubmitted = false;
+        });
+      }
     }
 
     return Scaffold(
@@ -172,6 +254,9 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                 ),
               ),
               onChanged: (value) {
+                if (_isSameAddress) {
+                  _businessAddressController.text = value;
+                }
                 setState(() {
                   _companyAddress = value;
                 });
@@ -194,6 +279,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             ),
             const SizedBox(height: 8),
             TextField(
+              readOnly: _isSameAddress,
               style: const TextStyle(color: Colors.black),
               keyboardType: TextInputType.multiline,
               controller: _businessAddressController,
@@ -217,9 +303,11 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                 ),
               ),
               onChanged: (value) {
+                if (!_isSameAddress) {
                 setState(() {
                   _businessAddress = value;
                 });
+                }
               },
             ),
             if (_businessAddress.isEmpty && _isSubmitted) ...[
@@ -239,7 +327,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
               value: _isSameAddress,
               onChanged: (newValue) {
                 String address = newValue == true ? _companyAddress : _businessAddress;
-                _businessAddressController.text = address;
+                _businessAddressController.text = _isSameAddress ? _companyAddress : address;
                 setState(() {
                   _isSameAddress = newValue ?? false;
                   _businessAddress = address;
@@ -663,13 +751,15 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             ],
             const SizedBox(height: 32),
             ElevatedButton(
-              style: const ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Color(0xFF632f9c)),
-                minimumSize: WidgetStatePropertyAll<Size>(
+              style: ButtonStyle(
+                backgroundColor: _isLoading ?
+                  const WidgetStatePropertyAll(Colors.grey) :
+                  const WidgetStatePropertyAll(Color(0xFF632f9c)),
+                minimumSize: const WidgetStatePropertyAll<Size>(
                     Size(double.infinity, 42)
                 ),
               ),
-              onPressed: () => submitInput(),
+              onPressed: () => _isLoading ? {} :_submit(),
               child: const Text(
                 'Join ABUPI',
                 style: TextStyle(color: Colors.white),

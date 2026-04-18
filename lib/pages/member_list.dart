@@ -48,7 +48,7 @@ class _MemberListScreen extends State<MemberListScreen> {
       setState(() {
         _isLoading = true;
       });
-      final response = await WordPressApi.getMembers(_page);
+      final response = await WordPressApi.getMembers(_page, null);
 
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);

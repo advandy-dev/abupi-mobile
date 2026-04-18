@@ -196,6 +196,15 @@ class AppLocalizations {
       'companies_that_trust_abupi': 'Perusahaan-perusahaan yang mempercayai ABUPI',
       'abstract': 'Abstrak',
       'see_abstract': 'Lihat Abstrak',
+      'form_contact_title': 'Form Kontak',
+      'form_contact_first_name': 'Nama Depan',
+      'form_contact_last_name': 'Nama Belakang',
+      'form_contact_email': 'Email',
+      'form_contact_message': 'Pesan',
+      'send': 'Kirim',
+      'contact_us_success': 'Pesan berhasil dikirim. Mohon tunggu respons dari tim ABUPI. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik ke ABUPI.',
+      'registration_success': 'Form registrasi Anda sudah kami terima. Tim internal ABUPI akan menghubungi Anda lebih lanjut melalui email. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik.',
+      'consultation_assistance_success': 'Formulir berhasil dikirim. Mohon tunggu respons dari tim ABUPI. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik ke ABUPI.',
     },
     'en': {
       'home': 'Home',
@@ -342,6 +351,15 @@ class AppLocalizations {
       'companies_that_trust_abupi': 'Companies that trust ABUPI',
       'abstract': 'Abstract',
       'see_abstract': 'See Abstract',
+      'form_contact_title': 'Contact Form',
+      'form_contact_first_name': 'First Name',
+      'form_contact_last_name': 'Last Name',
+      'form_contact_email': 'Email',
+      'form_contact_message': 'Message',
+      'send': 'Send',
+      'contact_us_success': 'Your message has been sent successfully. Please wait for a response from the ABUPI team. Please check your email to ensure your message was delivered to ABUPI.',
+      'registration_success': 'We have received your registration form. The ABUPI internal team will contact you via email for further information. Please check your email to ensure your message was sent correctly.',
+      'consultation_assistance_success': 'Formulir berhasil dikirim. Mohon tunggu respons dari tim ABUPI. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik ke ABUPI.',
     },
   };
 
@@ -493,6 +511,15 @@ class AppLocalizations {
   String get companiesThatTrustABUPI => translate('companies_that_trust_abupi');
   String get abstract => translate('abstract');
   String get seeAbstract => translate('see_abstract');
+  String get formContactTitle => translate('form_contact_title');
+  String get formContactFirstName => translate('form_contact_first_name');
+  String get formContactLastName => translate('form_contact_last_name');
+  String get formContactEmail => translate('form_contact_email');
+  String get formContactMessage => translate('form_contact_message');
+  String get send => translate('send');
+  String get contactUsSuccess => translate('contact_us_success');
+  String get registrationSuccess => translate('registration_success');
+  String get consultationAssistanceSuccess => translate('consultation_assistance_success');
 }
 
 class _AppLocalizationsDelegate

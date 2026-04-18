@@ -236,7 +236,6 @@ class _NewsletterScreen extends State<NewsletterScreen> {
 
   Future<void> launchWhatsapp() async {
     final uri = Uri.parse('https://wa.me/?text=NewsLetter%0A${_selectedNewsletter?.fileURL}');
-    debugPrint('https://wa.me/?text=NewsLetter%0A${_selectedNewsletter?.fileURL}');
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri);
     } else {

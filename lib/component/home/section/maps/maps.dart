@@ -1,8 +1,13 @@
+import 'dart:convert';
+
 import 'package:abupi/l10n/locale_provider.dart';
+import 'package:abupi/models/member_list.dart';
 import 'package:abupi/models/region_member.dart';
+import 'package:abupi/services/wordpress_api.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class MapsSection extends StatefulWidget {
 
@@ -19,28 +24,25 @@ class _MapsSectionState extends State<MapsSection> {
       region: 'Region 1',
       regionTranslate: 'Region 1',
       colorHex: 0xFFffcec1,
-      totalBUP: 30,
+      categoryID: 40,
     ),
     RegionMember(
       region: 'Region 2',
       regionTranslate: 'Region 2',
       colorHex: 0xFFf2e1b6,
-      totalBUP: 53,
-      totalTUKS: 2,
+      categoryID: 41,
     ),
     RegionMember(
       region: 'Region 3',
       regionTranslate: 'Region 3',
       colorHex: 0xFFd0e9c2,
-      totalBUP: 40,
-      totalTUKS: 3,
-      totalTERSUS: 1,
+      categoryID: 42,
     ),
     RegionMember(
       region: 'Region 4',
       regionTranslate: 'Region 4',
       colorHex: 0xFFb1e5f2,
-      totalBUP: 2 + 3 + 2 + 1,
+      categoryID: 43,
     ),
   ];
 
@@ -74,7 +76,10 @@ class _MapsSectionState extends State<MapsSection> {
         context: context,
         backgroundColor: Colors.transparent,
         isScrollControlled: true,
-        builder: (context) => RegionPopup(member: member),
+        builder: (context) => InfiniteScrollSheet(
+          regionalName: member.region,
+          regionID: member.categoryID,
+        ),
       );
     }
 
@@ -257,80 +262,243 @@ class _ImageOverlay extends StatelessWidget {
   }
 }
 
-class RegionPopup extends StatelessWidget {
-  final RegionMember member;
-  const RegionPopup({super.key, required this.member});
+class InfiniteScrollSheet extends StatefulWidget {
+  final String regionalName;
+  final int regionID;
+
+  const InfiniteScrollSheet({
+    super.key,
+    required this.regionalName,
+    required this.regionID,
+  });
+
+  @override
+  State<InfiniteScrollSheet> createState() => _InfiniteScrollSheetState();
+}
+
+class _InfiniteScrollSheetState extends State<InfiniteScrollSheet> {
+  final ScrollController _scrollController = ScrollController();
+  List<MemberList> _items = [];
+  int _page = 1;
+  bool _isLoading = false;
+  bool _isLastPage = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchPage(); // Initial fetch
+    _scrollController.addListener(_onScroll);
+  }
+
+  Future<void> _fetchPage() async {
+    if (_isLoading || _isLastPage) return;
+
+    setState(() => _isLoading = true);
+
+    // Replace this with your actual API call
+    // Example: var response = await api.getData(page: _page);
+    final response = await WordPressApi.getMembers(_page, widget.regionID);
+
+    if (response.statusCode == 200) {
+      final List<dynamic> jsonList = json.decode(response.body);
+      if (jsonList.isNotEmpty) {
+        try {
+          var members = jsonList.map((item) {
+            final acf = item['acf'] as Map<String, dynamic>? ?? {};
+            return MemberList(
+              name: acf['member_name'],
+              address: acf['member_address'],
+              imageURL: acf['member_logo'],
+              website: acf['member_website'],
+            );
+          }).toList();
+          setState(() {
+            _items = _items + members;
+            _isLastPage = members.length < 15;
+            _page = members.length < 15 ? _page : (_page + 1);
+            _isLoading = false;
+          });
+        } catch (e) {
+          debugPrint('error event list $e');
+          setState(() {
+            _isLoading = false;
+          });
+        }
+      } else {
+        setState(() {
+          _items = [];
+          _isLastPage = true;
+          _isLoading = false;
+        });
+      }
+    } else {
+      setState(() {
+        _isLastPage = true;
+        _isLoading = false;
+      });
+    }
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
+      _fetchPage();
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final language = l10n?.locale.languageCode ?? 'id';
 
     return Container(
-      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        color: Colors.white,
+      ),
+      height: MediaQuery.of(context).size.height * 0.7,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.15),
-                  blurRadius: 20,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        language == 'id' ? member.region : member.regionTranslate,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          fontSize: 20
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () => Navigator.of(context).maybePop(),
-                        icon: const Icon(Icons.close, color: Colors.black),
-                      ),
-                    ],
+                Text(
+                  widget.regionalName,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
                   ),
                 ),
-                Divider(
-                  height: 1,
-                  thickness: 1,
-                  color: Colors.grey.shade200,
+                InkWell(
+                  onTap: () => Navigator.pop(context),
+                  child: const Icon(Icons.close, size: 32, color: Colors.black),
                 ),
-                const SizedBox(height: 8),
-                _buildItem('BUP', member.totalBUP ?? 0),
-                _buildItem('TUKS', member.totalTUKS ?? 0),
-                _buildItem('TERSUS', member.totalTERSUS ?? 0),
-                const SizedBox(height: 8),
               ],
             ),
           ),
-          const SizedBox(height: 80), // Space for the bottom nav bar
+          const Divider(),
+          if (_isLoading && _page == 1) ...[
+            const Center(
+              child: Padding(
+                padding: EdgeInsets.all(24),
+                child: CircularProgressIndicator(),
+              ),
+            ),
+          ]
+          else if (!_isLoading && _items.isEmpty) ...[
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Text(
+                  l10n?.emptyData ?? 'Tidak ada data',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ]
+          else
+          Expanded(
+            child: ListView.separated(
+              controller: _scrollController,
+              itemCount: _items.length,
+              separatorBuilder: (context, index) {
+                return const SizedBox(height: 12);
+              },
+              itemBuilder: (context, index) {
+                final member = _items[index];
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20), // Set your desired radius here
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        // 1. The Image (Base layer)
+                        Image.network(
+                          member.imageURL ?? '',
+                          width: double.infinity,
+                          height: 200,
+                          fit: BoxFit.fitWidth,
+                        ),
+                        // 2. The Overlay (Matching the image size exactly)
+                        Positioned.fill(
+                          child: Container(
+                            alignment: Alignment.bottomLeft,
+                            color: Colors.grey.withOpacity(0.7), // Semi-transparent grey
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 12),
+                                  child: Text(
+                                    member.name,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 12),
+                                  child: Text(
+                                    widget.regionalName,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ),
+                                if (member.website != null) ...[
+                                  TextButton(
+                                    onPressed: () {
+                                      launchUrlString(member.website ?? '');
+                                    },
+                                    child: const Row(
+                                      children: [
+                                        Icon(
+                                          Icons.launch,
+                                          size: 18,
+                                          color: Color(0xFFE2642A),
+                                        ),
+                                        SizedBox(width: 4),
+                                        Text(
+                                          'Visit Website',
+                                          style: TextStyle(
+                                            color: Color(0xFFE2642A),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildItem(String label, int value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      child: Text(
-        '$label: $value',
-        style: const TextStyle(fontSize: 16, color: Colors.black),
       ),
     );
   }
