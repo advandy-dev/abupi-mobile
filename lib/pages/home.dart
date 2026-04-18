@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: Padding(
           padding: const EdgeInsets.all(4.0),
           child: Image.network(
-            'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/abupi-logo.png',
+            'https://cms.abupi.or.id/wp-content/uploads/2026/02/abupi-logo.png',
             fit: BoxFit.contain,
             errorBuilder: (context, error, stackTrace) => Container(
               color: Colors.grey,

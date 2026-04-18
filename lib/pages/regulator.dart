@@ -13,7 +13,7 @@ class RegulatorScreen extends StatefulWidget {
 class _RegulatorScreen extends State<RegulatorScreen> {
   final List<Regulator> _regulators = [
     Regulator(
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/KEMENKOMARVEST-300x210-1.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/KEMENKOMARVEST-300x210-1.png',
       name: 'KEMENTERIAN KOORDINATOR BIDANG KEMARITIMAN DAN INVESTASI',
       name_en: 'MINISTRY OF COORDINATOR MARITIME AFFAIRS AND INVESTMENT',
       address: 'Jl. MH. Thamrin No.8, Jakarta Pusat 10340, Indonesia.',
@@ -23,7 +23,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
       website: 'maritim.go.id',
     ),
     Regulator(
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/KEMENHUB-300x210-1.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/KEMENHUB-300x210-1.png',
       name: 'KEMENTERIAN PERHUBUNGAN REPUBLIK INDONESIA',
       name_en: 'MINISTRY OF TRANSPORTATION OF THE REPUBLIC OF INDONESIA',
       address: 'Jl. Medan Merdeka Barat No. 8 Jakarta Pusat DKI Jakarta 10110',
@@ -34,7 +34,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
       website: 'dephub.go.id',
     ),
     Regulator(
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/kkp2-300x300-1.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/kkp2-300x300-1.png',
       name: 'KEMENTERIAN KELAUTAN DAN PERIKANAN',
       name_en: 'MINISTRY OF MARINE AFFAIRS AND FISHERIES',
       address: 'Medan Merdeka Timur No.16 Jakarta Pusat',
@@ -45,7 +45,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
       website: 'kkp.go.id',
     ),
     Regulator(
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/KEMENKEU-300x210-1.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/KEMENKEU-300x210-1.png',
       name: 'KEMENTERIAN KEUANGAN REPUBLIK INDONESIA',
       name_en: 'MINISTRY OF FINANCE OF THE REPUBLIC OF INDONESIA',
       address: 'Gedung Djuanda I, Kementerian Keuangan, Jl. Dr. Wahidin Raya No.1, Pasar Baru, Sawah Besar, Central Jakarta City, Jakarta 10710',
@@ -55,7 +55,7 @@ class _RegulatorScreen extends State<RegulatorScreen> {
       website: 'kemenkeu.go.id',
     ),
     Regulator(
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/lklhk2-300x300-1.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/lklhk2-300x300-1.png',
       name: 'KEMENTERIAN LINGKUNGAN HIDUP DAN KEHUTANAN',
       name_en: 'MINISTRY OF ENVIRONMENT AND FORESTRY',
       address: 'Jl. Pejompongan Raya No.1, RT.1/RW.3, Bend. Hilir, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10270',

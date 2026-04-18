@@ -15,7 +15,7 @@ import 'package:http/io_client.dart';
 class WordPressApi {
   // Using WordPress.org as the test API endpoint
   // You can change this to any WordPress site's REST API
-  static const String baseUrl = 'https://floralwhite-mallard-731111.hostingersite.com/wp-json';
+  static const String baseUrl = 'https://cms.abupi.or.id/wp-json';
 
   /// Create an HTTP client that bypasses certificate verification (DEV ONLY)
   static http.Client _createHttpClient() {

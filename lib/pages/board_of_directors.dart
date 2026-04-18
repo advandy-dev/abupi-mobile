@@ -21,14 +21,14 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       position: 'KETUA UMUM',
       positionTranslate: 'CHAIRMAN',
       subordinate: [],
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Stuktur-Organisasi_Ketua-Umum_Liana-Trisnawati.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Stuktur-Organisasi_Ketua-Umum_Liana-Trisnawati.png',
     ),
   ];
 
   final List<BoardOfDirector> _generalSecretary = [
     BoardOfDirector(
       name: 'Okke Permadhi',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Sekretaris-Umum_Okke-Permadi.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Sekretaris-Umum_Okke-Permadi.png',
       position: 'SEKRETARIS UMUM',
       positionTranslate: 'GENERAL SECRETARY',
       subordinate: [
@@ -49,7 +49,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       name: 'Hikmatul Laila',
       position: 'BENDAHARA UMUM',
       positionTranslate: 'GENERAL TREASURER',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Bendahara-Umum_Hikmatul-Laila.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Bendahara-Umum_Hikmatul-Laila.png',
       subordinate: [
         Subordinate(
           name: 'WAKIL BENDAHARA UMUM',
@@ -66,7 +66,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
   final List<BoardOfDirector> _viceChairperson = [
     BoardOfDirector(
       name: 'Ariyanto Purboyo (STT)',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-I_Ariyanto-Purboyo.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-I_Ariyanto-Purboyo.png',
       position: 'WAKIL KETUA UMUM I',
       positionTranslate: 'VICE CHAIRMAN I',
       section: 'Bidang Akselerasi Kebijakan & Peraturan, Rantai Pasok & Biz. Dvlp.',
@@ -74,7 +74,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Widagdo Pradono Siwi',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-1_Widagdo-Pradono-Siwi.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-1_Widagdo-Pradono-Siwi.png',
           position: 'Kepala Bidang I',
           positionTranslate: 'Head of Division I',
           section: 'Aksesibilitas Perizinan',
@@ -83,7 +83,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Dody Rachmady',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-1_Dody-Rachmady.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-1_Dody-Rachmady.png',
           position: 'Kepala Bidang I',
           positionTranslate: 'Head of Division I',
           section: 'Aksesibilitas Perizinan',
@@ -93,7 +93,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         Subordinate(
           name: 'M. Arif Widyoadi',
           position: 'Kepala Bidang II',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-2_M.-Arif-Widyoadi.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-2_M.-Arif-Widyoadi.png',
           positionTranslate: 'Head of Division II',
           section: 'Standarisasi Supply Chain dan Tarif Kepelabuhan',
           sectionTranslate: 'Standardization of Supply Chain and Port Tariff',
@@ -101,7 +101,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Pryonggo Sidharta',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-3_Pryonggo-Sidharta.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-3_Pryonggo-Sidharta.png',
           position: 'Kepala Bidang III',
           positionTranslate: 'Head of Division III',
           section: 'Akses Permodalan & Investasi',
@@ -110,7 +110,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Gregorius Riyan',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-3_Gregorius-Riyan.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-3_Gregorius-Riyan.png',
           position: 'Kepala Bidang III',
           positionTranslate: 'Head of Division III',
           section: 'Akses Permodalan & Investasi',
@@ -119,7 +119,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Imamudin Qusyairi',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-4_Imamudin-Qusyairi.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-4_Imamudin-Qusyairi.png',
           position: 'Kepala Bidang IV',
           positionTranslate: 'Head of Division IV',
           section: 'Pengawasan Perizinan, Konsesi, dan Kerjasama Bentuk Lainnya',
@@ -130,7 +130,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     ),
     BoardOfDirector(
       name: 'Muhammad Willy (PCM)',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-II_Muhammad-Willy.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-II_Muhammad-Willy.png',
       position: 'WAKIL KETUA UMUM II',
       positionTranslate: 'VICE CHAIRMAN II',
       section: 'BIDANG PENGEMBANGAN ANGGOTA',
@@ -138,7 +138,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Harry Buana Putra',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-5_Harry-Buana-Putra.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-5_Harry-Buana-Putra.png',
           position: 'Kepala Bidang V',
           positionTranslate: 'Head of Division V',
           section: 'Kolaborasi & Kemitraan',
@@ -147,7 +147,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Rusmin Abdulgani',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-6_Rusmin-Abdulgani.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-6_Rusmin-Abdulgani.png',
           position: 'Kepala Bidang VI',
           positionTranslate: 'Head of Division VI',
           section: 'Sinergi Antar Pemangku Kepentingan',
@@ -156,7 +156,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Yuni Elvina',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-6_Yuni-Elvina.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-6_Yuni-Elvina.png',
           position: 'Kepala Bidang VI',
           positionTranslate: 'Head of Division VI',
           section: 'Sinergi Antar Pemangku Kepentingan',
@@ -165,7 +165,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Christianne Kezia Lydia',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-7_Christianne-Kezia-Lydia.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-7_Christianne-Kezia-Lydia.png',
           position: 'kepala bidang VII',
           positionTranslate: 'Head of Division VII',
           section: 'Kerjasama Internasional',
@@ -174,7 +174,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Indah Nugrohowati',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-7_Indah-Nugrohowati.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-7_Indah-Nugrohowati.png',
           position: 'kepala bidang VII',
           positionTranslate: 'Head of Division VII',
           section: 'Kerjasama Internasional',
@@ -183,7 +183,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Aghnia Nadhira',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-7_Aghnia-Nadhira.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-7_Aghnia-Nadhira.png',
           position: 'kepala bidang VII',
           positionTranslate: 'Head of Division VII',
           section: 'Kerjasama Internasional',
@@ -191,7 +191,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Tony Wijaya',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_ABUPI-Peduli-CSR_Tony-Wijaya.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_ABUPI-Peduli-CSR_Tony-Wijaya.png',
           position: 'ABUPI Peduli',
           positionTranslate: 'ABUPI Care',
           section: '',
@@ -199,7 +199,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Hendy Lubis',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_ABUPI-Golf_Hendy-Lubis.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_ABUPI-Golf_Hendy-Lubis.png',
           position: 'ABUPI Golf',
           positionTranslate: 'ABUPI Golf',
           section: '',
@@ -209,7 +209,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     ),
     BoardOfDirector(
       name: 'Sakiman (APN)',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-III_Sakiman.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-III_Sakiman.png',
       position: 'WAKIL KETUA UMUM III',
       positionTranslate: 'VICE CHAIRMAN III',
       section: 'BIDANG PENGAMBANGAN SUMBER DAYA MANUSIA (SDM)',
@@ -217,7 +217,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
             name: 'Rosita Septiani',
-            imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-8_Rosita-Septiani.png',
+            imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-8_Rosita-Septiani.png',
             position: 'Kepala Bidang VIII',
             positionTranslate: 'Head of Division VIII',
             section: 'Peningkatan Kompetensi SDM',
@@ -226,7 +226,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
             name: 'Abdulloh',
-            imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-9_Abdulloh.png',
+            imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-9_Abdulloh.png',
             position: 'Kepala Bidang IX',
             positionTranslate: 'Head of Division IX',
             section: 'Program Magang dan Pendampingan',
@@ -235,7 +235,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
             name: 'Sadana Murti Nugroho',
-            imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-9_Sadana-Murti-Nugroho.png',
+            imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-9_Sadana-Murti-Nugroho.png',
             position: 'Kepala Bidang IX',
             positionTranslate: 'Head of Division IX',
             section: 'Program Magang dan Pendampingan',
@@ -244,7 +244,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
             name: 'Pandu Dewantara',
-            imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-10_Pandu-Dewantara.png',
+            imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-10_Pandu-Dewantara.png',
             position: 'Kepala Bidang X',
             positionTranslate: 'Head of Division X',
             section: 'Pelatihan Soft Skill',
@@ -253,7 +253,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Azis Muttaqien',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-11_Azis-Muttaqien.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-11_Azis-Muttaqien.png',
           position: 'Kepala Bidang XI',
           positionTranslate: 'Head of Division XI',
           section: 'Sertifikasi Standar Global Kepelabuhan',
@@ -262,7 +262,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Andri Yansyah',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-11_Andri-Yansyah.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-11_Andri-Yansyah.png',
           position: 'Kepala Bidang XI',
           positionTranslate: 'Head of Division XI',
           section: 'Sertifikasi Standar Global Kepelabuhan',
@@ -273,7 +273,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     ),
     BoardOfDirector(
       name: 'Adi Darma Shima (ILSS)',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-IV_Adi-Darma-Shima.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-IV_Adi-Darma-Shima.png',
       position: 'WAKIL KETUA UMUM IV',
       positionTranslate: 'VICE CHAIRMAN IV',
       section: 'BIDANG PENINGKATAN & PENGEMBANGAN DAYA SAING PELABUHAN',
@@ -281,7 +281,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Kepala Bidang XII',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-12_Menunggu-PAW.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-12_Menunggu-PAW.png',
           position: 'Kepala Bidang XII',
           positionTranslate: 'Head of Division XII',
           section: 'Standarisasi Keamanan Pelabuhan (ISPS Code)',
@@ -290,7 +290,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Dhany Yudha',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-13_Dhany-Yudha.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-13_Dhany-Yudha.png',
           position: 'Kepala Bidang XIII',
           positionTranslate: 'Head of Division XIII',
           section: 'Kabid Integrasi System Port to Port',
@@ -299,7 +299,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Ashari Trisna',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-14_Ashari-Trisna.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-14_Ashari-Trisna.png',
           position: 'Kepala Bidang XIV',
           positionTranslate: 'Head of Division XIV',
           section: 'Inovasi Teknonolog Masa Depan',
@@ -308,7 +308,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Wien Goerindro',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-15_Wien-Goerindro.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-15_Wien-Goerindro.png',
           position: 'Kepala Bidang XV',
           positionTranslate: 'Head of Division XV',
           section: 'Standarisasi Alat & Sistem Pelayanan',
@@ -317,7 +317,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Tri Andika Syam',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-16_Tri-Andika-Syam.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-16_Tri-Andika-Syam.png',
           position: 'Kepala Bidang XVI',
           positionTranslate: 'Head of Division XVI',
           section: 'Promotion & Branding (BUP)',
@@ -328,7 +328,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     ),
     BoardOfDirector(
       name: 'WAKIL KETUA UMUM V',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-V_Agus-Salim.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_WKU-V_Agus-Salim.png',
       position: 'WAKIL KETUA UMUM V',
       positionTranslate: 'VICE CHAIRMAN V',
       section: 'BIDANG KEBERLANJUTAN PELABUHAN & INDUSTRI MANUFAKTUR',
@@ -336,7 +336,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Sony Sidjaja',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-17_Sonny-Sidjaja.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-17_Sonny-Sidjaja.png',
           position: 'Kepala Bidang XVII',
           positionTranslate: 'Head of Division XVII',
           section: 'Investasi Keberlanjutan',
@@ -345,7 +345,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Joko Widatmoko',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-17_Joko-Widiatmoko.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-17_Joko-Widiatmoko.png',
           position: 'Kepala Bidang XVII',
           positionTranslate: 'Head of Division XVII',
           section: 'Investasi Keberlanjutan',
@@ -354,7 +354,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Donny Adolf',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-18_-Donny-Adolf.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-18_-Donny-Adolf.png',
           position: 'Kepala Bidang XVIII',
           positionTranslate: 'Head of Division XVIII',
           section: 'Komitmen Keberlanjutan BUP',
@@ -363,7 +363,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Ilvy Wiliyanti',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-18_-Ilvy-Wiliyanti.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-18_-Ilvy-Wiliyanti.png',
           position: 'Kepala Bidang XVIII',
           positionTranslate: 'Head of Division XVIII',
           section: 'Komitmen Keberlanjutan BUP',
@@ -372,7 +372,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Adinda R.D.M',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-18_-Adinda-R.-D.-M.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Wakil-Kepala-Bidang-18_-Adinda-R.-D.-M.png',
           position: 'Kepala Bidang XVIII',
           positionTranslate: 'Head of Division XVIII',
           section: 'Komitmen Keberlanjutan BUP',
@@ -386,14 +386,14 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
   final List<BoardOfDirector> _advisory = [
     BoardOfDirector(
       name: 'Carmelita Hartoto',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-12_Menunggu-PAW.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Kepala-Bidang-12_Menunggu-PAW.png',
       position: 'Dewan Penasehat',
       positionTranslate: 'Advisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'M. Akbar Djohan',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Penasihat_M.-Akbar-Djohan.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Penasihat_M.-Akbar-Djohan.png',
       position: 'Dewan Penasehat',
       positionTranslate: 'Advisory Board',
       subordinate: [],
@@ -403,35 +403,35 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
   final List<BoardOfDirector> _supervisory = [
     BoardOfDirector(
       name: 'Aulia Febrial Fatwa (PMN)',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Ketua-Dewan-Pembina_Aulia-Febrial-Fatwa.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Ketua-Dewan-Pembina_Aulia-Febrial-Fatwa.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'Ayi Paryana (MSK)',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_Ayi-Paryana.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_Ayi-Paryana.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'David Rahadian (GE)',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_David-Rahadian.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_David-Rahadian.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'Edi Rivai (CAP)',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_Edi-Rivai.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_Edi-Rivai.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
     ),
     BoardOfDirector(
       name: 'Mindo Herbert Sitorus (PRK)',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_Mindo-Herbert-Sitorus.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pembina_Mindo-Herbert-Sitorus.png',
       position: 'Dewan Pembina',
       positionTranslate: 'Supervisory Board',
       subordinate: [],
@@ -446,7 +446,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Bay Mokhamad Hasani',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Kepelabuhanan_Bay-Mokhamad-Hasani.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Kepelabuhanan_Bay-Mokhamad-Hasani.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -454,7 +454,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Pasoroan Herman Harianja',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Luwu-Timur_Ikal.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Luwu-Timur_Ikal.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -469,7 +469,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Prof. Saut Gurning',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Logistik-Rantai-Pasok_Saut-Gurning.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Logistik-Rantai-Pasok_Saut-Gurning.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -477,7 +477,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Dr. Nofrisel, SE, MM',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Logistik-Rantai-Pasok_Nofrisel.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Logistik-Rantai-Pasok_Nofrisel.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -492,7 +492,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Capt. Alioth Willem Belseran, MM, M.Mar',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Hukum-Kelembagaan_Capt.-Alioth-Willem-B.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Hukum-Kelembagaan_Capt.-Alioth-Willem-B.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -500,7 +500,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         Subordinate(
           name: 'Neneng Sofiati',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Hukum-Kelembagaan_Neneng-Sofiati.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Hukum-Kelembagaan_Neneng-Sofiati.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -515,7 +515,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Dr. Gugus Wijonarko, MM',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Sumber-Daya-Manusia_Gugus-Wijonarko.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Sumber-Daya-Manusia_Gugus-Wijonarko.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -530,7 +530,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
       subordinate: [
         Subordinate(
           name: 'Dr. Lucky Bayu Purnomo',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Keuangan-Investasi_Lucky-Bayu-Purnomo.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_Dewan-Pakar-Keuangan-Investasi_Lucky-Bayu-Purnomo.png',
           position: '',
           positionTranslate: '',
           section: '',
@@ -543,14 +543,14 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
   final List<RegionalBOD> _boardOfDirector = [
     RegionalBOD(
       name: 'Ahmad Jauhari',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi-DPW-Sumatera_Ahmad-Jauhari.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi-DPW-Sumatera_Ahmad-Jauhari.png',
       company: 'Maccahma',
       position: 'DPW Sumatera',
       positionTranslate: 'Regional Coordinator of Sumatera',
       subordinate: [
         RegionalBOD(
           name: 'Teuku Ali Devi',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Aceh_Teuku-Ali-Devi.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Aceh_Teuku-Ali-Devi.png',
           company: 'SPI',
           position: 'DPD Aceh',
           positionTranslate: 'Regional Coordinator of Aceh',
@@ -558,7 +558,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Capt. Awaluddin',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kepulauan-Riau-Batam_Capt.-Awaluddin.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kepulauan-Riau-Batam_Capt.-Awaluddin.png',
           company: 'PelKepri',
           position: 'DPD Kepri & Batam',
           positionTranslate: 'Regional Coordinator of Kepri & Batam',
@@ -566,7 +566,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'F. Saragih',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sumatera-Selatan_F.-Saragih.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sumatera-Selatan_F.-Saragih.png',
           company: 'PIT',
           position: 'DPD Sumatera Selatan',
           positionTranslate: 'Regional Coordinator of South Sumatera',
@@ -574,7 +574,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Susmartono',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Lampung_Susmartono.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Lampung_Susmartono.png',
           company: 'SLUP',
           position: 'DPD Lampung',
           positionTranslate: 'Regional Coordinator of Lampung',
@@ -584,14 +584,14 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     ),
     RegionalBOD(
       name: 'Aep Dedi Laksana',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Jawa-Bali-Nusa-Tenggara_Aep-Dedi-Laksana.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Jawa-Bali-Nusa-Tenggara_Aep-Dedi-Laksana.png',
       company: 'KBS',
       position: 'DPW Jawa, Bali, & Nusa Tenggara',
       positionTranslate: 'Regional Coordinator of Jawa, Bali, & Nusa Tenggara',
       subordinate: [
         RegionalBOD(
           name: 'Mohamad Rondhi',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Jawa-Tengah_Mohamad-Rondhi.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Jawa-Tengah_Mohamad-Rondhi.png',
           company: 'ATU',
           position: 'DPD Jawa Tengah',
           positionTranslate: 'Regional Coordinator of Jawa Tengah',
@@ -599,7 +599,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Eko Didik Harnoko',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Banten_Eko-Didik-Harnoko.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Banten_Eko-Didik-Harnoko.png',
           company: 'PCM',
           position: 'DPD Banten',
           positionTranslate: 'Regional Coordinator of Banten',
@@ -607,14 +607,14 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Eky Kurniawan',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-DKI-Jakarta-Jawa-Barat_Eky-Kurniawan.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-DKI-Jakarta-Jawa-Barat_Eky-Kurniawan.png',
           position: 'DPD Daerah Khusus Jakarta & Jawa Barat',
           positionTranslate: 'Regional Coordinator of Special Region of Jakarta & West Java',
           subordinate: [],
         ),
         RegionalBOD(
           name: 'Marianus Oei',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Jawa-Timur_Marianus-Oei.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Jawa-Timur_Marianus-Oei.png',
           company: 'SMP',
           position: 'DPD Jawa Timur',
           positionTranslate: 'Regional Coordinator of Jawa Timur',
@@ -622,7 +622,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Sudarta',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Lembar_Sudarta.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Lembar_Sudarta.png',
           company: 'PLS',
           position: 'DPD Lembar',
           positionTranslate: 'Regional Coordinator of Lembar',
@@ -632,14 +632,14 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     ),
     RegionalBOD(
       name: 'Nurcahyo Adi Putranto',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Kalimantan_Nurcahyo-Adi-Putranto.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Kalimantan_Nurcahyo-Adi-Putranto.png',
       company: 'TIA',
       position: 'DPW Kalimantan',
       positionTranslate: 'Regional Coordinator of Kalimantan',
       subordinate: [
         RegionalBOD(
           name: 'Ahmad Zabidi',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Tengah_Ahmad-Zabidi.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Tengah_Ahmad-Zabidi.png',
           company: 'AMS',
           position: 'DPD Kalimantan Tengah',
           positionTranslate: 'Regional Coordinator of Kalimantan Tengah',
@@ -647,7 +647,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Kamaruddin Abtami',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Timur_Kamaruddin-Abtami.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Timur_Kamaruddin-Abtami.png',
           company: 'PTB',
           position: 'DPD Kalimantan Timur',
           positionTranslate: 'Regional Coordinator of Kalimantan Timur',
@@ -655,7 +655,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Slamet Riyadi',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Tanjung-Redeb_Slamet-Riyadi.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Tanjung-Redeb_Slamet-Riyadi.png',
           company: 'GAN',
           position: 'DPC Tj. Redeb',
           positionTranslate: 'Regional Coordinator of Tj. Redeb',
@@ -663,7 +663,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Rinaldy Perdana',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Balikpapan_Rinaldy-Perdana.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Balikpapan_Rinaldy-Perdana.png',
           company: 'HNJ',
           position: 'DPC Balikpapan',
           positionTranslate: 'Regional Coordinator of Balikpapan',
@@ -671,7 +671,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Harun Gemilang',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Samarinda_Harun-Gemilang.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Samarinda_Harun-Gemilang.png',
           company: '(PSP)',
           position: 'DPC Samarinda',
           positionTranslate: 'Regional Coordinator of Samarinda',
@@ -679,7 +679,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'DPD Kalimantan Barat',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Barat_Menunggu-PAW.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Barat_Menunggu-PAW.png',
           company: '(PSP)',
           position: 'DPD Kalimantan Barat',
           positionTranslate: 'Regional Coordinator of West Kalimantan',
@@ -689,14 +689,14 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
     ),
     RegionalBOD(
       name: 'Salman Dianda Anwar',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Sulawesi_Salman-Dianda-Anwar.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPW-Sulawesi_Salman-Dianda-Anwar.png',
       company: 'BBI',
       position: 'DPW Sulawesi',
       positionTranslate: 'Regional Coordinator of Sulawesi',
       subordinate: [
         RegionalBOD(
           name: 'Agung Wibisono',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sulawesi-Selatan_Agung-Wibisono.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sulawesi-Selatan_Agung-Wibisono.png',
           company: 'BBI',
           position: 'DPD Sulawesi Selatan',
           positionTranslate: 'Regional Coordinator of Sulawesi Selatan',
@@ -704,7 +704,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Felix Febrian',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sulawesi-Tenggara_Felix-Febrian.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Sulawesi-Tenggara_Felix-Febrian.png',
           company: 'APN',
           position: 'DPD Sulawesi Tenggara',
           positionTranslate: 'Regional Coordinator of Sulawesi Tenggara',
@@ -712,7 +712,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Mohamad Guruh',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Kendari_Mohamad-Guruh.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPC-Kendari_Mohamad-Guruh.png',
           company: 'APN',
           position: 'DPD Kendari',
           positionTranslate: 'Regional Coordinator of Kendari',
@@ -720,7 +720,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Zainudin',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Barat_Menunggu-PAW.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Barat_Menunggu-PAW.png',
           company: 'PBR',
           position: 'DPD Kalimantan Selatan',
           positionTranslate: 'Regional Coordinator of South Kalimantan',
@@ -728,7 +728,7 @@ class _BoardOfDirectorsScreen extends State<BoardOfDirectorsScreen>
         ),
         RegionalBOD(
           name: 'Ikmal',
-          imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Barat_Menunggu-PAW.png',
+          imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Struktur-Organisasi_DPD-Kalimantan-Barat_Menunggu-PAW.png',
           company: 'PMI',
           position: 'DPC Luwu Timur',
           positionTranslate: 'Regional Coordinator of East Luwu',

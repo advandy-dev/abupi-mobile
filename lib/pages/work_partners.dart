@@ -14,30 +14,30 @@ class _WorkPartnersScreen extends State<WorkPartnersScreen> {
   final List<WorkPartners> _partnerURL = [
     WorkPartners(
       website: 'https://www.bki.academy/id',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/BKI-1.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/BKI-1.png',
     ),
     WorkPartners(
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/e-port.jpg',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/e-port.jpg',
     ),
     WorkPartners(
       website: 'https://www.lsppelabuhan.com/',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/LSP-Pelabuhan.jpg',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/LSP-Pelabuhan.jpg',
     ),
     WorkPartners(
       website: 'https://www.edustri.com/port-academy/',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/PORT-ACADEMY.jpg',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/PORT-ACADEMY.jpg',
     ),
     WorkPartners(
       website: 'https://www.ccccindonesia.co.id/',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/CCCEI-Logo-3.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/CCCEI-Logo-3.png',
     ),
     WorkPartners(
       website: 'https://fyfeindonesia.com/en/',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/PT-FYFE-FIBRWRAP-INDONESIA.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/PT-FYFE-FIBRWRAP-INDONESIA.png',
     ),
     WorkPartners(
       website: 'https://www.primus.co.id/#home',
-      imageURL: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/03/primuss.png',
+      imageURL: 'https://cms.abupi.or.id/wp-content/uploads/2026/03/primuss.png',
     ),
   ];
 

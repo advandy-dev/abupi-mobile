@@ -14,31 +14,31 @@ class ExternalRegulationScreen extends StatelessWidget {
     final List<ExternalRegulation> externalRegulations = [
       ExternalRegulation(
         name: 'UNDANG-UNDANG NO. 17 TAHUN 2008 TENTANG PELAYARAN',
-        url: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/uu_17_tahun_2008-Tentang-Pelayaran.pdf',
+        url: 'https://cms.abupi.or.id/wp-content/uploads/2026/02/uu_17_tahun_2008-Tentang-Pelayaran.pdf',
       ),
       ExternalRegulation(
         name: 'PERATURAN PEMERINTAH NO. 61 TAHUN 2009 TENTANG KEPELABUHANAN',
-        url: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PP_No_61_2009-Tentang-Kepelabuhanan.pdf',
+        url: 'https://cms.abupi.or.id/wp-content/uploads/2026/02/PP_No_61_2009-Tentang-Kepelabuhanan.pdf',
       ),
       ExternalRegulation(
         name: 'PERATURAN PEMERINTAH NO. 64 TAHUN 2015 TENTANG PERUBAHAN ATAS PP NO. 61 TAHUN 2009 TENTANG KEPELABUHANAN',
-        url: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PP_64_Tahun_2015-Tentang-Perubahan-PP-61-Tahun-2009-Ttg-Kepelabuhanan.pdf',
+        url: 'https://cms.abupi.or.id/wp-content/uploads/2026/02/PP_64_Tahun_2015-Tentang-Perubahan-PP-61-Tahun-2009-Ttg-Kepelabuhanan.pdf',
       ),
       ExternalRegulation(
         name: 'PERATURAN MENTERI PERHUBUNGAN RI NO. PM 48 TAHUN 2021 TENTANG KONSESI DAN KERJASAMA BENTUK LAINNYA ANTARA PENYELENGGARA PELABUHAN DENGAN BADAN USAHA PELABUHAN DI BIDANG KEPELABUHANAN',
-        url: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PM-48-TAHUN-2021-Konsesi-dan-Kerjasama-Bentuk-lainnya.pdf',
+        url: 'https://cms.abupi.or.id/wp-content/uploads/2026/02/PM-48-TAHUN-2021-Konsesi-dan-Kerjasama-Bentuk-lainnya.pdf',
       ),
       ExternalRegulation(
         name: 'PERATURAN MENTERI PERHUBUNGAN RI NO. PM 50 TAHUN 2021 TENTANG PENYELENGGARAAN PELABUHAN LAUT',
-        url: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PM_50_Tahun_2021_JDIH_Penyelenggaraan-Pelabuhan-Laut.pdf',
+        url: 'https://cms.abupi.or.id/wp-content/uploads/2026/02/PM_50_Tahun_2021_JDIH_Penyelenggaraan-Pelabuhan-Laut.pdf',
       ),
       ExternalRegulation(
         name: 'PERATURAN MENTERI PERHUBUNGAN RI NO. PM 52 TAHUN 2021 TENTANG TERMINAL KHUSUS DAN TRMINAL UNTUK KEPENTINGAN SENDIRI',
-        url: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PM_52_Tahun_2021_JDIH_TERSUS_TUKS.pdf',
+        url: 'https://cms.abupi.or.id/wp-content/uploads/2026/02/PM_52_Tahun_2021_JDIH_TERSUS_TUKS.pdf',
       ),
       ExternalRegulation(
         name: 'PERATURAN MENTERI PERHUBUNGAN RI NO. PM 5 TAHUN 2022 TENTANG TATA CARA PEMBERIAN KONSESI DAN KERJASAMA MELALUI MEKANISME PELELANGAN',
-        url: 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/02/PM-5-TAHUN-2022-Konsesi-Melaului-Pelelangan.pdf',
+        url: 'https://cms.abupi.or.id/wp-content/uploads/2026/02/PM-5-TAHUN-2022-Konsesi-Melaului-Pelelangan.pdf',
       ),
     ];
 

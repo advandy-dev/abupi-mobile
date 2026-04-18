@@ -2,6 +2,7 @@ import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/main.dart';
 import 'package:abupi/util/launch_url.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -240,21 +241,73 @@ class _ServiceScreen extends State<ServiceScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 24),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ElevatedButton(
-                style: const ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(Color(0xFF632f9c)),
-                  minimumSize: WidgetStatePropertyAll<Size>(
-                      Size(double.infinity, 42)
+              padding: const EdgeInsets.all(16),
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
                   ),
-                ),
-                onPressed: () => Navigator.pushNamed(context, AbupiApp.registrationRoute),
-                child: const Text(
-                  'Join ABUPI',
-                  style: TextStyle(color: Colors.white),
-                ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Image.network(
+                      'https://cms.abupi.or.id/wp-content/uploads/2026/04/Beranda-JoinABUPI.jpeg',
+                      fit: BoxFit.cover,
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Shimmer.fromColors(
+                          baseColor: Colors.grey.shade300,
+                          highlightColor: Colors.grey.shade100,
+                          child: Container(
+                            width: double.infinity,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    l10n?.serviceJoinTitle ?? '',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    l10n?.serviceJoinDescription ?? '',
+                    style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  ElevatedButton(
+                    style: const ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Color(0xFF632f9c)),
+                      minimumSize: WidgetStatePropertyAll<Size>(
+                          Size(double.infinity, 42)
+                      ),
+                    ),
+                    onPressed: () => Navigator.pushNamed(context, AbupiApp.registrationRoute),
+                    child: const Text(
+                      'Join ABUPI',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

@@ -205,6 +205,8 @@ class AppLocalizations {
       'contact_us_success': 'Pesan berhasil dikirim. Mohon tunggu respons dari tim ABUPI. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik ke ABUPI.',
       'registration_success': 'Form registrasi Anda sudah kami terima. Tim internal ABUPI akan menghubungi Anda lebih lanjut melalui email. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik.',
       'consultation_assistance_success': 'Formulir berhasil dikirim. Mohon tunggu respons dari tim ABUPI. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik ke ABUPI.',
+      'service_join_title': 'Membangun Koneksi, Mendorong Pertumbuhan.',
+      'service_join_description': 'Bersama ABUPI, wujudkan sinergi untuk memperkuat daya saing industri kepelabuhanan Indonesia.',
     },
     'en': {
       'home': 'Home',
@@ -360,6 +362,8 @@ class AppLocalizations {
       'contact_us_success': 'Your message has been sent successfully. Please wait for a response from the ABUPI team. Please check your email to ensure your message was delivered to ABUPI.',
       'registration_success': 'We have received your registration form. The ABUPI internal team will contact you via email for further information. Please check your email to ensure your message was sent correctly.',
       'consultation_assistance_success': 'Formulir berhasil dikirim. Mohon tunggu respons dari tim ABUPI. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik ke ABUPI.',
+      'service_join_title': 'Building Connection, Drives Growth.',
+      'service_join_description': 'With ABUPI, create synergy to strengthen the competitiveness of Indonesia`s port industry.',
     },
   };
 
@@ -520,6 +524,8 @@ class AppLocalizations {
   String get contactUsSuccess => translate('contact_us_success');
   String get registrationSuccess => translate('registration_success');
   String get consultationAssistanceSuccess => translate('consultation_assistance_success');
+  String get serviceJoinTitle => translate('service_join_title');
+  String get serviceJoinDescription => translate('service_join_description');
 }
 
 class _AppLocalizationsDelegate

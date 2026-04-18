@@ -18,7 +18,7 @@ class MapsSection extends StatefulWidget {
 }
 
 class _MapsSectionState extends State<MapsSection> {
-  final mapImage = 'http://floralwhite-mallard-731111.hostingersite.com/wp-content/uploads/2026/04/Regional-Map-Mobile-App.png';
+  final mapImage = 'https://cms.abupi.or.id/wp-content/uploads/2026/04/Regional-Map-Mobile-App.png';
   final List<RegionMember> _members = [
     RegionMember(
       region: 'Region 1',
