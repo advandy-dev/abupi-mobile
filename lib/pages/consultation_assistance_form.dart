@@ -736,14 +736,14 @@ class _ConsultationAndAssistanceFormScreen extends State<ConsultationAndAssistan
 
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: _tncChecked || _isLoading ?
+                backgroundColor: _tncChecked && !_isLoading ?
                   const WidgetStatePropertyAll(Color(0xFF632f9c)) :
                   const WidgetStatePropertyAll(Colors.grey),
                 minimumSize: const WidgetStatePropertyAll<Size>(
                     Size(double.infinity, 42)
                 ),
               ),
-              onPressed: () => _submit(),
+              onPressed: () => _tncChecked && !_isLoading ? _submit() : {},
               child: const Text(
                 'Submit',
                 style: TextStyle(color: Colors.white),
