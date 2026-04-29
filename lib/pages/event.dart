@@ -49,7 +49,7 @@ class _EventScreenState extends State<EventScreen> {
     // Trigger when the user is 200 pixels from the bottom
     if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
       if (!_isLoading) {
-        _loadData(context, _keyword, false, _selectedCategory);
+        _loadData(context, _keyword, false, _selectedCategory == 0 ? null : _selectedCategory);
       }
     }
   }
@@ -158,9 +158,8 @@ class _EventScreenState extends State<EventScreen> {
       _page = 1;
       _eventList = [];
       _isLastPage = false;
-      _categories = [];
     });
-    _loadData(context, _keyword, true, _selectedCategory);
+    _loadData(context, _keyword, false, _selectedCategory == 0 ? null : _selectedCategory);
   }
 
   @override
@@ -237,7 +236,7 @@ class _EventScreenState extends State<EventScreen> {
                       _eventList = [];
                     });
                     _debounceTimer?.cancel();
-                    _debounceTimer = Timer(_debounceDuration, () => _loadData(context, value, false, _selectedCategory));
+                    _debounceTimer = Timer(_debounceDuration, () => _loadData(context, value, false, _selectedCategory == 0 ? null : _selectedCategory));
                   },
                 ),
                 const SizedBox(height: 8),

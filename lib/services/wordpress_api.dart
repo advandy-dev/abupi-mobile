@@ -364,7 +364,7 @@ class WordPressApi {
     }
   }
 
-  static const String baseSendEmailUrl = 'https://abupi.vercel.app/api';
+  static const String baseSendEmailUrl = 'https://www.abupi.or.id/api/';
 
   static Future<Response> sendContactUs(ContactUs contactUs) async {
     final client = _createHttpClient();

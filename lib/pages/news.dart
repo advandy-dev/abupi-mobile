@@ -8,6 +8,7 @@ import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/models/news.dart';
 import 'package:abupi/services/wordpress_api.dart';
 import 'package:flutter/material.dart';
+import 'package:html/parser.dart';
 import 'package:shimmer/shimmer.dart';
 
 class NewsListScreen extends StatefulWidget {
@@ -47,7 +48,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
     // Trigger when the user is 200 pixels from the bottom
     if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
       if (!_isLoading) {
-        _loadData(context, _keyword, false, _selectedCategory);
+        _loadData(context, _keyword, false, _selectedCategory == 0 ? null : _selectedCategory);
       }
     }
   }
@@ -120,7 +121,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
             var categories = jsonList.map((item) {
               return NewsCategory(
                 id: item['id'],
-                name: item['name'],
+                name: parse(item['name']).body?.text ?? '',
               );
             }).toList();
             setState(() {
@@ -153,9 +154,8 @@ class _NewsListScreenState extends State<NewsListScreen> {
       _page = 1;
       _newsList = [];
       _isLastPage = false;
-      _selectedCategory = 0;
     });
-    _loadData(context, _keyword, true, _selectedCategory);
+    _loadData(context, _keyword, false, _selectedCategory == 0 ? null : _selectedCategory);
   }
 
   @override
@@ -223,7 +223,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
                       _newsList = [];
                     });
                     _debounceTimer?.cancel();
-                    _debounceTimer = Timer(_debounceDuration, () => _loadData(context, value, false, _selectedCategory));
+                    _debounceTimer = Timer(_debounceDuration, () => _loadData(context, value, false, _selectedCategory == 0 ? null : _selectedCategory));
                   },
                 ),
                 const SizedBox(height: 8),
