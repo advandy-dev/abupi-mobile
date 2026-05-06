@@ -6,6 +6,7 @@ import 'package:abupi/pages/contact_us.dart';
 import 'package:abupi/pages/event_detail.dart';
 import 'package:abupi/pages/gallery.dart';
 import 'package:abupi/pages/journal.dart';
+import 'package:abupi/pages/journal_form.dart';
 import 'package:abupi/pages/main_navigation.dart';
 import 'package:abupi/pages/member_list.dart';
 import 'package:abupi/pages/news.dart';
@@ -78,6 +79,7 @@ class AbupiApp extends StatelessWidget {
   static const String inclusionRoute = '/inklusi';
   static const String sustainabilityRoute = '/keberlanjutan';
   static const String technologyRoute = '/teknologi';
+  static const String formJournalRoute = '/journal/tambah';
 
   @override
   Widget build(BuildContext context) {
@@ -245,6 +247,10 @@ class AbupiApp extends StatelessWidget {
           case technologyRoute:
             return MaterialPageRoute(
               builder: (context) => const TechnologyProgramScreen(),
+            );
+          case formJournalRoute:
+            return MaterialPageRoute(
+              builder: (context) => const FormJournalScreen(),
             );
           default:
             return MaterialPageRoute(

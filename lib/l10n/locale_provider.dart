@@ -207,6 +207,19 @@ class AppLocalizations {
       'consultation_assistance_success': 'Formulir berhasil dikirim. Mohon tunggu respons dari tim ABUPI. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik ke ABUPI.',
       'service_join_title': 'Membangun Koneksi, Mendorong Pertumbuhan.',
       'service_join_description': 'Bersama ABUPI, wujudkan sinergi untuk memperkuat daya saing industri kepelabuhanan Indonesia.',
+      'search_journal_placeholder': 'Masukkan nama jurnal',
+      'send_journal': 'Kirim Jurnal',
+      'form_journal_title': 'Form Pengiriman Jurnal',
+      'form_journal_name_placeholder': 'Masukkan nama lengkap',
+      'form_journal_phone_number_placeholder': '+6281234567890',
+      'form_journal_company_name_title': 'Nama perusahaan',
+      'form_journal_company_name_placeholder': 'Masukkan nama perusahaan',
+      'form_journal_company_address_title': 'Alamat Perusahaan',
+      'form_journal_company_address_placeholder': 'Masukkan alamat perusahaan',
+      'form_journal_abstract_title': 'Abstrak',
+      'form_journal_abstract_placeholder': 'Tuliskan ringkasan jurnal Anda',
+      'form_journal_file_title': 'File Jurnal',
+      'form_journal_tnc_checklist': 'Saya memahami bahwa pengajuan jurnal akan direview terlebih dahulu sebelum dapat ditampilkan di website.',
     },
     'en': {
       'home': 'Home',
@@ -364,6 +377,19 @@ class AppLocalizations {
       'consultation_assistance_success': 'Formulir berhasil dikirim. Mohon tunggu respons dari tim ABUPI. Silakan cek email Anda untuk memastikan pesan terkirim dengan baik ke ABUPI.',
       'service_join_title': 'Building Connection, Drives Growth.',
       'service_join_description': 'With ABUPI, create synergy to strengthen the competitiveness of Indonesia`s port industry.',
+      'search_journal_placeholder': 'Input journal name',
+      'send_journal': 'Send Journal',
+      'form_journal_title': 'Journal Submission Form',
+      'form_journal_name_placeholder': 'Input full name',
+      'form_journal_phone_number_placeholder': '+6281234567890',
+      'form_journal_company_name_title': 'Company name',
+      'form_journal_company_name_placeholder': 'Input company name',
+      'form_journal_company_address_title': 'Company Address',
+      'form_journal_company_address_placeholder': 'Input company address',
+      'form_journal_abstract_title': 'Abstract',
+      'form_journal_abstract_placeholder': 'Write a summary of your journal',
+      'form_journal_file_title': 'Journal File',
+      'form_journal_tnc_checklist': 'I understand that journal submissions will be reviewed before they can be displayed on the website.',
     },
   };
 
@@ -526,6 +552,19 @@ class AppLocalizations {
   String get consultationAssistanceSuccess => translate('consultation_assistance_success');
   String get serviceJoinTitle => translate('service_join_title');
   String get serviceJoinDescription => translate('service_join_description');
+  String get searchJournalPlaceholder => translate('search_journal_placeholder');
+  String get sendJournal => translate('send_journal');
+  String get formJournalTitle => translate('form_journal_title');
+  String get formJournalNamePlaceholder => translate('form_journal_name_placeholder');
+  String get formJournalPhoneNumberPlaceholder => translate('form_journal_phone_number_placeholder');
+  String get formJournalCompanyNameTitle => translate('form_journal_company_name_title');
+  String get formJournalCompanyNamePlaceholder => translate('form_journal_company_name_placeholder');
+  String get formJournalCompanyAddressTitle => translate('form_journal_company_address_title');
+  String get formJournalCompanyAddressPlaceholder => translate('form_journal_company_address_placeholder');
+  String get formJournalAbstractTitle => translate('form_journal_abstract_title');
+  String get formJournalAbstractPlaceholder => translate('form_journal_abstract_placeholder');
+  String get formJournalFileTitle => translate('form_journal_file_title');
+  String get formJournalTNCChecklist => translate('form_journal_tnc_checklist');
 }
 
 class _AppLocalizationsDelegate

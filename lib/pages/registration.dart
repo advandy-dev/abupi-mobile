@@ -2,7 +2,6 @@ import 'package:abupi/l10n/locale_provider.dart';
 import 'package:abupi/models/registration.dart';
 import 'package:abupi/services/wordpress_api.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});

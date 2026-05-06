@@ -44,7 +44,7 @@ class _JournalScreenState extends State<JournalScreen> {
     // Trigger when the user is 200 pixels from the bottom
     if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
       if (!_isLoading) {
-        _loadData(context, _keyword, false, _selectedCategory);
+        _loadData(context, _keyword, false, _selectedCategory == 0 ? null : _selectedCategory);
       }
     }
   }
@@ -146,6 +146,15 @@ class _JournalScreenState extends State<JournalScreen> {
     }
   }
 
+  Future<void> _onRefresh() async {
+    setState(() {
+      _page = 1;
+      _journalList = [];
+      _isLastPage = false;
+    });
+    _loadData(context, _keyword, false, _selectedCategory == 0 ? null : _selectedCategory);
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -164,6 +173,12 @@ class _JournalScreenState extends State<JournalScreen> {
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh, color: Colors.white),
+            onPressed: () => _onRefresh(),
+          ),
+        ],
       ),
       backgroundColor: Colors.white,
       body: Column(
@@ -179,7 +194,7 @@ class _JournalScreenState extends State<JournalScreen> {
                   controller: _searchController,
                   cursorColor: const Color(0xFF2e2f7f),
                   decoration: InputDecoration(
-                    hintText: l10n?.searchEventPlaceholder ?? 'Masukkan nama acara',
+                    hintText: l10n?.searchJournalPlaceholder ?? 'Masukkan nama jurnal',
                     prefixIcon: const Icon(Icons.search),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -203,7 +218,7 @@ class _JournalScreenState extends State<JournalScreen> {
                       _journalList = [];
                     });
                     _debounceTimer?.cancel();
-                    _debounceTimer = Timer(_debounceDuration, () => _loadData(context, value, false, _selectedCategory));
+                    _debounceTimer = Timer(_debounceDuration, () => _loadData(context, value, false, _selectedCategory == 0 ? null : _selectedCategory));
                   },
                 ),
                 const SizedBox(height: 8),
@@ -306,7 +321,17 @@ class _JournalScreenState extends State<JournalScreen> {
             ),
           ),
         ],
-      )
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        elevation: 100,
+        shape: const StadiumBorder(),
+        onPressed: () {
+          Navigator.pushNamed(context, AbupiApp.formJournalRoute);
+        },
+        backgroundColor: const Color(0xFF632f9c),
+        label: Text(l10n?.sendJournal ?? 'Kirim Jurnal', style: TextStyle(color: Colors.white)),
+        icon: const Icon(Icons.add, color: Colors.white),
+      ),
     );
   }
 }
