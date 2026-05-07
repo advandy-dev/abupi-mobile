@@ -44,7 +44,7 @@ class _FormJournalScreenState extends State<FormJournalScreen> {
   }
 
   Future<List<http.MultipartFile>> _attachmentMultipartFiles() async {
-    const fieldName = 'attachment';
+    const fieldName = 'file';
     final parts = <http.MultipartFile>[];
     for (final f in _pickedAttachments) {
       if (f.path != null && f.path!.isNotEmpty) {
@@ -138,6 +138,7 @@ class _FormJournalScreenState extends State<FormJournalScreen> {
       }
 
       try {
+        final attachments = await _attachmentMultipartFiles();
         JournalPost journalPost = JournalPost(
           name: _fullName,
           email: _email,
@@ -146,33 +147,32 @@ class _FormJournalScreenState extends State<FormJournalScreen> {
           companyAddress: _companyAddress,
           abstract: _abstract,
         );
-        final attachments = await _attachmentMultipartFiles();
-        // final response = await WordPressApi.sendConsultation(
-        //   journalPost,
-        //   attachments: attachments,
-        // );
+        final response = await WordPressApi.sendJournal(
+          journalPost,
+          attachments: attachments,
+        );
 
-        // if (response.statusCode == 200) {
-        //   showSuccessModal();
-        //   setState(() {
-        //     _isLoading = false;
-        //     _isSubmitted = false;
-        //     _pickedAttachments.clear();
-        //   });
-        // } else {
-        //   if (context.mounted) {
-        //     ScaffoldMessenger.of(context).showSnackBar(
-        //       const SnackBar(
-        //         content: Text('Request fail', style: TextStyle(color: Colors.white),),
-        //         backgroundColor: Colors.red,
-        //       ),
-        //     );
-        //   }
-        //   setState(() {
-        //     _isLoading = false;
-        //     _isSubmitted = false;
-        //   });
-        // }
+        if (response.statusCode == 200) {
+          showSuccessModal();
+          setState(() {
+            _isLoading = false;
+            _isSubmitted = false;
+            _pickedAttachments.clear();
+          });
+        } else {
+          if (context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Request fail', style: TextStyle(color: Colors.white),),
+                backgroundColor: Colors.red,
+              ),
+            );
+          }
+          setState(() {
+            _isLoading = false;
+            _isSubmitted = false;
+          });
+        }
       } catch (e) {
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -339,7 +339,7 @@ class _FormJournalScreenState extends State<FormJournalScreen> {
             const SizedBox(height: 24),
 
             Text(
-              l10n?.formJournalCompanyAddressTitle ?? 'Nama Perusahaan',
+              l10n?.formJournalCompanyNameTitle ?? 'Nama Perusahaan',
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
@@ -351,7 +351,7 @@ class _FormJournalScreenState extends State<FormJournalScreen> {
               cursorColor: const Color(0xFF2e2f7f),
               cursorErrorColor: const Color(0xFF2e2f7f),
               decoration: InputDecoration(
-                hintText: l10n?.formJournalCompanyAddressPlaceholder ?? 'Masukkan nama perusahaan',
+                hintText: l10n?.formJournalCompanyNamePlaceholder ?? 'Masukkan nama perusahaan',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:abupi/models/consultation.dart';
 import 'package:abupi/models/contact_us.dart';
+import 'package:abupi/models/journal_post.dart';
 import 'package:abupi/models/registration.dart';
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart';
@@ -364,7 +365,7 @@ class WordPressApi {
     }
   }
 
-  static const String baseSendEmailUrl = 'https://www.abupi.or.id/api/';
+  static const String baseSendEmailUrl = 'https://www.abupi.or.id/api';
 
   static Future<Response> sendContactUs(ContactUs contactUs) async {
     final client = _createHttpClient();
@@ -426,6 +427,34 @@ class WordPressApi {
       final streamedResponse = await client.send(request);
       return await Response.fromStream(streamedResponse);
     } catch (e) {
+      throw Exception('Error sending consultation: $e');
+    } finally {
+      client.close();
+    }
+  }
+
+  static Future<Response> sendJournal(
+    JournalPost journal,
+    { List<MultipartFile> attachments = const[] }
+  ) async {
+    final client = _createHttpClient();
+    try {
+      final uri = Uri.parse('$baseSendEmailUrl/journal-submission');
+      final request = MultipartRequest('POST', uri);
+      journal.toJson().forEach((key, value) {
+        if (key != 'file' && value != null) {
+          request.fields[key] = value.toString();
+        }
+      });
+      final files = attachments.isNotEmpty ? attachments : [];
+      if (files.isNotEmpty) {
+        request.files.addAll(files as Iterable<http.MultipartFile>);
+      }
+      debugPrint('${request.fields}');
+      final streamedResponse = await client.send(request);
+      return await Response.fromStream(streamedResponse);
+    } catch (e) {
+      debugPrint('$e');
       throw Exception('Error sending consultation: $e');
     } finally {
       client.close();
