@@ -24,7 +24,6 @@ import 'package:abupi/pages/competence_program.dart';
 import 'package:abupi/pages/sustainability_program.dart';
 import 'package:abupi/pages/work_plan.dart';
 import 'package:abupi/pages/media.dart';
-import 'package:abupi/pages/regulator.dart';
 import 'package:abupi/pages/external_regulation.dart';
 import 'package:abupi/pages/strategic_partners.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +56,6 @@ class AbupiApp extends StatelessWidget {
   static const String postDetailRoute = '/post-detail';
   static const String serviceRoute = '/layanan';
   static const String pdfRoute = '/pdf';
-  static const String regulatorRoute = '/regulator';
   static const String externalRegulationRoute = '/regulasi-eksternal';
   static const String strategicPartnersRoute = '/mitra-strategis';
   static const String workPartnersRoute = '/mitra-kerja';
@@ -167,10 +165,6 @@ class AbupiApp extends StatelessWidget {
           case contactUsRoute:
             return MaterialPageRoute(
               builder: (context) => const ContactUsScreen(),
-            );
-          case regulatorRoute:
-            return MaterialPageRoute(
-              builder: (context) => const RegulatorScreen(),
             );
           case externalRegulationRoute:
             return MaterialPageRoute(
