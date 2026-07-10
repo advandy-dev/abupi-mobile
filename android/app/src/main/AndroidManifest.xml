@@ -24,6 +24,7 @@
     
    <application
         android:requestLegacyExternalStorage="true"
+        android:extractNativeLibs="false"
         android:label="ABUPI"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

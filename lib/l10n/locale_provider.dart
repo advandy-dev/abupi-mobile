@@ -220,6 +220,9 @@ class AppLocalizations {
       'form_journal_abstract_placeholder': 'Tuliskan ringkasan jurnal Anda',
       'form_journal_file_title': 'File Jurnal',
       'form_journal_tnc_checklist': 'Saya memahami bahwa pengajuan jurnal akan direview terlebih dahulu sebelum dapat ditampilkan di website.',
+      'strategy': 'Strategi',
+      'work_plan_empty_info': 'Informasi belum tersedia.',
+      'empty_work_plan_list': 'Belum ada daftar program kerja.',
     },
     'en': {
       'home': 'Home',
@@ -390,6 +393,9 @@ class AppLocalizations {
       'form_journal_abstract_placeholder': 'Write a summary of your journal',
       'form_journal_file_title': 'Journal File',
       'form_journal_tnc_checklist': 'I understand that journal submissions will be reviewed before they can be displayed on the website.',
+      'strategy': 'Strategy',
+      'work_plan_empty_info': 'Information not provided yet.',
+      'empty_work_plan_list': 'There is no work program list yet.',
     },
   };
 
@@ -565,6 +571,9 @@ class AppLocalizations {
   String get formJournalAbstractPlaceholder => translate('form_journal_abstract_placeholder');
   String get formJournalFileTitle => translate('form_journal_file_title');
   String get formJournalTNCChecklist => translate('form_journal_tnc_checklist');
+  String get strategy => translate('strategy');
+  String get workPlanEmptyInfo => translate('work_plan_empty_info');
+  String get emptyWorkPlanList => translate('empty_work_plan_list');
 }
 
 class _AppLocalizationsDelegate

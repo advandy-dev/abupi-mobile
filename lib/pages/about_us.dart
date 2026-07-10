@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:abupi/l10n/locale_provider.dart';
-import 'package:abupi/models/pillar.dart';
 import 'package:abupi/services/wordpress_api.dart';
 import 'package:abupi/util/youtube_helper.dart';
 import 'package:flutter/material.dart';
@@ -19,34 +18,6 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
   String? _currentLanguage;
   String _youtubeURL = '';
   String _videoThumbnailURL = '';
-
-  static const _primaryColor = Color.fromRGBO(145, 179, 236, 1.0);
-  static const _textColor = Color(0xFF333333);
-  static const _textStyle = TextStyle(fontSize: 14, color: _textColor);
-
-  final List<Pillar> _pillars = [
-    Pillar(
-      title: 'Pilar Tata Kelola',
-      titleTranslate: 'Governance Pillar',
-      description: 'Mendorong tata kelola asosiasi yang transparan, akuntabel, dan adaptif terhadap perkembangan sektor kepelabuhanan.',
-      descriptionTranslate: 'Promote association governance that is transparent, accountable, and adaptive to developments in the port sector.',
-      colorHex: 0xFF7135b1,
-    ),
-    Pillar(
-      title: 'Pilar Ekonomi',
-      titleTranslate: 'Economy Pillar',
-      description: 'Mengakselerasi pertumbuhan ekonomi maritim melalui peningkatan daya saing anggota, inovasi, dan kolaborasi bisnis.',
-      descriptionTranslate: 'Accelerate maritime economic growth through increased member competitiveness, innovation, and business collaboration.',
-      colorHex: 0xFFffcf24,
-    ),
-    Pillar(
-      title: 'Pilar Sosial-Lingkungan',
-      titleTranslate: 'Social-Evironmental Pillar',
-      description: 'Membangun ekosistem kepelabuhanan yang inklusif, berkelanjutan, dan berdampak positif bagi masyarakat.',
-      descriptionTranslate: 'Build a port ecosystem that is inclusive, sustainable, and positively impacts the community.',
-      colorHex: 0xFFf7682b,
-    ),
-  ];
 
   @override
   void didChangeDependencies() {
@@ -101,144 +72,6 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri);
     }
-  }
-
-  Widget _buildBulletPoint(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text('•', style: _textStyle),
-          const SizedBox(width: 4),
-          Expanded(child: Text(text, style: _textStyle)),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildExpandableCapsule({
-    required String title,
-    required IconData icon,
-    required List<Widget> children,
-  }) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(1, 5),
-          ),
-        ],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: ExpansionTile(
-          leading: Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: _primaryColor.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(icon, color: _primaryColor),
-          ),
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 15,
-              color: _textColor,
-            ),
-          ),
-          iconColor: _primaryColor,
-          collapsedIconColor: Colors.grey,
-          shape: const Border(),
-          collapsedShape: const Border(),
-          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-          children: children,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextSection(List<String> paragraphs) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: paragraphs
-          .map((p) => Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: Text(p, style: _textStyle),
-              ))
-          .toList(),
-    );
-  }
-
-  Widget _buildBulletSection(List<String> items) {
-    return Column(children: items.map(_buildBulletPoint).toList());
-  }
-
-  Widget _buildPillar(String title, String description, int colorHex) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.grey.shade300,
-          width: 1,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16),
-            constraints: const BoxConstraints(
-              minWidth: double.infinity,
-              minHeight: 32,
-            ),
-            decoration: BoxDecoration(
-              color: Color(colorHex),
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(16),
-                topRight: Radius.circular(16),
-              ),
-            ),
-            child: Text(
-              title,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          // Divider(color: Colors.grey.shade300),
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(16),
-                bottomRight: Radius.circular(16),
-              ),
-            ),
-            child: Text(
-              description,
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
   }
 
   @override
@@ -322,29 +155,6 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
               ],
             ),
             const SizedBox(height: 12),
-
-            // const SizedBox(height: 12),
-            // _buildExpandableCapsule(
-            //   title: l10n?.ourVision ?? 'Visi Kami',
-            //   icon: Icons.visibility,
-            //   children: [
-            //     _buildTextSection([
-            //       l10n?.visionDescription ?? 'Sebagai badan usaha yang mengedepankan kerjasama antara Badan Usaha Pelabuhan (BUP), Terminal Untuk Kepentingan Sendiri (TUKS) dan Terminal Khusus (TerSus) dalam mendukung pembangunan sektor maritim di Indonesia.',
-            //     ]),
-            //   ],
-            // ),
-            // _buildExpandableCapsule(
-            //   title: l10n?.ourMission ?? 'Misi Kami',
-            //   icon: Icons.flag,
-            //   children: [
-            //     _buildBulletSection([
-            //       l10n?.missionDescription1 ?? 'Menghimpun, membina dan mengembangkan usaha para anggotanya untuk dapat lebih berperan serta di dalam meningkatkan pembangunan perekonomian nasional.',
-            //       l10n?.missionDescription2 ?? 'Melindungi kepentingan kegiatan Jasa Kepelabuhanan dengan menjunjung tinggi etika dan professionalisme para anggota dalam mengantisipasi perkembangan yang terjadi, baik secara Nasional maupun Internasional.',
-            //       l10n?.missionDescription3 ?? 'Melindungi kepentingan anggota dan mencegah timbulnya persaingan usaha yang tidak sehat dalam dunia usaha Jasa Kepelabuhanan.',
-            //       l10n?.missionDescription4 ?? 'Meningkatkan kemampuan serta pengetahuan sember daya manusia (SDM) para anggota di bidang Jasa Kepelabuhanan sejalan dengan kemajuan teknologi di berbagai bidang.',
-            //     ]),
-            //   ],
-            // ),
 
               Container(
                 padding: const EdgeInsets.all(16),
